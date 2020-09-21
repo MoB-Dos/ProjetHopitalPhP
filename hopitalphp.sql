@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 21 sep. 2020 à 12:55
+-- Généré le :  lun. 21 sep. 2020 à 15:24
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -94,6 +94,13 @@ CREATE TABLE IF NOT EXISTS `user` (
   `profil` varchar(25) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `user`
+--
+
+INSERT INTO `user` (`id`, `login`, `mdp`, `mail`, `token`, `profil`) VALUES
+(1, 'cc', 'cccccc', 'K.KEBICHE@lprs.fr', '12', 'admin');
 
 --
 -- Contraintes pour les tables déchargées
