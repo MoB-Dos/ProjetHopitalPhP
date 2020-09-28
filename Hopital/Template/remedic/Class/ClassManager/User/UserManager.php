@@ -16,7 +16,171 @@
 
  {
 
+  public function inscription(SetUpUser $ajout)
+  {
+  
 
+      $mail = $ajout->getMail();
+      $login =$ajout->getLogin();
+      $mdp = $ajout->getMdp();
+      $mdpc = $ajout->getMdp2();
+  
+      $profil="user";
+      var_dump($mail, $login, $mdp, $mdpc);
+
+      //Connexion à la base de données projetweb
+      try
+      {
+      $bdd= new PDO('mysql:host=localhost;dbname=hopitalphp;charset=utf8','root','');
+      }
+      catch(Exception $e)
+      {
+        die('Erreur:'.$e->getMessage());
+      }
+  
+      //Sélection des données dans la table utilisateur
+      $reponse=$bdd->prepare('SELECT * FROM user WHERE login=? OR mail=?');
+      $reponse->execute(array($login,$mail)); 
+  
+      $data=$reponse->fetchall();
+  
+      //Si l'utilisateur existe déjà, on affiche une boite de dialogue d'alerte
+      if ($data)
+      {
+        echo '<body onLoad="alert(\'Utilisateur déjà existant\')">';
+  
+        echo '<meta http-equiv="refresh" content="0;URL=../../../View/User/Inscription.php">';
+      }
+  
+      //Sinon si les mots de passe sont bien rentrés, on enregistre dans la tabe utilisateur
+      else
+      {
+        if ($mdp == $mdpc)
+        {
+          
+          
+
+          $mdpc = md5($mdpc);
+          
+          $req = $bdd->prepare('INSERT INTO user (login,mdpc,mdp,mail,profil) VALUES (?,?,?,?,?)');
+          $req -> execute(array($login,$mdpc,$mdp,$mail,$profil));
+          var_dump($req);
+          //Envoi du mail de confirmation
+          $objet = "Bienvenue dans le club !";
+          $sujet = "Vous pourrez recevoir ici toutes les nouvauté ou encore les promotions sur nos fabuleux Hamburger.";
+          $email = $mail;
+  
+  
+          $this-> Mail($objet,$sujet,$email);
+          ?>
+            <script type="text/javascript">
+  
+                  var msg="Inscription reussie !"
+  
+  
+                alert(msg);
+  
+                header("location: ../../template/EndGam/HTML/home.php");
+  
+            </script>
+          <?php
+  
+  
+        }
+  
+        //Sinon, on affiche une boite de dialogue d'erreur
+        else
+        {
+          echo '<body onLoad="alert(\'Veuillez entrer deux mots de passe identiques\')">';
+  
+          echo '<meta http-equiv="refresh" content="0;URL=Inscription.php">';
+        }
+       }
+  
+  
+  
+  }
+
+  public function connexion(SetUpUser $connexion)
+  {
+    //Démarrage de la session
+    session_start ();
+  
+    $mdp = $connexion->getMdp();
+    $login = $connexion->getLogin();
+  
+    //Connexion à la base de données projetweb
+    try
+    {
+    $bdd= new PDO('mysql:host=localhost;dbname=hopitalphp;charset=utf8','root','');
+    }
+    catch(Exception $e)
+    {
+      die('Erreur:'.$e->getMessage());
+    }
+  
+  
+    //Sélection dans la table utilisateur
+    $reponse=$bdd->prepare('SELECT * FROM user WHERE login = :login AND mdp = :mdp');
+    $reponse->execute(array(
+      'login' => $login,
+      'mdp' => $mdp,
+    ));
+  
+    $data =$reponse->fetch();
+  
+    //Pour chaque donnée
+  
+      //Si les zones login et mdp sont entrées
+      if (isset($login) && isset($mdp))
+      {
+  
+        //Si les données correspondent au données de la base de données
+        if ($data['login'] == $login && $data['mdp'] == $mdp)
+        {
+          //On enregistre login et prénom dans la session
+  
+          $_SESSION['login'] = $login;
+  
+          if ($data['profil'] == 'user')
+          {
+            //Renvoi vers la page Classique
+  
+            setcookie('profil','user', time() + 365*24*3600, null, null, false, true);
+            $_SESSION['profil'] = user;
+            header("location: ../../inde.php");
+  
+          }
+  
+          if ($data['profil'] == 'admin')
+          {
+            //Renvoi vers la page Admin
+            setcookie('profil', 'admin', time() + 365*24*3600, null, null, false, true);
+            $_SESSION['profil'] = admin;
+            header("location: ../../inde.php");
+  
+  
+          }
+        }
+        //Sinon on affiche une boite de dialogue d'alerte
+        else
+        {
+          echo '<body onLoad="alert(\'Acces refuse\')">';
+  
+          echo '<meta http-equiv="refresh" content="0;URL=../../ndex.php">';
+        }
+      }
+      //Sinon on demande à remplir les champs vides
+      else
+      {
+        echo 'Veuillez remplir les champs vides';
+      }
+  
+  }
+  
+  
+  
+  
 public function MdpOublier(SetUpGestion $connexion)
 {
   try{

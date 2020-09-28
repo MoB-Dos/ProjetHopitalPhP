@@ -32,11 +32,11 @@
           <div class="modal-body">
             <form action="#">
               <div class="form-group">
-                <label for="appointment_name" class="text-black">Login</label>
+                <label for="appointment_name" class="text-black" name="login">Login</label>
                 <input type="text" class="form-control" id="appointment_name">
               </div>
               <div class="form-group">
-                <label for="appointment_mdp" class="text-black">Mot de passe</label> <input onclick="myFunction()" type="checkbox" id="checkbox" ></input >
+                <label for="appointment_mdp" class="text-black" name="mdp">Mot de passe</label> <input onclick="myFunction()" type="checkbox" id="checkbox" ></input >
                 
                 <input type="password" id="password" class="form-control" id="appointment_email">
                 <label class="text-grey">Mot de passe oublié cliquez <a href="MdpOublié.html"> ici </a></label>
@@ -63,23 +63,28 @@
             </button>
           </div>
           <div class="modal-body">
-            <form action="#">
+            <form action="traitement/user/inscriptionTraitement.php" method="post">
               <div class="form-group">
-                <label for="appointment_name" class="text-black">Login</label>
+                <label for="appointment_name" class="text-black" name="login">Login</label>
                 <input type="text" class="form-control" id="appointment_name">
               </div>
               <div class="form-group">
-                <label for="appointment_email" class="text-black">Email</label>
+                <label for="appointment_email" class="text-black"name="mail">Email</label>
                 <input type="text" class="form-control" id="appointment_email">
               </div>
               
               <div class="form-group">
-                <label for="appointment_mdp" class="text-black">Mot de passe</label> <input onclick="myFunction2()" type="checkbox" id="checkbox2" ></input >
+                <label for="appointment_mdp" class="text-black"name="mdp">Mot de passe</label> <input onclick="myFunction2()" type="checkbox" id="checkbox2" ></input >
                 
                 <input type="password" id="password2" class="form-control" id="appointment_email">
                 
               </div>
-               
+              <div class="form-group">
+                <label for="appointment_mdp" class="text-black"name="mdp2">Réecrivez votre mot de passe</label> <input onclick="myFunction2()" type="checkbox" id="checkbox2" ></input >
+                
+                <input type="password" id="password2" class="form-control" id="appointment_email">
+                
+              </div>
                 
               
               <div class="form-group">
