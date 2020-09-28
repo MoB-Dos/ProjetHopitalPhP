@@ -81,7 +81,7 @@
                 
               </div>
               <div class="form-group">
-                <label for="appointment_mdp" class="text-black"name="mdp2">Réecrivez votre mot de passe</label> <input onclick="myFunction2()" type="checkbox" id="checkbox2" ></input >
+                <label for="appointment_mdp" class="text-black"name="mdp2 ">Réecrivez votre mot de passe</label> <input onclick="myFunction2()" type="checkbox" id="checkbox2" ></input >
                 
                 <input type="password" id="password2" class="form-control" id="appointment_email">
                 
