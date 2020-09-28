@@ -30,7 +30,8 @@
   </head>
   <body>
     
-  <?php  require_once('NavBar.php') ?>
+    <!-- START nav -->
+    <?php  require_once('NavBar.php') ?>
     <!-- END nav -->
     
     <div class="hero-wrap" style="background-image: url('images/bg_1.jpg'); background-attachment:fixed;">
@@ -38,29 +39,30 @@
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
           <div class="col-md-8 ftco-animate text-center">
-            <h1 class="mb-4">The most valuable thing is your Health</h1>
-            <p>We care about your health Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life</p>
+            <h1 class="mb-4">Le plus important c'est votre santé</h1>
+            <p>Nous cherchons à prendre soins de vous et ce dans les meilleurs conditions vous pouvez croire en nous </p>
           </div>
         </div>
       </div>
     </div>
 
+   <!--Debut Panel Département-->
     <section class="ftco-services">
       <div class="container">
         <div class="row no-gutters">
           <div class="col-md-4 ftco-animate py-5 nav-link-wrap">
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-              <a class="nav-link px-4 active" id="v-pills-master-tab" data-toggle="pill" href="#v-pills-master" role="tab" aria-controls="v-pills-master" aria-selected="true"><span class="mr-3 flaticon-cardiogram"></span> Cardiology</a>
+              <a class="nav-link px-4 active" id="v-pills-master-tab" data-toggle="pill" href="#v-pills-master" role="tab" aria-controls="v-pills-master" aria-selected="true"><span class="mr-3 flaticon-cardiogram"></span> Cardiologie</a>
 
-              <a class="nav-link px-4" id="v-pills-buffet-tab" data-toggle="pill" href="#v-pills-buffet" role="tab" aria-controls="v-pills-buffet" aria-selected="false"><span class="mr-3 flaticon-neurology"></span> Neurology</a>
+              <a class="nav-link px-4" id="v-pills-buffet-tab" data-toggle="pill" href="#v-pills-buffet" role="tab" aria-controls="v-pills-buffet" aria-selected="false"><span class="mr-3 flaticon-neurology"></span> Neurologie</a>
 
-              <a class="nav-link px-4" id="v-pills-fitness-tab" data-toggle="pill" href="#v-pills-fitness" role="tab" aria-controls="v-pills-fitness" aria-selected="false"><span class="mr-3 flaticon-stethoscope"></span> Diagnostic</a>
+              <a class="nav-link px-4" id="v-pills-fitness-tab" data-toggle="pill" href="#v-pills-fitness" role="tab" aria-controls="v-pills-fitness" aria-selected="false"><span class="mr-3 flaticon-stethoscope"></span> Diagnostique</a>
 
-              <a class="nav-link px-4" id="v-pills-reception-tab" data-toggle="pill" href="#v-pills-reception" role="tab" aria-controls="v-pills-reception" aria-selected="false"><span class="mr-3 flaticon-tooth"></span> Dental</a>
+              <a class="nav-link px-4" id="v-pills-reception-tab" data-toggle="pill" href="#v-pills-reception" role="tab" aria-controls="v-pills-reception" aria-selected="false"><span class="mr-3 flaticon-tooth"></span> Dentiste</a>
 
-              <a class="nav-link px-4" id="v-pills-sea-tab" data-toggle="pill" href="#v-pills-sea" role="tab" aria-controls="v-pills-sea" aria-selected="false"><span class="mr-3 flaticon-vision"></span> Ophthalmology</a>
+              <a class="nav-link px-4" id="v-pills-sea-tab" data-toggle="pill" href="#v-pills-sea" role="tab" aria-controls="v-pills-sea" aria-selected="false"><span class="mr-3 flaticon-vision"></span> Ophthalmologie</a>
 
-              <a class="nav-link px-4" id="v-pills-spa-tab" data-toggle="pill" href="#v-pills-spa" role="tab" aria-controls="v-pills-spa" aria-selected="false"><span class="mr-3 flaticon-ambulance"></span> Emergency</a>
+              <a class="nav-link px-4" id="v-pills-spa-tab" data-toggle="pill" href="#v-pills-spa" role="tab" aria-controls="v-pills-spa" aria-selected="false"><span class="mr-3 flaticon-ambulance"></span>Urgence</a>
             </div>
           </div>
           <div class="col-md-8 ftco-animate p-4 p-md-5 d-flex align-items-center">
@@ -69,102 +71,59 @@
 
               <div class="tab-pane fade show active py-5" id="v-pills-master" role="tabpanel" aria-labelledby="v-pills-master-tab">
                 <span class="icon mb-3 d-block flaticon-cardiogram"></span>
-                <h2 class="mb-4">Cardiology Department</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt voluptate, quibusdam sunt iste dolores consequatur</p>
-                <p>Inventore fugit error iure nisi reiciendis fugiat illo pariatur quam sequi quod iusto facilis officiis nobis sit quis molestias asperiores rem, blanditiis! Commodi exercitationem vitae deserunt qui nihil ea, tempore et quam natus quaerat doloremque.</p>
-                <p><a href="#" class="btn btn-primary">Learn More</a></p>
+                <h2 class="mb-4">Département Cardiologie</h2>
+                <p>Nous saurons traité votre coeur avec toute la patience qu'il merite</p>
+                <p>Pour tout problèmes lié a celui ci cest dans ce département que vous allez pouvoir trouver un docteur qualifié pour vos attentes </p>
+                <p><a href="#" class="btn btn-primary">En savoir plus</a></p>
               </div>
 
               <div class="tab-pane fade py-5" id="v-pills-buffet" role="tabpanel" aria-labelledby="v-pills-buffet-tab">
                 <span class="icon mb-3 d-block flaticon-neurology"></span>
-                <h2 class="mb-4">Neurogoly Department</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt voluptate, quibusdam sunt iste dolores consequatur</p>
+                <h2 class="mb-4">Département Neurogolie</h2>
+                <p>ICI VOTRE TEXTE, consectetur adipisicing elit. Nesciunt voluptate, quibusdam sunt iste dolores consequatur</p>
                 <p>Inventore fugit error iure nisi reiciendis fugiat illo pariatur quam sequi quod iusto facilis officiis nobis sit quis molestias asperiores rem, blanditiis! Commodi exercitationem vitae deserunt qui nihil ea, tempore et quam natus quaerat doloremque.</p>
-                <p><a href="#" class="btn btn-primary">Learn More</a></p>
+                <p><a href="#" class="btn btn-primary">En savoir plus</a></p>
               </div>
 
               <div class="tab-pane fade py-5" id="v-pills-fitness" role="tabpanel" aria-labelledby="v-pills-fitness-tab">
                 <span class="icon mb-3 d-block flaticon-stethoscope"></span>
-                <h2 class="mb-4">Diagnostic Department</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt voluptate, quibusdam sunt iste dolores consequatur</p>
+                <h2 class="mb-4">Département Diagnostique</h2>
+                <p>ICI VOTRE TEXTE,, consectetur adipisicing elit. Nesciunt voluptate, quibusdam sunt iste dolores consequatur</p>
                 <p>Inventore fugit error iure nisi reiciendis fugiat illo pariatur quam sequi quod iusto facilis officiis nobis sit quis molestias asperiores rem, blanditiis! Commodi exercitationem vitae deserunt qui nihil ea, tempore et quam natus quaerat doloremque.</p>
-                <p><a href="#" class="btn btn-primary">Learn More</a></p>
+                <p><a href="#" class="btn btn-primary">En savoir plus</a></p>
               </div>
 
               <div class="tab-pane fade py-5" id="v-pills-reception" role="tabpanel" aria-labelledby="v-pills-reception-tab">
                 <span class="icon mb-3 d-block flaticon-tooth"></span>
-                <h2 class="mb-4">Dental Departments</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt voluptate, quibusdam sunt iste dolores consequatur</p>
+                <h2 class="mb-4">Département Dentition</h2>
+                <p>ICI VOTRE TEXTE,, consectetur adipisicing elit. Nesciunt voluptate, quibusdam sunt iste dolores consequatur</p>
                 <p>Inventore fugit error iure nisi reiciendis fugiat illo pariatur quam sequi quod iusto facilis officiis nobis sit quis molestias asperiores rem, blanditiis! Commodi exercitationem vitae deserunt qui nihil ea, tempore et quam natus quaerat doloremque.</p>
-                <p><a href="#" class="btn btn-primary">Learn More</a></p>
+                <p><a href="#" class="btn btn-primary">En savoir plus</a></p>
               </div>
 
               <div class="tab-pane fade py-5" id="v-pills-sea" role="tabpanel" aria-labelledby="v-pills-sea-tab">
                 <span class="icon mb-3 d-block flaticon-vision"></span>
-                <h2 class="mb-4">Ophthalmology Departments</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt voluptate, quibusdam sunt iste dolores consequatur</p>
+                <h2 class="mb-4">Département Ophthalmologie </h2>
+                <p>ICI VOTRE TEXTE,, consectetur adipisicing elit. Nesciunt voluptate, quibusdam sunt iste dolores consequatur</p>
                 <p>Inventore fugit error iure nisi reiciendis fugiat illo pariatur quam sequi quod iusto facilis officiis nobis sit quis molestias asperiores rem, blanditiis! Commodi exercitationem vitae deserunt qui nihil ea, tempore et quam natus quaerat doloremque.</p>
-                <p><a href="#" class="btn btn-primary">Learn More</a></p>
+                <p><a href="#" class="btn btn-primary">En savoir plus</a></p>
               </div>
 
               <div class="tab-pane fade py-5" id="v-pills-spa" role="tabpanel" aria-labelledby="v-pills-spa-tab">
                 <span class="icon mb-3 d-block flaticon-ambulance"></span>
-                <h2 class="mb-4">Emergency Departments</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt voluptate, quibusdam sunt iste dolores consequatur</p>
+                <h2 class="mb-4">Département Urgence </h2>
+                <p>ICI VOTRE TEXTE,, consectetur adipisicing elit. Nesciunt voluptate, quibusdam sunt iste dolores consequatur</p>
                 <p>Inventore fugit error iure nisi reiciendis fugiat illo pariatur quam sequi quod iusto facilis officiis nobis sit quis molestias asperiores rem, blanditiis! Commodi exercitationem vitae deserunt qui nihil ea, tempore et quam natus quaerat doloremque.</p>
-                <p><a href="#" class="btn btn-primary">Learn More</a></p>
+                <p><a href="#" class="btn btn-primary">En savoir plus</a></p>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
+    <!--Fin Panel Département-->
 
-    <section class="ftco-section-2 img" style="background-image: url(images/bg_3.jpg);">
-    	<div class="container">
-    		<div class="row d-md-flex justify-content-end">
-    			<div class="col-md-6">
-    				<div class="row">
-    					<div class="col-md-12">
-    						<a href="#" class="services-wrap ftco-animate">
-    							<div class="icon d-flex justify-content-center align-items-center">
-    								<span class="ion-ios-arrow-back"></span>
-    								<span class="ion-ios-arrow-forward"></span>
-    							</div>
-    							<h2>Laboratory Services</h2>
-    							<p>Even the all-powerful Pointing has no control about the blind.</p>
-    						</a>
-    						<a href="#" class="services-wrap ftco-animate">
-    							<div class="icon d-flex justify-content-center align-items-center">
-    								<span class="ion-ios-arrow-back"></span>
-    								<span class="ion-ios-arrow-forward"></span>
-    							</div>
-    							<h2>General Treatment</h2>
-    							<p>Even the all-powerful Pointing has no control about the blind.</p>
-    						</a>
-    						<a href="#" class="services-wrap ftco-animate">
-    							<div class="icon d-flex justify-content-center align-items-center">
-    								<span class="ion-ios-arrow-back"></span>
-    								<span class="ion-ios-arrow-forward"></span>
-    							</div>
-    							<h2>Emergency Service</h2>
-    							<p>Even the all-powerful Pointing has no control about the blind.</p>
-    						</a>
-    						<a href="#" class="services-wrap ftco-animate">
-    							<div class="icon d-flex justify-content-center align-items-center">
-    								<span class="ion-ios-arrow-back"></span>
-    								<span class="ion-ios-arrow-forward"></span>
-    							</div>
-    							<h2>24/7 Help &amp; Support</h2>
-    							<p>Even the all-powerful Pointing has no control about the blind.</p>
-    						</a>
-    					</div>
-    				</div>
-    			</div>
-    		</div>
-    	</div>
-    </section>
-
+    <!--Début Panel Docteur-->
     <section class="ftco-section">
     	<div class="container">
     		<div class="row justify-content-center mb-5 pb-3">
@@ -270,15 +229,11 @@
 	          </div> <!-- .flip-container -->
 	        </div>
         </div>
-        <div class="row">
-        	<div class="col-md-9 ftco-animate">
-        		<h4>We are well experienced doctors</h4>
-        		<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-        	</div>
-        </div>
     	</div>
     </section>
+    <!--Fin Panel Docteur-->
 
+    <!--Début Panel FunFact-->
     <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(images/bg_4.jpg);">
     	<div class="container">
     		<div class="row justify-content-center mb-5 pb-3">
@@ -327,7 +282,9 @@
         </div>
     	</div>
     </section>
+    <!--Fin Panel FunFact-->
 
+    <!--Début Panel Avis-->
     <section class="ftco-section testimony-section">
       <div class="container">
       	<div class="row justify-content-center mb-5 pb-3">
@@ -399,243 +356,16 @@
         </div>
       </div>
     </section>
+    <!--Fin Panel Avis-->
 
-    <section class="ftco-section bg-light">
-      <div class="container">
-        <div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 heading-section ftco-animate text-center">
-            <h2 class="mb-4">Recent from blog</h2>
-          </div>
-        </div>
-        <div class="row d-flex">
-          <div class="col-md-6 ftco-animate">
-            <div class="blog-entry align-self-stretch d-flex">
-              <a href="blog-single.html" class="block-20 order-md-last" style="background-image: url('images/image_1.jpg');">
-              </a>
-              <div class="text p-4 d-block">
-              	<div class="meta mb-3">
-                  <div><a href="#">August 12, 2018</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                </div>
-                <h3 class="heading mt-3"><a href="#">New technology facilities</a></h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 ftco-animate">
-            <div class="blog-entry align-self-stretch d-flex">
-              <a href="blog-single.html" class="block-20 order-md-last" style="background-image: url('images/image_2.jpg');">
-              </a>
-              <div class="text p-4 d-block">
-              	<div class="meta mb-3">
-                  <div><a href="#">August 12, 2018</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                </div>
-                <h3 class="heading mt-3"><a href="#">New technology facilities</a></h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 ftco-animate">
-            <div class="blog-entry align-self-stretch d-flex">
-              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
-              </a>
-              <div class="text p-4 d-block">
-              	<div class="meta mb-3">
-                  <div><a href="#">August 12, 2018</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                </div>
-                <h3 class="heading mt-3"><a href="#">New technology facilities</a></h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 ftco-animate">
-            <div class="blog-entry align-self-stretch d-flex">
-              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_4.jpg');">
-              </a>
-              <div class="text p-4 d-block">
-              	<div class="meta mb-3">
-                  <div><a href="#">August 12, 2018</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                </div>
-                <h3 class="heading mt-3"><a href="#">New technology facilities</a></h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+
 		
-		<section class="ftco-section-parallax">
-      <div class="parallax-img d-flex align-items-center">
-        <div class="container">
-          <div class="row d-flex justify-content-center">
-            <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
-              <h2>Subcribe to our Newsletter</h2>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p>
-              <div class="row d-flex justify-content-center mt-5">
-                <div class="col-md-8">
-                  <form action="#" class="subscribe-form">
-                    <div class="form-group d-flex">
-                      <input type="text" class="form-control" placeholder="Enter email address">
-                      <input type="submit" value="Subscribe" class="submit px-3">
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer class="ftco-footer ftco-bg-dark ftco-section img" style="background-image: url(images/bg_5.jpg);">
-    	<div class="overlay"></div>
-      <div class="container">
-        <div class="row mb-5">
-          <div class="col-md">
-            <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Remedic</h2>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-              <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md">
-            <div class="ftco-footer-widget mb-4 ml-md-5">
-              <h2 class="ftco-heading-2">Information</h2>
-              <ul class="list-unstyled">
-              	<li><a href="#" class="py-2 d-block">Appointments</a></li>
-                <li><a href="#" class="py-2 d-block">Our Specialties</a></li>
-                <li><a href="#" class="py-2 d-block">Why Choose us</a></li>
-                <li><a href="#" class="py-2 d-block">Our Services</a></li>
-                <li><a href="#" class="py-2 d-block">health Tips</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md">
-             <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Site Links</h2>
-              <ul class="list-unstyled">
-                <li><a href="#" class="py-2 d-block">Home</a></li>
-                <li><a href="#" class="py-2 d-block">About</a></li>
-                <li><a href="#" class="py-2 d-block">Departments</a></li>
-                <li><a href="#" class="py-2 d-block">Doctors</a></li>
-                <li><a href="#" class="py-2 d-block">Blog</a></li>
-                <li><a href="#" class="py-2 d-block">Contact</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md">
-            <div class="ftco-footer-widget mb-4">
-            	<h2 class="ftco-heading-2">Have a Questions?</h2>
-            	<div class="block-23 mb-3">
-	              <ul>
-	                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
-	              </ul>
-	            </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12 text-center">
-
-            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-          </div>
-        </div>
-      </div>
-    </footer>
-    
-  
+    <!--START footer-->
+    <?php  require_once('Footer.php') ?>
+    <!--END footer-->
 
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
-  <!-- Connexion -->
-    <div class="modal fade" id="Connexion" tabindex="-1" role="dialog" aria-labelledby="modalAppointmentLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="modalAppointmentLabel">Connexion</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form action="#">
-              <div class="form-group">
-                <label for="appointment_name" class="text-black">Login</label>
-                <input type="text" class="form-control" id="appointment_name">
-              </div>
-              <div class="form-group">
-                <label for="appointment_mdp" class="text-black">Mot de passe</label> <input onclick="myFunction()" type="checkbox" id="checkbox" ></input >
-                
-                <input type="password" id="password" class="form-control" id="appointment_email">
-                <label class="text-grey">Mot de passe oublié cliquez <a href="MdpOublié.html"> ici </a></label>
-              </div>
-         
-              <div class="form-group">
-                <input type="submit" value="Continuer" class="btn btn-primary">
-              </div>
-            </form>
-          </div>
-          
-        </div>
-      </div>
-    </div>
-
-    <!--Inscription -->
-    <div class="modal fade" id="Inscription" tabindex="-1" role="dialog" aria-labelledby="modalAppointmentLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="modalAppointmentLabel">Appointment</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form action="#">
-              <div class="form-group">
-                <label for="appointment_name" class="text-black">Login</label>
-                <input type="text" class="form-control" id="appointment_name">
-              </div>
-              <div class="form-group">
-                <label for="appointment_email" class="text-black">Email</label>
-                <input type="text" class="form-control" id="appointment_email">
-              </div>
-              
-              <div class="form-group">
-                <label for="appointment_mdp" class="text-black">Mot de passe</label> <input onclick="myFunction2()" type="checkbox" id="checkbox2" ></input >
-                
-                <input type="password" id="password2" class="form-control" id="appointment_email">
-                
-              </div>
-               
-                
-              
-              <div class="form-group">
-                <input type="submit" value="Continuer" class="btn btn-primary">
-              </div>
-            </form>
-          </div>
-          
-        </div>
-      </div>
-    </div>
 
 
 

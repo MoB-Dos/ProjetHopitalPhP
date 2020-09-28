@@ -28,6 +28,7 @@
   </head>
   <body>
     
+    <!-- START nav -->
     <?php  require_once('NavBar.php') ?>
     <!-- END nav -->
     
