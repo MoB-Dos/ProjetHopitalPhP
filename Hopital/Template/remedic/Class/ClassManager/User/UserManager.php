@@ -322,5 +322,28 @@ public function mail($objet,$sujet,$email)
 
 }
 
+
+public function MdpOublier2()
+{
+  try{
+    //connexion à la base de données
+    $bdd= new PDO('mysql:host=localhost;dbname=hopitalphp;charset=utf8','root','');
+  }
+
+  catch(Exception $e){
+    die('Erreur:'.$e->getMessage());
+  }
+  $req = $bdd->prepare('INSERT INTO user (login,mdpc,mdp,mail,profil) VALUES (?,?,?,?,?)');
+  $req -> execute(array($login,$mdpc,$mdp,$mail,$profil));
+}
+/*SELECT (SELECT nom AS monchamp FROM infomedecin
+UNION
+SELECT prenom AS monchamp FROM infomedecin
+UNION
+SELECT spe AS monchamp FROM infomedecin
+)
+INSTR(monchamp, "b")
+FROM infomedecin*/
+
 }
  ?>
