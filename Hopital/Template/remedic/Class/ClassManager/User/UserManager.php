@@ -121,7 +121,7 @@
   
   
     //Sélection dans la table utilisateur
-    $reponse=$bdd->prepare('SELECT * FROM user WHERE login = :login AND mdp = :mdp');
+    $reponse=$bdd->prepare('SELECT * FROM user WHERE login = :login AND mdp = mdp');
     $reponse->execute(array(
       'login' => $login,
       'mdp' => $mdp,
@@ -148,7 +148,7 @@
   
             setcookie('profil','user', time() + 365*24*3600, null, null, false, true);
             $_SESSION['profil'] = user;
-            header("location: ../../inde.php");
+            var_dump('test');
   
           }
   
@@ -157,26 +157,30 @@
             //Renvoi vers la page Admin
             setcookie('profil', 'admin', time() + 365*24*3600, null, null, false, true);
             $_SESSION['profil'] = admin;
-            header("location: ../../inde.php");
+            
   
   
           }
           if ($data['profil'] == 'medecin')
           {
             //Renvoi vers la page Admin
-            setcookie('profil', 'admin', time() + 365*24*3600, null, null, false, true);
-            $_SESSION['profil'] = admin;
-            header("location: ../../inde.php");
+            setcookie('profil', 'medecin', time() + 365*24*3600, null, null, false, true);
+            $_SESSION['profil'] = medecin;
+            
   
   
           }
+          
+          //header("location: ../../../inde.php");
+
         }
+
         //Sinon on affiche une boite de dialogue d'alerte
         else
         {
           echo '<body onLoad="alert(\'Acces refuse\')">';
   
-          echo '<meta http-equiv="refresh" content="0;URL=../../ndex.php">';
+          echo '<meta http-equiv="refresh" content="0;URL=../../inde.php">';
         }
       }
       //Sinon on demande à remplir les champs vides
