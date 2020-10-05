@@ -1,18 +1,17 @@
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-      <a class="navbar-brand" href="index.html"><i class="flaticon-pharmacy"></i><span>Re</span>Medic</a>
+      <a class="navbar-brand" href="inde.php"><i class="flaticon-pharmacy"></i><span>Re</span>Medic</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="oi oi-menu"></span> Menu
       </button>
 
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-          <li class="nav-item"><a href="departments.html" class="nav-link">Departments</a></li>
-          <li class="nav-item"><a href="doctor.html" class="nav-link">Doctors</a></li>
-          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+          <li class="nav-item active"><a href="inde.php" class="nav-link">Accueil</a></li>
+          <li class="nav-item"><a href="aPropos.php" class="nav-link">A propos</a></li>
+          <li class="nav-item"><a href="departement.php" class="nav-link">Département</a></li>
+          <li class="nav-item"><a href="docteur.php" class="nav-link">Docteur</a></li>
+          <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
           <li class="nav-item cta"><a href="contact.html" class="nav-link"  style="margin-right: 5px;" data-toggle="modal" data-target="#Connexion"><span>Connexion</span></a></li>
           <li class="nav-item cta"><a href="contact.html" class="nav-link" data-toggle="modal" data-target="#Inscription"><span>Inscription</span></a></li>
         </ul>
