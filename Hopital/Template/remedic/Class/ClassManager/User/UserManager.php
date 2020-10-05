@@ -161,6 +161,15 @@
   
   
           }
+          if ($data['profil'] == 'medecin')
+          {
+            //Renvoi vers la page Admin
+            setcookie('profil', 'admin', time() + 365*24*3600, null, null, false, true);
+            $_SESSION['profil'] = admin;
+            header("location: ../../inde.php");
+  
+  
+          }
         }
         //Sinon on affiche une boite de dialogue d'alerte
         else

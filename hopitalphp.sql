@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 21 sep. 2020 à 15:24
+-- Généré le :  lun. 05 oct. 2020 à 13:12
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -86,31 +86,28 @@ CREATE TABLE IF NOT EXISTS `rendezvous` (
 
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `login` varchar(25) NOT NULL,
+  `mdpc` text NOT NULL,
   `mdp` varchar(25) NOT NULL,
   `mail` varchar(35) NOT NULL,
-  `token` varchar(25) NOT NULL,
-  `profil` varchar(25) NOT NULL,
+  `token` text,
+  `profil` varchar(9) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `user`
 --
 
-INSERT INTO `user` (`id`, `login`, `mdp`, `mail`, `token`, `profil`) VALUES
-(1, 'cc', 'cccccc', 'K.KEBICHE@lprs.fr', '12', 'admin');
+INSERT INTO `user` (`id`, `login`, `mdpc`, `mdp`, `mail`, `token`, `profil`) VALUES
+(1, 'enzo', '', 'theoleboos', 'E.BIRBA@lprs.fr', NULL, 'medecin'),
+(2, 'test', '05a671c66aefea124cc08b76ea6d30bb', 'testtest', 'test@cheh.frsq', NULL, 'user'),
+(3, 'cc', 'c1f68ec06b490b3ecb4066b1b13a9ee9', 'cccccc', 'cc@cc.cc', NULL, 'admin');
 
 --
 -- Contraintes pour les tables déchargées
 --
-
---
--- Contraintes pour la table `infouser`
---
-ALTER TABLE `infouser`
-  ADD CONSTRAINT `fk_` FOREIGN KEY (`idInfo`) REFERENCES `user` (`id`);
 
 --
 -- Contraintes pour la table `rendezvous`
