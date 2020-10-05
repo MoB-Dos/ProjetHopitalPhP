@@ -39,7 +39,7 @@
                 <label for="appointment_mdp" class="text-black" name="mdp">Mot de passe</label> <input onclick="myFunction()" type="checkbox" id="checkbox" ></input >
                 
                 <input type="password" id="password" class="form-control" id="appointment_email">
-                <label class="text-grey">Mot de passe oublié cliquez <a href="MdpOublié.html"> ici </a></label>
+                <label class="text-grey">Mottt de passe oublié cliquez <a href="MdpOublié.html"> ici </a></label>
               </div>
          
               <div class="form-group">
