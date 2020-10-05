@@ -1,23 +1,66 @@
-<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-    <div class="container">
-      <a class="navbar-brand" href="inde.php"><i class="flaticon-pharmacy"></i><span>Re</span>Medic</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="oi oi-menu"></span> Menu
-      </button>
+<?php
 
-      <div class="collapse navbar-collapse" id="ftco-nav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active"><a href="inde.php" class="nav-link">Accueil</a></li>
-          <li class="nav-item"><a href="aPropos.php" class="nav-link">A propos</a></li>
-          <li class="nav-item"><a href="departement.php" class="nav-link">Département</a></li>
-          <li class="nav-item"><a href="docteur.php" class="nav-link">Docteur</a></li>
-          <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
-          <li class="nav-item cta"><a href="contact.html" class="nav-link"  style="margin-right: 5px;" data-toggle="modal" data-target="#Connexion"><span>Connexion</span></a></li>
-          <li class="nav-item cta"><a href="contact.html" class="nav-link" data-toggle="modal" data-target="#Inscription"><span>Inscription</span></a></li>
-        </ul>
-      </div>
+session_start ();
+
+if(isset($_SESSION['profil']))
+{
+?>
+
+
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="inde.php"><i class="flaticon-pharmacy"></i><span>Re</span>Medic</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="oi oi-menu"></span> Menu
+    </button>
+
+    <div class="collapse navbar-collapse" id="ftco-nav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active"><a href="inde.php" class="nav-link">Accueil</a></li>
+        <li class="nav-item"><a href="aPropos.php" class="nav-link">A propos</a></li>
+        <!--<li class="nav-item cta"><a href="contact.html" class="nav-link"  style="margin-right: 5px;" data-toggle="modal" data-target="#Connexion"><span>Connexion</span></a></li>
+        <li class="nav-item cta"><a href="contact.html" class="nav-link" data-toggle="modal" data-target="#Inscription"><span>Inscription</span></a></li>-->
+      </ul>
     </div>
+  </div>
   </nav>
+
+
+<?php
+} else {
+?>
+
+
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="inde.php"><i class="flaticon-pharmacy"></i><span>Re</span>Medic</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="oi oi-menu"></span> Menu
+    </button>
+
+    <div class="collapse navbar-collapse" id="ftco-nav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active"><a href="inde.php" class="nav-link">Accueil</a></li>
+        <li class="nav-item"><a href="aPropos.php" class="nav-link">A propos</a></li>
+        <li class="nav-item"><a href="departement.php" class="nav-link">Département</a></li>
+        <li class="nav-item"><a href="docteur.php" class="nav-link">Docteur</a></li>
+        <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
+        <li class="nav-item cta"><a href="contact.html" class="nav-link"  style="margin-right: 5px;" data-toggle="modal" data-target="#Connexion"><span>Connexion</span></a></li>
+        <li class="nav-item cta"><a href="contact.html" class="nav-link" data-toggle="modal" data-target="#Inscription"><span>Inscription</span></a></li>
+      </ul>
+    </div>
+  </div>
+  </nav>
+
+
+<?php
+}
+?>
+
+
+
+
+
 
   <!-- Connexion -->
   <div class="modal fade" id="Connexion" tabindex="-1" role="dialog" aria-labelledby="modalAppointmentLabel" aria-hidden="true">
@@ -30,13 +73,13 @@
             </button>
           </div>
           <div class="modal-body">
-            <form action="#">
+            <form action="traitement/user/connexionT">
               <div class="form-group">
                 <label for="appointment_name" class="text-black" name="login">Login</label>
                 <input type="text" class="form-control" id="appointment_name">
               </div>
               <div class="form-group">
-                <label for="appointment_mdp" class="text-black" name="mdp">Mot de passe</label> <input onclick="myFunction()" type="checkbox" id="checkbox" ></input >
+                <label for="appointment_mdp" class="text-black" name="mdp">Mot de passe</label> <input onclick="showHidePassword()" type="checkbox" id="checkbox" ></input >
                 
                 <input type="password" id="password" class="form-control" id="appointment_email">
                 <label class="text-grey">Mottt de passe oublié cliquez <a href="MdpOublié.html"> ici </a></label>
@@ -99,7 +142,7 @@
 
 
 <script language="javascript">
-function myFunction() {
+function showHidePassword() {
   //document.getElementById('password').type = 'text';
 
 
@@ -110,7 +153,7 @@ function myFunction() {
   }
 }
 
-function myFunction2() {
+function showHidePassword2() {
   //document.getElementById('password').type = 'text';
 
 
