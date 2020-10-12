@@ -327,19 +327,18 @@ public function mail($objet,$sujet,$email)
 }
 
 
-public function MdpOublier2()
+/*public function MdpOublier2()
 {
   try{
     //connexion à la base de données
     $bdd= new PDO('mysql:host=localhost;dbname=hopitalphp;charset=utf8','root','');
-  }
 
   catch(Exception $e){
     die('Erreur:'.$e->getMessage());
   }
   $req = $bdd->prepare('INSERT INTO user (login,mdpc,mdp,mail,profil) VALUES (?,?,?,?,?)');
   $req -> execute(array($login,$mdpc,$mdp,$mail,$profil));
-}
+}*/
 /*SELECT (SELECT nom AS monchamp FROM infomedecin
 UNION
 SELECT prenom AS monchamp FROM infomedecin
@@ -347,7 +346,85 @@ UNION
 SELECT spe AS monchamp FROM infomedecin
 )
 INSTR(monchamp, "b")
-FROM infomedecin*/
+FROM infomedecin
 
+SELECT spe, INSTR(nom, "b") AS verifnom, INSTR(prenom, "b") AS verifprenom, INSTR(spe, "b") AS verifspe, INSTR(lieu, "b") AS veriflieu
+FROM infomedecin
+*/
+public function Recherche(SetUpGestion $rd){
+
+  $Recherche = $rd->getRecherche();
+
+      //Connexion à la base de données projetweb
+      try
+      {
+      $bdd= new PDO('mysql:host=localhost;dbname=hopitalphp;charset=utf8','root','');
+      }
+      catch(Exception $e)
+      {
+        die('Erreur:'.$e->getMessage());
+      }
+          
+          $req = $bdd->prepare('SELECT idMedecin, INSTR(nom, ?) AS verifnom, INSTR(prenom, ?) AS verifprenom, INSTR(spe, ?) AS verifspe, INSTR(lieu, ?) AS veriflieu
+          FROM infomedecin');
+          $req -> execute(array($Recherche, $Recherche, $Recherche, $Recherche));
+          $result=$req->fetchALL();
+
+          $req2 = $bdd->query('SELECT COUNT(idMedecin) FROM infomedecin');
+          $result2=$req2->fetch();
+          for ($i = 0; $i<=$result2[0]-1; $i++) {
+            $find=0;
+
+            if ($result[$i][1]!=0){
+              $find=1;
+            }
+            if ($result[$i][2]!=0){
+              $find=1;
+            }
+            if ($result[$i][3]!=0){
+              $find=1;
+            }
+            if ($result[$i][4]!=0){
+              $find=1;
+            }
+            if ($find!=0){
+
+              $req3=$bdd->prepare('SELECT * FROM infomedecin WHERE idMedecin= ?');
+              $req3->execute(array($result[$i][0]));
+
+              $result3=$req3->fetch();
+              
+              ?>
+
+
+<div class="col-md-6 col-lg-3 ftco-animate">
+	          <div class="block-2">
+	            <div class="flipper">
+	              <div class="front" style="background-image: url(images/doctor-1.jpg);">
+	                <div class="box">
+	                  <h2><?php echo($result3[1].$result3[2]); ?></h2>
+	                  <p><?php echo($result3[3]); ?></p>
+	                </div>
+	              </div>
+	              <div class="back">
+	                <!-- back content -->
+	                <blockquote>
+	                  <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem&rdquo;</p>
+	                </blockquote>
+	                <div class="author d-flex">
+	                  <div class="image mr-3 align-self-center">
+	                    <div class="img" style="background-image: url(images/doctor-1.jpg);"></div>
+	                  </div>
+	                  <div class="name align-self-center">echo($result3[1].$result3[2]) <span class="position"><?php echo($result3[3]); ?></span></div>
+	                </div>
+	              </div>
+	            </div>
+	          </div> <!-- .flip-container -->
+            <?php
+            }
+          }
+
+
+}
 }
  ?>

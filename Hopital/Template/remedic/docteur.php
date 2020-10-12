@@ -37,8 +37,12 @@
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
           <div class="col-md-8 ftco-animate text-center">
-            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Doctor</span></p>
-            <h1 class="mb-3 bread">Well Experienced Doctors</h1>
+            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Accueil</a></span> <span>Docteur</span></p>
+            <h1 class="mb-3 bread">Des Docteurs exeptionel</h1>
+			<form action="Recherche.php" class="subscribe-form" method="post">
+                    <div class="form-group d-flex">
+                      <input type="text"name="Recherche" class="form-control" placeholder="Entrer votre recherche">
+                      <input type="submit" value="Recherche" class="submit px-3">
           </div>
         </div>
       </div>
@@ -53,7 +57,7 @@
 	              <div class="front" style="background-image: url(images/doctor-1.jpg);">
 	                <div class="box">
 	                  <h2>Aldin Powell</h2>
-	                  <p>Neurologist</p>
+	                  <p>Neurologue</p>
 	                </div>
 	              </div>
 	              <div class="back">

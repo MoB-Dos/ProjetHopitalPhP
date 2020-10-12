@@ -2,7 +2,7 @@
 
 class SetUpGestion
 {
-  private $_nom,$_prenom,$_mail,$_login,$_mdp,$_admin, $id;
+  private $_nom,$_prenom,$_mail,$_login,$_mdp,$_admin, $id, $Recherche;
 
   public function __construct(array $donnees)
   {
@@ -84,6 +84,14 @@ public function setId($id) {
   } else { trigger_error('erreur mdp',E_USER_WARNING);
     return; }
 }
+public function setRecherche($Recherche) {
+
+  if (isset($Recherche)) {
+
+      $this->_Recherche = $Recherche;
+  } else { trigger_error('erreur mdp',E_USER_WARNING);
+    return; }
+}
 public function getNom() { return $this->_nom; }
 public function getPrenom() { return $this->_prenom; }
 public function getLogin() { return $this->_login; }
@@ -91,6 +99,7 @@ public function getMail() { return $this->_mail; }
 public function getMdp() { return $this->_mdp; }
 public function getAdmin() { return $this->_admin; }
 public function getId() { return $this->_id; }
+public function getRecherche() { return $this->_Recherche; }
 
 
 }
