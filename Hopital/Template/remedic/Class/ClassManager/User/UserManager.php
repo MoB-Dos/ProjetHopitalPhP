@@ -121,7 +121,7 @@
   
   
     //Sélection dans la table utilisateur
-    $reponse=$bdd->prepare('SELECT * FROM user WHERE login = :login AND mdp = mdp');
+    $reponse=$bdd->prepare('SELECT * FROM user WHERE login = :login AND mdp = :mdp');
     $reponse->execute(array(
       'login' => $login,
       'mdp' => $mdp,
@@ -147,7 +147,7 @@
             //Renvoi vers la page Classique
   
             setcookie('profil','user', time() + 365*24*3600, null, null, false, true);
-            $_SESSION['profil'] = user;
+            $_SESSION['profil'] = "user";
             var_dump('test');
   
           }
@@ -156,7 +156,7 @@
           {
             //Renvoi vers la page Admin
             setcookie('profil', 'admin', time() + 365*24*3600, null, null, false, true);
-            $_SESSION['profil'] = admin;
+            $_SESSION['profil'] = "admin";
             
   
   
@@ -165,7 +165,7 @@
           {
             //Renvoi vers la page Admin
             setcookie('profil', 'medecin', time() + 365*24*3600, null, null, false, true);
-            $_SESSION['profil'] = medecin;
+            $_SESSION['profil'] = "medecin";
             
   
   
@@ -178,9 +178,9 @@
         //Sinon on affiche une boite de dialogue d'alerte
         else
         {
-          echo '<body onLoad="alert(\'Acces refuse\')">';
+          /*echo '<body onLoad="alert(\'Acces refuse\')">';
   
-          echo '<meta http-equiv="refresh" content="0;URL=../../inde.php">';
+          echo '<meta http-equiv="refresh" content="0;URL=../../inde.php">';*/
         }
       }
       //Sinon on demande à remplir les champs vides
@@ -426,5 +426,134 @@ public function Recherche(SetUpGestion $rd){
 
 
 }
+
+
+
+public function affichage()
+{
+
+  try
+  {
+    $bdd= new PDO('mysql:host=localhost;dbname=hopitalphp;charset=utf8','root','');
+  }
+  catch(Exception $e)
+  {
+    die('Erreur:'.$e->getMessage());
+  }
+
+    //Commande sql pour selectionner dans la table utilisateur
+    $req = $bdd->prepare('SELECT * FROM user WHERE login = :login');
+    $req->execute(array('login' => $_SESSION['login']));
+
+    $data=$req->fetchall();
+
+
+    //Affichage de chacune des donnees selon le profil_id
+    foreach ($data as $value) {
+
+        echo "Nom : ".$value['login'].'<br><br>';
+        echo "Mail : ".$value['mail'].'<br><br>' ;
+
+      }
+
+}
+
+
+public function AffichageModification()
+{
+
+
+try{
+  $bdd= new PDO('mysql:host=localhost;dbname=hopitalphp;charset=utf8','root','');
+}
+
+catch(Exception $e){
+  die('Erreur:'.$e->getMessage());
+}
+
+
+//Sélection dans la table utilisateur
+$req=$bdd->prepare('SELECT * FROM user WHERE login= ?');
+$req->execute(array( $_SESSION['login']));
+$data = $req->fetch();
+
+?>
+
+<!-- Formulaire de modification -->
+<form method="post" action="modificationT.php">
+
+  Votre Login:
+	<input type="text" name="login" value=<?php echo $data['login'];?>>
+  <br><br>
+
+	Votre Mail:
+	<input type="text" name="mail" value=<?php echo $data['mail'];?>>
+  <br><br>
+
+<input type="submit" value="Envoyer"/><br><br>
+
+</form>
+
+	<?php
+
+}
+
+
+public function ModificationGestion(SetUpGestion $connexion)
+{
+
+//  setcookie('login',$_SESSION['login'], time() + 365*24*3600, null, null, false, true);
+
+ //on initialise nos variables
+  $mail = $connexion->getMail();
+  $login =$connexion->getLogin();
+ 
+
+// connexion à la base de donnés
+  try{
+    $bdd= new PDO('mysql:host=localhost;dbname=hopitalphp;charset=utf8','root','');
+  }
+
+  catch(Exception $e){
+    die('Erreur:'.$e->getMessage());
+  }
+
+
+
+  //Modification dans la table utilisateur
+    $req = $bdd->prepare('UPDATE user SET login = ? ,mail = ? Where login = ?');
+    $a = $req -> execute(array($login, $mail,$_SESSION['login']));
+
+//deconnexion
+    $this-> Deconnexion();
+
+    $_SESSION['login'] = $login;
+
+}
+
+
+public function Deconnexion()
+{
+
+  session_destroy();
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
  ?>

@@ -16,6 +16,9 @@ if(isset($_SESSION['profil']))
 
     <div class="collapse navbar-collapse" id="ftco-nav">
       <ul class="navbar-nav ml-auto">
+
+      <li class="nav-item active"><a href="deco.php" class="nav-link">deco</a></li>
+        <li class="nav-item active"><a href="zoneTest.php" class="nav-link">! Zone de TEST !</a></li>
         <li class="nav-item active"><a href="inde.php" class="nav-link">Accueil</a></li>
         <li class="nav-item"><a href="aPropos.php" class="nav-link">A propos</a></li>
         <!--<li class="nav-item cta"><a href="contact.html" class="nav-link"  style="margin-right: 5px;" data-toggle="modal" data-target="#Connexion"><span>Connexion</span></a></li>
@@ -40,6 +43,7 @@ if(isset($_SESSION['profil']))
 
     <div class="collapse navbar-collapse" id="ftco-nav">
       <ul class="navbar-nav ml-auto">
+        <li class="nav-item active"><a href="zoneTest.php" class="nav-link">! Zone de TEST !</a></li>
         <li class="nav-item active"><a href="inde.php" class="nav-link">Accueil</a></li>
         <li class="nav-item"><a href="aPropos.php" class="nav-link">A propos</a></li>
         <li class="nav-item"><a href="departement.php" class="nav-link">Département</a></li>
@@ -73,16 +77,16 @@ if(isset($_SESSION['profil']))
             </button>
           </div>
           <div class="modal-body">
-            <form action="traitement/user/connexionT">
+            <form action="traitement/user/connexionT.php" method="post">
               <div class="form-group">
                 <label for="appointment_name" class="text-black" name="login">Login</label>
-                <input type="text" class="form-control" id="appointment_name">
+                <input type="text" class="form-control" id="login" name="login">
               </div>
               <div class="form-group">
                 <label for="appointment_mdp" class="text-black" name="mdp">Mot de passe</label> <input onclick="showHidePassword()" type="checkbox" id="checkbox" ></input >
                 
-                <input type="password" id="password" class="form-control" id="appointment_email">
-                <label class="text-grey">Mottt de passe oublié cliquez <a href="MdpOublié.html"> ici </a></label>
+                <input type="password" id="mdp" class="form-control" id="appointment_email" name="mdp">
+                <label class="text-grey">Mot de passe oublié cliquez <a href="MdpOublié.html"> ici </a></label>
               </div>
          
               <div class="form-group">
