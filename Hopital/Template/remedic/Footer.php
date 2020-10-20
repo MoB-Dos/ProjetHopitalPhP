@@ -53,8 +53,8 @@
             	<div class="block-23 mb-3">
 	              <ul>
 	                <li><span class="icon icon-map-marker"></span><span class="text">1 Parvis Notre-Dame - Pl. Jean-Paul II, 75004 Paris,FRANCE</span></li>
-	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">01 42 34 82 34</span></a></li>
-	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">HopitalBariller@gmail.com</span></a></li>
+	                <li><span class="icon icon-phone"></span><span class="text">01 42 34 82 34</span></a></li>
+	                <li><span class="icon icon-envelope"></span><span class="text">HopitalBariller@gmail.com</span></a></li>
 	              </ul>
 	            </div>
             </div>

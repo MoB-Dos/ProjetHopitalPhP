@@ -2,6 +2,8 @@
 
 session_start ();
 
+
+//quand le User est connecté
 if(isset($_SESSION['profil']))
 {
 ?>
@@ -17,12 +19,62 @@ if(isset($_SESSION['profil']))
     <div class="collapse navbar-collapse" id="ftco-nav">
       <ul class="navbar-nav ml-auto">
 
-      <li class="nav-item active"><a href="deco.php" class="nav-link">deco</a></li>
-        <li class="nav-item active"><a href="zoneTest.php" class="nav-link">! Zone de TEST !</a></li>
+      
+        <li class="nav-item active">
+        <a href="zoneTest.php" class="nav-link">
+        ! Zone de TEST !
+        </a>
+        </li>
         <li class="nav-item active"><a href="inde.php" class="nav-link">Accueil</a></li>
-        <li class="nav-item"><a href="aPropos.php" class="nav-link">A propos</a></li>
-        <!--<li class="nav-item cta"><a href="contact.html" class="nav-link"  style="margin-right: 5px;" data-toggle="modal" data-target="#Connexion"><span>Connexion</span></a></li>
-        <li class="nav-item cta"><a href="contact.html" class="nav-link" data-toggle="modal" data-target="#Inscription"><span>Inscription</span></a></li>-->
+        <li class="nav-item active"><a href="aPropos.php" class="nav-link">A propos</a></li>
+        <li class="nav-item active"><a href="departement.php" class="nav-link">Département</a></li>
+        <li class="nav-item active"><a href="docteur.php" class="nav-link">Docteur</a></li>
+        <li class="nav-item active"><a href="contact.php" class="nav-link">Contact</a></li>
+
+      
+          <!-- A faire -->
+        <div class="bs-example"> 
+          <div id="myTooltips">
+        <a href="#" data-toggle="tooltip" title="Cliquez ici pour Créer votre dossier "><i class="fas fa-exclamation-triangle"> </i></a>
+        
+          </div>
+          </div>
+
+        <script>
+          $(document).ready(function(){
+          $("#myTooltips a").tooltip({
+        
+        template : '<div class="tooltip tooltip-custom"> <div class="title"></div> <div class="tooltip-arrow"> </div> <div class="tooltip-head">  <h6> <i class="fas fa-exclamation-triangle"> </i> <span> Dossier Manquant </span> </h6> </div> </div>'
+                });
+          });
+        </script>
+        <!-- A faire -->
+
+
+
+        <div class="btn-group">
+        
+        
+         <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Mon Profil
+        </button> 
+        
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Voir mon dossier</a>
+          <a class="dropdown-item" href="#">Mes rendez-vous</a>
+          <a class="dropdown-item" href="#">Modifier mon profil</a>
+        <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="deco.php">Déconnexion</a>
+        </div> 
+
+        
+
+        </div> 
+  
+  
+
+  
+  
       </ul>
     </div>
   </div>
@@ -30,6 +82,8 @@ if(isset($_SESSION['profil']))
 
 
 <?php
+
+//quand le User est déconnecté
 } else {
 ?>
 
