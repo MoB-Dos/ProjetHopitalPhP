@@ -31,47 +31,73 @@ if(isset($_SESSION['profil']))
         <li class="nav-item active"><a href="docteur.php" class="nav-link">Docteur</a></li>
         <li class="nav-item active"><a href="contact.php" class="nav-link">Contact</a></li>
 
-      
-          <!-- A faire -->
-        <div class="bs-example"> 
-          <div id="myTooltips">
-        <a href="#" data-toggle="tooltip" title="Cliquez ici pour Créer votre dossier "><i class="fas fa-exclamation-triangle"> </i></a>
-        
-          </div>
-          </div>
-
-        <script>
-          $(document).ready(function(){
-          $("#myTooltips a").tooltip({
-        
-        template : '<div class="tooltip tooltip-custom"> <div class="title"></div> <div class="tooltip-arrow"> </div> <div class="tooltip-head">  <h6> <i class="fas fa-exclamation-triangle"> </i> <span> Dossier Manquant </span> </h6> </div> </div>'
-                });
-          });
-        </script>
-        <!-- A faire -->
-
-
 
         <div class="btn-group">
         
         
-         <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="masquer_div('badge');" >
           Mon Profil
         </button> 
         
-        <div class="dropdown-menu">
+        <div class="dropdown-menu" >
+
+          
+          <a class="dropdown-item" ><?php echo $_SESSION['login'] ?> </a>
+         
+          <div class="dropdown-divider"></div>
+
+        <?php
+        if($_SESSION['dossier'] == 0)
+        {
+          ?>
+         <div>
+         <span class="badge2"></span> 
+          <a class="dropdown-item" href="creationDossier.php" data-toggle="modal" data-target="#DossierCréation">Faire mon dossier</a>
+        </div>          
+          
+          <?php
+
+        }else
+        {
+
+
+          ?>
+           
           <a class="dropdown-item" href="#">Voir mon dossier</a>
+          
+          <?php
+
+        }
+        ?>
+          
+        
+          
+          
           <a class="dropdown-item" href="#">Mes rendez-vous</a>
           <a class="dropdown-item" href="#">Modifier mon profil</a>
         <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="deco.php">Déconnexion</a>
         </div> 
 
-        
+        <?php
+
+        if($_SESSION['dossier'] == 0)
+        {
+
+          ?>
+            <span class="badge" id="badge"> </span>
+          <?php
+        }
+
+        ?>
 
         </div> 
   
-  
+          <!-- <div id="myTooltips">
+              
+            <a href="#" data-toggle="tooltip" title="Cliquez ici pour Créer votre dossier "><i class="fas fa-exclamation-triangle"> </i></a>
+        
+          </div> -->
 
   
   
@@ -199,7 +225,76 @@ if(isset($_SESSION['profil']))
     </div>
 
 
+
+
+        <!--Dossier Création -->
+        <div class="modal fade" id="DossierCréation" tabindex="-1" role="dialog" aria-labelledby="modalAppointmentLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalAppointmentLabel">Votre Dossier Patient</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="traitement/user/inscriptionTraitement.php" method="post">
+
+              <div class="form-group">
+                <label for="appointment_name" class="text-black" name="Prenom">Prénom</label>
+                <input type="text" class="form-control" id="Prenom">
+              </div>
+
+              <div class="form-group">
+                <label for="appointment_name" class="text-black" name="Nom">Nom</label>
+                <input type="text" class="form-control" id="Nom">
+              </div>
+
+              <div class="form-group">
+                <label for="appointment_name" class="text-black" name="Date">Date de naissance</label>
+                <input type="Date" class="form-control" id="Date">
+              </div>
+
+              <div class="form-group">
+                <label for="appointment_name" class="text-black" name="Adresse">Adresse</label>
+                <input type="text" class="form-control" id="Adresse">
+              </div>
+
+              <div class="form-group">
+                <label for="appointment_name" class="text-black" name="sq">"sq"</label>
+                <input type="text" class="form-control" id="sq">
+              </div>
+
+              <div class="form-group">
+                <label for="appointment_name" class="text-black" name="OptionTV">Option TV</label>
+                <input type="text" class="form-control" id="OptionTV">
+              </div>
+
+              <div class="form-group">
+                <label for="appointment_email" class="text-black"name="Regime">Regime</label>
+                <input type="text" class="form-control" id="Regime">
+              </div>
+          
+                
+              
+              <div class="form-group">
+                <input type="submit" value="Continuer" class="btn btn-primary">
+              </div>
+              
+            </form>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+
 <script language="javascript">
+
+
+
+
+  
 function showHidePassword() {
   //document.getElementById('password').type = 'text';
 
@@ -221,4 +316,7 @@ function showHidePassword2() {
     document.getElementById('password2').type = 'text'
   }
 }
+
+
+
 </script>

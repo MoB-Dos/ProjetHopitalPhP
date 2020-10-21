@@ -141,6 +141,7 @@
           //On enregistre login et prénom dans la session
   
           $_SESSION['login'] = $login;
+          $_SESSION['dossier'] = $data['dossierCheck'];
   
           if ($data['profil'] == 'user')
           {
@@ -148,7 +149,6 @@
   
             setcookie('profil','user', time() + 365*24*3600, null, null, false, true);
             $_SESSION['profil'] = "user";
-            var_dump('test');
   
           }
   
@@ -157,8 +157,6 @@
             //Renvoi vers la page Admin
             setcookie('profil', 'admin', time() + 365*24*3600, null, null, false, true);
             $_SESSION['profil'] = "admin";
-            
-  
   
           }
           if ($data['profil'] == 'medecin')
@@ -167,11 +165,10 @@
             setcookie('profil', 'medecin', time() + 365*24*3600, null, null, false, true);
             $_SESSION['profil'] = "medecin";
             
-  
-  
+
           }
           
-          //header("location: ../../../inde.php");
+      //header("location: ../../../inde.php");
 
         }
 
