@@ -163,11 +163,11 @@ if(isset($_SESSION['profil']))
                 <input type="text" class="form-control" id="login" name="login">
               </div>
               <div class="form-group mb-2">
-                <label for="appointment_mdp" class="text-black" class="sr-only" name="mdp">Mot de passe</label> <img href='#' src="https://img.icons8.com/material/24/000000/visible--v1.png" id="icon" onclick='showHidePassword()'/>  
+                <label for="appointment_mdp" class="text-black" class="sr-only" name="mdp">Mot de passe</label> <img href='#' src="https://img.icons8.com/material/24/000000/visible--v1.png" id="icon" onclick='showHidePassword("mdp2")'/>  
               </div>
               
               <div class="form-group mb-2">
-                <input type="password" id="mdp" class="form-control" id="appointment_email" name="mdp"> 
+                <input type="password" id="mdp2" class="form-control" id="appointment_email" name="mdp"> 
               </div>
               
               <div class="form-group mb-2">
@@ -309,9 +309,9 @@ if(isset($_SESSION['profil']))
 
 
   
-function showHidePassword() {
+function showHidePassword(id) {
   
-    var x = document.getElementById('mdp');
+    var x = document.getElementById(id);
     if (x.type == "password") {
     x.type = "text";
 
