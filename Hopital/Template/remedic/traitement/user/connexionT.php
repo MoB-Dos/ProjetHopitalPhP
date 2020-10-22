@@ -12,5 +12,5 @@ $try = new UserManager($connexion);
 
 $act = $try->Connexion($connexion);
 
-header("location: ../../inde.php");
+header("location: ../../inde.php"); 
 ?>  

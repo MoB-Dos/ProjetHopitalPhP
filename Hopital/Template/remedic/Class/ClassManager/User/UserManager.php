@@ -65,26 +65,17 @@
           $req = $bdd->prepare('INSERT INTO user (login,mdpc,mdp,mail,profil) VALUES (?,?,?,?,?)');
           $req -> execute(array($login,$mdpc,$mdp,$mail,$profil));
           var_dump($req);
+
           //Envoi du mail de confirmation
-          $objet = "Bienvenue dans le club !";
-          $sujet = "Vous pourrez recevoir ici toutes les nouvauté ou encore les promotions sur nos fabuleux Hamburger.";
+          $objet = "Bienvenue à l'Hopital Bariller!";
+          $sujet = "Vous pourrez recevoir ici toutes les nouvautés aux sujets de l'établissement mais aussi vos prochain rendez-vous !";
           $email = $mail;
-  
-  
           $this-> Mail($objet,$sujet,$email);
-          ?>
-            <script type="text/javascript">
-  
-                  var msg="Inscription reussie !"
-  
-  
-                alert(msg);
-  
-                header("location: ../../template/EndGam/HTML/home.php");
-  
-            </script>
-          <?php
-  
+          
+        
+          $_SESSION['login'] = $login;
+          $_SESSION['profil'] = "user";
+          $_SESSION['dossier'] = "0";
   
         }
   

@@ -162,12 +162,19 @@ if(isset($_SESSION['profil']))
                 <label for="appointment_name" class="text-black" name="login">Login</label>
                 <input type="text" class="form-control" id="login" name="login">
               </div>
-              <div class="form-group">
-                <label for="appointment_mdp" class="text-black" name="mdp">Mot de passe</label> <input onclick="showHidePassword()" type="checkbox" id="checkbox" ></input >
-                
-                <input type="password" id="mdp" class="form-control" id="appointment_email" name="mdp">
-                <label class="text-grey">Mot de passe oublié cliquez <a href="MdpOublié.html"> ici </a></label>
+              <div class="form-group mb-2">
+                <label for="appointment_mdp" class="text-black" class="sr-only" name="mdp">Mot de passe</label> <img href='#' src="https://img.icons8.com/material/24/000000/visible--v1.png" id="icon" onclick='showHidePassword()'/>  
               </div>
+              
+              <div class="form-group mb-2">
+                <input type="password" id="mdp" class="form-control" id="appointment_email" name="mdp"> 
+              </div>
+              
+              <div class="form-group mb-2">
+                
+              </div>
+          
+              <label class="text-grey">Mot de passe oublié cliquez <a href="MdpOublié.html"> ici </a></label>
          
               <div class="form-group">
                 <input type="submit" value="Continuer" class="btn btn-primary">
@@ -184,33 +191,40 @@ if(isset($_SESSION['profil']))
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="modalAppointmentLabel">Appointment</h5>
+            <h5 class="modal-title" id="modalAppointmentLabel">Inscription</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
             <form action="traitement/user/inscriptionTraitement.php" method="post">
+
               <div class="form-group">
                 <label for="appointment_name" class="text-black" name="login">Login</label>
-                <input type="text" class="form-control" id="appointment_name">
+
+                <input type="text" class="form-control" id="login" name="login" required>
               </div>
               <div class="form-group">
-                <label for="appointment_email" class="text-black"name="mail">Email</label>
-                <input type="text" class="form-control" id="appointment_email">
+                <label for="appointment_email" class="text-black" name="mail">Email</label>
+
+                <input type="email" class="form-control" id="mail" name="mail" pattern="@" required>
               </div>
               
               <div class="form-group">
-                <label for="appointment_mdp" class="text-black"name="mdp">Mot de passe</label> <input onclick="myFunction2()" type="checkbox" id="checkbox2" ></input >
+
+                <label for="appointment_mdp" class="text-black" name="mdp">Mot de passe</label> <img href='#' src="https://img.icons8.com/material/24/000000/visible--v1.png" id="icon" onclick='showHidePassword()'/>
                 
-                <input type="password" id="password2" class="form-control" id="appointment_email">
+                <input type="password" id="mdp" class="form-control" name="mdp"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required> 
+
                 
               </div>
+                
               <div class="form-group">
-                <label for="appointment_mdp" class="text-black"name="mdp2 ">Réecrivez votre mot de passe</label> <input onclick="myFunction2()" type="checkbox" id="checkbox2" ></input >
+                <label for="appointment_mdp" class="text-black" name="mdp2" >Réecrivez votre mot de passe</label> 
                 
-                <input type="password" id="password2" class="form-control" id="appointment_email">
                 
+                <input type="password" id="mdp" class="form-control" name="mdp2" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required> 
+               
               </div>
                 
               
@@ -296,14 +310,20 @@ if(isset($_SESSION['profil']))
 
   
 function showHidePassword() {
-  //document.getElementById('password').type = 'text';
+  
+    var x = document.getElementById('mdp');
+    if (x.type == "password") {
+    x.type = "text";
 
+    document.getElementById("icon").src = "https://img.icons8.com/material-sharp/24/000000/closed-eye.png";
+    
+    } else {
+    x.type = "password";
+    document.getElementById("icon").src = "https://img.icons8.com/material/24/000000/visible--v1.png";
+    
+    }
 
-  if (document.getElementById('checkbox').checked == false) {
-    document.getElementById('password').type = 'password'
-  }else if(document.getElementById('checkbox').checked == true) {
-    document.getElementById('password').type = 'text'
-  }
+   
 }
 
 function showHidePassword2() {
