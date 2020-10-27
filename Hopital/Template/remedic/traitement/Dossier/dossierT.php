@@ -19,7 +19,7 @@ $act = $add->Inscription($ajout);
 
 var_dump($_SESSION['login']);
 
-header("location: ../../inde.php");
+header("location: ../../index.php");
 
 
 ?>

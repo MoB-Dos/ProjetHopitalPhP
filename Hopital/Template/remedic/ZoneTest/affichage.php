@@ -18,4 +18,4 @@ $act = $show->affichage();
 
 ?>
 
-<input type="submit" value="retour" onclick="window.location='inde.php';" />
+<input type="submit" value="retour" onclick="window.location='../index.php';" />

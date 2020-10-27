@@ -26,6 +26,7 @@
       $mdpc = $ajout->getMdp2();
   
       $profil="user";
+      $dossier="0";
       var_dump($mail, $login, $mdp, $mdpc);
 
       //Connexion à la base de données projetweb
@@ -62,8 +63,8 @@
 
           $mdpc = md5($mdpc);
           
-          $req = $bdd->prepare('INSERT INTO user (login,mdpc,mdp,mail,profil) VALUES (?,?,?,?,?)');
-          $req -> execute(array($login,$mdpc,$mdp,$mail,$profil));
+          $req = $bdd->prepare('INSERT INTO user (login,mdpc,mdp,mail,profil,dossier) VALUES (?,?,?,?,?,?)');
+          $req -> execute(array($login,$mdpc,$mdp,$mail,$profil,$dossier));
           var_dump($req);
 
           //Envoi du mail de confirmation
@@ -132,7 +133,7 @@
           //On enregistre login et prénom dans la session
   
           $_SESSION['login'] = $login;
-          $_SESSION['dossier'] = $data['dossierCheck'];
+          $_SESSION['dossier'] = $data['dossier'];
   
           if ($data['profil'] == 'user')
           {
@@ -159,7 +160,7 @@
 
           }
           
-      //header("location: ../../../inde.php");
+      //header("location: ../../../index.php");
 
         }
 
@@ -168,7 +169,7 @@
         {
           /*echo '<body onLoad="alert(\'Acces refuse\')">';
   
-          echo '<meta http-equiv="refresh" content="0;URL=../../inde.php">';*/
+          echo '<meta http-equiv="refresh" content="0;URL=../../index.php">';*/
         }
       }
       //Sinon on demande à remplir les champs vides

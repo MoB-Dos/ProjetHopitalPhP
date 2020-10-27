@@ -9,4 +9,4 @@
 
     </form>
 
-    <input type="submit" value="retour" onclick="window.location='../../ndex.php';" />
+    <input type="submit" value="retour" onclick="window.location='../../index.php';" />

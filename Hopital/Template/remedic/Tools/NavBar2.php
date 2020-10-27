@@ -11,7 +11,7 @@ if(isset($_SESSION['profil']))
 
   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
   <div class="container">
-    <a class="navbar-brand" href="inde.php"><i class="flaticon-pharmacy"></i><span>Re</span>Medic</a>
+    <a class="navbar-brand" href="index.php"><i class="flaticon-pharmacy"></i><span>Re</span>Medic</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="oi oi-menu"></span> Menu
     </button>
@@ -25,11 +25,11 @@ if(isset($_SESSION['profil']))
         ! Zone de TEST !
         </a>
         </li>
-        <li class="nav-item active"><a href="inde.php" class="nav-link">Accueil</a></li>
-        <li class="nav-item active"><a href="aPropos.php" class="nav-link">A propos</a></li>
-        <li class="nav-item active"><a href="departement.php" class="nav-link">Département</a></li>
-        <li class="nav-item active"><a href="docteur.php" class="nav-link">Docteur</a></li>
-        <li class="nav-item active"><a href="contact.php" class="nav-link">Contact</a></li>
+        <li class="nav-item active"><a href="index.php" class="nav-link">Accueil</a></li>
+        <li class="nav-item active"><a href="View/Page/aPropos.php" class="nav-link">A propos</a></li>
+        <li class="nav-item active"><a href="View/Page/departement.php" class="nav-link">Département</a></li>
+        <li class="nav-item active"><a href="View/Page/docteur.php" class="nav-link">Docteur</a></li>
+        <li class="nav-item active"><a href="View/Page/contact.php" class="nav-link">Contact</a></li>
 
 
         <div class="btn-group">
@@ -76,7 +76,7 @@ if(isset($_SESSION['profil']))
           <a class="dropdown-item" href="#">Mes rendez-vous</a>
           <a class="dropdown-item" href="#">Modifier mon profil</a>
         <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="deco.php">Déconnexion</a>
+          <a class="dropdown-item" href="Traitement/User/decoT.php">Déconnexion</a>
         </div> 
 
         <?php
@@ -116,7 +116,7 @@ if(isset($_SESSION['profil']))
 
   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
   <div class="container">
-    <a class="navbar-brand" href="inde.php"><i class="flaticon-pharmacy"></i><span>Re</span>Medic</a>
+    <a class="navbar-brand" href="index.php"><i class="flaticon-pharmacy"></i><span>Re</span>Medic</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="oi oi-menu"></span> Menu
     </button>
@@ -124,11 +124,11 @@ if(isset($_SESSION['profil']))
     <div class="collapse navbar-collapse" id="ftco-nav">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active"><a href="zoneTest.php" class="nav-link">! Zone de TEST !</a></li>
-        <li class="nav-item active"><a href="inde.php" class="nav-link">Accueil</a></li>
-        <li class="nav-item"><a href="aPropos.php" class="nav-link">A propos</a></li>
-        <li class="nav-item"><a href="departement.php" class="nav-link">Département</a></li>
-        <li class="nav-item"><a href="docteur.php" class="nav-link">Docteur</a></li>
-        <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
+        <li class="nav-item active"><a href="index.php" class="nav-link">Accueil</a></li>
+        <li class="nav-item"><a href="View/Page/aPropos.php" class="nav-link">A propos</a></li>
+        <li class="nav-item"><a href="View/Page/departement.php" class="nav-link">Département</a></li>
+        <li class="nav-item"><a href="View/Page/docteur.php" class="nav-link">Docteur</a></li>
+        <li class="nav-item"><a href="View/Page/contact.php" class="nav-link">Contact</a></li>
         <li class="nav-item cta"><a href="contact.html" class="nav-link"  style="margin-right: 5px;" data-toggle="modal" data-target="#Connexion"><span>Connexion</span></a></li>
         <li class="nav-item cta"><a href="contact.html" class="nav-link" data-toggle="modal" data-target="#Inscription"><span>Inscription</span></a></li>
       </ul>
@@ -157,7 +157,7 @@ if(isset($_SESSION['profil']))
             </button>
           </div>
           <div class="modal-body">
-            <form action="traitement/user/connexionT.php" method="post">
+            <form action="Traitement/User/connexionT.php" method="post">
               <div class="form-group">
                 <label for="appointment_name" class="text-black" name="login">Login</label>
                 <input type="text" class="form-control" id="login" name="login">
@@ -201,17 +201,18 @@ if(isset($_SESSION['profil']))
             </button>
           </div>
           <div class="modal-body">
-            <form action="traitement/user/inscriptionTraitement.php" method="post">
+            <form action="Traitement/User/inscriptionT.php" method="post">
 
               <div class="form-group">
                 <label for="appointment_name" class="text-black" name="login">Login</label>
 
                 <input type="text" class="form-control" id="login" name="login" required>
               </div>
+
               <div class="form-group">
                 <label for="appointment_email" class="text-black" name="mail">Email</label>
 
-                <input type="email" class="form-control" id="mail" name="mail" pattern="@" required>
+                <input type="email" class="form-control" id="mail" name="mail" placeholder="test" required>
               </div>
               
               <div class="form-group">
@@ -258,7 +259,7 @@ if(isset($_SESSION['profil']))
             </button>
           </div>
           <div class="modal-body">
-            <form action="traitement/dossier/dossierTphp" method="post">
+            <form action="../../Traitement/Dossier/dossierTphp" method="post">
 
               <div class="form-group">
                 <label for="appointment_name" class="text-black" name="Prenom">Prénom</label>

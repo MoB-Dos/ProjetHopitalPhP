@@ -20,7 +20,7 @@ $modif = new UserManager($Setup);
 $act = $modif->ModificationGestion($Setup);
 
 
-header("location: ../inde.php");
+header("location: ../index.php");
 
 /*?>
 <input type="button" value="Deconnexion" onclick="window.location.href='../View/accueil.php'">

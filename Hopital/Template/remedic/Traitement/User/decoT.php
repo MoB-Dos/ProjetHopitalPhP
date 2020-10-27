@@ -2,7 +2,7 @@
 
 session_start ();
 
-require 'Class/ClassManager/User/UserManager.php';
+require '../../Class/ClassManager/User/UserManager.php';
 
 
 
@@ -12,7 +12,7 @@ $act = $show->Deconnexion();
 
 
 
-header("location: inde.php");
+header("location: ../../index.php");
 
 
 ?>
