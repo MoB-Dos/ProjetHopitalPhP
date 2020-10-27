@@ -260,7 +260,14 @@ if(isset($_SESSION['profil']))
           </div>
           <div class="modal-body">
 
+<<<<<<< HEAD
             <form action="/Slam2/ProjethopitalPHP/Hopital/Traitement/Dossier/dossierT.php" method="post">
+=======
+            <form action="/ProjethopitalPhp/hopital/Traitement/Dossier/dossierPatienT.php" method="post">
+
+          
+
+>>>>>>> d548790f0ca845a5f9d489b94788fe14a0922b48
 
               <div class="form-group">
                 <label for="appointment_name" class="text-black" name="Prenom">Prénom</label>
@@ -327,7 +334,9 @@ if(isset($_SESSION['profil']))
             <form action="/Slam2/ProjethopitalPHP/Hopital/Traitement/RendezVous/rendezvous.php" method="post">
 
 
+
               <div class="form-group">
+
                 <label for="appointment_name" class="text-black" name="Prenom">Date</label>
                 <input type="text" class="form-control" id="Prenom">
               </div>
@@ -368,6 +377,7 @@ if(isset($_SESSION['profil']))
               </div>
 
             <div class="form-group">
+
                 <input type="submit" value="Continuer" class="btn btn-primary">
               </div>
               

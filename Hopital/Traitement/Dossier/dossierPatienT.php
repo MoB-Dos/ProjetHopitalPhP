@@ -5,15 +5,15 @@ require '../../Class/ClassManager/User/UserManager.php';
 require '../../Class/SetUp/SetUpDossier.php';
 
 $ajout = new SetUpDossier([
-    'prenom' => $_POST['prenom'],
-    'nom' =>$_POST['nom'],
-    'date' => $_POST['date'],
-    'adresse' => $_POST['adresse'],
-    'sq' => $_POST['sq'],
-    'optionTv' => $_POST['optionTv'],
-    'regime' => $_POST['regime'],
+    'Prenom' => $_POST['prenom'],
+    'Nom' =>$_POST['nom'],
+    'Date' => $_POST['date'],
+    'Adresse' => $_POST['adresse'],
+    'Sq' => $_POST['sq'],
+    'OptionTv' => $_POST['optionTv'],
+    'Regime' => $_POST['regime'],
 ]); 
-
+var_dump($_POST['regime']);
 
 $add = new UserManager($ajout);
 
