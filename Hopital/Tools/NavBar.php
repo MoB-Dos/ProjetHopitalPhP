@@ -26,10 +26,10 @@ if(isset($_SESSION['profil']))
         </a>
         </li>
         <li class="nav-item active"><a href="../../index.php" class="nav-link">Accueil</a></li>
-        <li class="nav-item active"><a href="/enzobirba/ProjethopitalPHP/Hopital/View/Page/aPropos.php" class="nav-link">A propos</a></li>
-        <li class="nav-item active"><a href="/enzobirba/ProjethopitalPHP/Hopital/View/Page/departement.php" class="nav-link">Département</a></li>
-        <li class="nav-item active"><a href="/enzobirba/ProjethopitalPHP/Hopital/View/Page/docteur.php" class="nav-link">Docteur</a></li>
-        <li class="nav-item active"><a href="/enzobirba/ProjethopitalPHP/Hopital/View/Page/contact.php" class="nav-link">Contact</a></li>
+        <li class="nav-item active"><a href="/Slam2/ProjethopitalPHP/Hopital/View/Page/aPropos.php" class="nav-link">A propos</a></li>
+        <li class="nav-item active"><a href="/Slam2/ProjethopitalPHP/Hopital/View/Page/departement.php" class="nav-link">Département</a></li>
+        <li class="nav-item active"><a href="/Slam2/ProjethopitalPHP/Hopital/View/Page/docteur.php" class="nav-link">Docteur</a></li>
+        <li class="nav-item active"><a href="/Slam2/ProjethopitalPHP/Hopital/View/Page/contact.php" class="nav-link">Contact</a></li>
 
 
         <div class="btn-group">
@@ -52,7 +52,7 @@ if(isset($_SESSION['profil']))
           ?>
          <div>
          <span class="badge2"></span> 
-          <a class="dropdown-item" href="creationDossier.php" data-toggle="modal" data-target="#DossierCréation">Faire mon dossier</a>
+          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#DossierCréation">Faire mon dossier</a>
         </div>          
           
           <?php
@@ -73,10 +73,10 @@ if(isset($_SESSION['profil']))
         
           
           
-          <a class="dropdown-item" href="#">Mes rendez-vous</a>
+          <a class="dropdown-item" href="#"  data-toggle="modal" data-target="#RendezVous">Mes rendez-vous</a>
           <a class="dropdown-item" href="#">Modifier mon profil</a>
         <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="/enzobirba/ProjethopitalPHP/Hopital/Traitement/User/decoT.php">Déconnexion</a>
+          <a class="dropdown-item" href="/Slam2/ProjethopitalPHP/Hopital/Traitement/User/decoT.php">Déconnexion</a>
         </div> 
 
         <?php
@@ -124,11 +124,11 @@ if(isset($_SESSION['profil']))
     <div class="collapse navbar-collapse" id="ftco-nav">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active"><a href="zoneTest.php" class="nav-link">! Zone de TEST !</a></li>
-        <li class="nav-item active"><a href="/ProjethopitalPHP/Hopital/index.php" class="nav-link">Accueil</a></li>
-        <li class="nav-item"><a href="/ProjethopitalPHP/Hopital/View/Page/aPropos.php" class="nav-link">A propos</a></li>
-        <li class="nav-item"><a href="/ProjethopitalPHP/Hopital/View/Page/departement.php" class="nav-link">Département</a></li>
-        <li class="nav-item"><a href="/ProjethopitalPHP/Hopital/View/Page/docteur.php" class="nav-link">Docteur</a></li>
-        <li class="nav-item"><a href="/ProjethopitalPHP/Hopital/View/Page/contact.php" class="nav-link">Contact</a></li>
+        <li class="nav-item active"><a href="/Slam2/ProjethopitalPHP/Hopital/index.php" class="nav-link">Accueil</a></li>
+        <li class="nav-item"><a href="/Slam2/ProjethopitalPHP/Hopital/View/Page/aPropos.php" class="nav-link">A propos</a></li>
+        <li class="nav-item"><a href="/Slam2/ProjethopitalPHP/Hopital/View/Page/departement.php" class="nav-link">Département</a></li>
+        <li class="nav-item"><a href="/Slam2/ProjethopitalPHP/Hopital/View/Page/docteur.php" class="nav-link">Docteur</a></li>
+        <li class="nav-item"><a href="/Slam2/ProjethopitalPHP/Hopital/View/Page/contact.php" class="nav-link">Contact</a></li>
         <li class="nav-item cta"><a href="contact.html" class="nav-link"  style="margin-right: 5px;" data-toggle="modal" data-target="#Connexion"><span>Connexion</span></a></li>
         <li class="nav-item cta"><a href="contact.html" class="nav-link" data-toggle="modal" data-target="#Inscription"><span>Inscription</span></a></li>
       </ul>
@@ -157,7 +157,7 @@ if(isset($_SESSION['profil']))
             </button>
           </div>
           <div class="modal-body">
-            <form action="/enzobirba/ProjethopitalPHP/Hopital/Traitement/User/connexionT.php" method="post">
+            <form action="/Slam2/ProjethopitalPHP/Hopital/Traitement/User/connexionT.php" method="post">
               <div class="form-group">
                 <label for="appointment_name" class="text-black" name="login">Login</label>
                 <input type="text" class="form-control" id="login" name="login">
@@ -201,7 +201,7 @@ if(isset($_SESSION['profil']))
             </button>
           </div>
           <div class="modal-body">
-            <form action="/ProjethopitalPHP/Hopital/Traitement/User/inscriptionT.php" method="post">
+            <form action="/Slam2/ProjethopitalPHP/Hopital/Traitement/User/inscriptionT.php" method="post">
 
               <div class="form-group">
                 <label for="appointment_name" class="text-black" name="login">Login</label>
@@ -260,7 +260,7 @@ if(isset($_SESSION['profil']))
           </div>
           <div class="modal-body">
 
-            <form action="/ProjethopitalPHP/Hopital/Traitement/Dossier/dossierT.php" method="post">
+            <form action="/Slam2/ProjethopitalPHP/Hopital/Traitement/Dossier/dossierT.php" method="post">
 
               <div class="form-group">
                 <label for="appointment_name" class="text-black" name="Prenom">Prénom</label>
@@ -313,7 +313,7 @@ if(isset($_SESSION['profil']))
 
 
 <!--Rendez vous -->
-  <div class="modal fade" id="DossierCréation" tabindex="-1" role="dialog" aria-labelledby="modalAppointmentLabel" aria-hidden="true">
+  <div class="modal fade" id="RendezVous" tabindex="-1" role="dialog" aria-labelledby="modalAppointmentLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -324,47 +324,50 @@ if(isset($_SESSION['profil']))
           </div>
           <div class="modal-body">
             
-            <form action="/ProjethopitalPHP/Hopital/Traitement/Dossier/dossierPatienTphp" method="post">
+            <form action="/Slam2/ProjethopitalPHP/Hopital/Traitement/RendezVous/rendezvous.php" method="post">
 
 
               <div class="form-group">
-                <label for="appointment_name" class="text-black" name="Prenom">Prénom</label>
+                <label for="appointment_name" class="text-black" name="Prenom">Date</label>
                 <input type="text" class="form-control" id="Prenom">
               </div>
 
               <div class="form-group">
-                <label for="appointment_name" class="text-black" name="Nom">Nom</label>
+                <label for="appointment_name" class="text-black" name="Nom">Heure</label>
                 <input type="text" class="form-control" id="Nom">
               </div>
 
               <div class="form-group">
-                <label for="appointment_name" class="text-black" name="Date">Date de naissance</label>
-                <input type="Date" class="form-control" id="Date">
+                <label for="appointment_name" class="text-black" name="Date">Médecin</label>
+                <select class="form-control">
+							    <option value="0" selected disabled>choissisez votre Classe !</option>
+	                  <?php
+					          	try{
+						            $bdd= new PDO('mysql:host=localhost;dbname=hopitalphp;charset=utf8','root','');
+						          }
+
+						          catch(Exception $e){
+							        die('Erreur:'.$e->getMessage());
+						          }
+
+						        $reponse=$bdd->query('SELECT nom,prenom FROM infomedecin');
+						        $donne=$reponse->fetchall();
+						        foreach ($donne as $value) {
+							        echo '<option>'.$value['nom']." ".$value['prenom'].'</option>';
+						        }
+
+						        ?>
+
+                </select>
+                
               </div>
 
               <div class="form-group">
-                <label for="appointment_name" class="text-black" name="Adresse">Adresse</label>
+                <label for="appointment_name" class="text-black" name="Adresse">Motif</label>
                 <input type="text" class="form-control" id="Adresse">
               </div>
 
-              <div class="form-group">
-                <label for="appointment_name" class="text-black" name="sq">"sq"</label>
-                <input type="text" class="form-control" id="sq">
-              </div>
-
-              <div class="form-group">
-                <label for="appointment_name" class="text-black" name="OptionTV">Option TV</label>
-                <input type="text" class="form-control" id="OptionTV">
-              </div>
-
-              <div class="form-group">
-                <label for="appointment_email" class="text-black"name="Regime">Regime</label>
-                <input type="text" class="form-control" id="Regime">
-              </div>
-          
-                
-              
-              <div class="form-group">
+            <div class="form-group">
                 <input type="submit" value="Continuer" class="btn btn-primary">
               </div>
               
