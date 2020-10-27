@@ -16,6 +16,7 @@
     <!-- END nav -->
 <section class="ftco-section">
   <div class="container">
+  <div class="flipper">
     <div class="row">
 	  
           <?php
@@ -31,6 +32,7 @@
 
             $act = $try->Recherche($rd);
           ?>
+    </div>
     </div>
   </div>
 </section>

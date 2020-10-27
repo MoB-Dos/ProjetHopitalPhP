@@ -26,10 +26,10 @@ if(isset($_SESSION['profil']))
         </a>
         </li>
         <li class="nav-item active"><a href="../../index.php" class="nav-link">Accueil</a></li>
-        <li class="nav-item active"><a href="aPropos.php" class="nav-link">A propos</a></li>
-        <li class="nav-item active"><a href="departement.php" class="nav-link">Département</a></li>
-        <li class="nav-item active"><a href="docteur.php" class="nav-link">Docteur</a></li>
-        <li class="nav-item active"><a href="contact.php" class="nav-link">Contact</a></li>
+        <li class="nav-item active"><a href="/enzobirba/ProjethopitalPHP/Hopital/View/Page/aPropos.php" class="nav-link">A propos</a></li>
+        <li class="nav-item active"><a href="/enzobirba/ProjethopitalPHP/Hopital/View/Page/departement.php" class="nav-link">Département</a></li>
+        <li class="nav-item active"><a href="/enzobirba/ProjethopitalPHP/Hopital/View/Page/docteur.php" class="nav-link">Docteur</a></li>
+        <li class="nav-item active"><a href="/enzobirba/ProjethopitalPHP/Hopital/View/Page/contact.php" class="nav-link">Contact</a></li>
 
 
         <div class="btn-group">
@@ -259,8 +259,8 @@ if(isset($_SESSION['profil']))
             </button>
           </div>
           <div class="modal-body">
-<<<<<<< HEAD
-            <form action="/enzobirba/ProjethopitalPHP/Hopital/Traitement/Dossier/dossierTphp" method="post">
+
+            <form action="/enzobirba/ProjethopitalPHP/Hopital/Traitement/Dossier/dossierT.php" method="post">
 
               <div class="form-group">
                 <label for="appointment_name" class="text-black" name="Prenom">Prénom</label>
@@ -324,9 +324,8 @@ if(isset($_SESSION['profil']))
           </div>
           <div class="modal-body">
             <form action="../../Traitement/Dossier/dossierTphp" method="post">
-=======
             <form action="../../Traitement/Dossier/dossierPatienTphp" method="post">
->>>>>>> 240002fb6e0bb6142ed03481c0c1214477227a70
+
 
               <div class="form-group">
                 <label for="appointment_name" class="text-black" name="Prenom">Prénom</label>
