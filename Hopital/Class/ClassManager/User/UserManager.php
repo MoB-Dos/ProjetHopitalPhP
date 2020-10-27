@@ -63,8 +63,8 @@
 
           $mdpc = md5($mdpc);
           
-          $req = $bdd->prepare('INSERT INTO user (login,mdpc,mdp,mail,profil,dossier) VALUES (?,?,?,?,?,?)');
-          $req -> execute(array($login,$mdpc,$mdp,$mail,$profil,$dossier));
+          $req = $bdd->prepare('INSERT INTO user (login,mdpc,mail,profil,dossier) VALUES (?,?,?,?,?)');
+          $req -> execute(array($login,$mdpc,$mail,$profil,$dossier));
           var_dump($req);
 
           //Envoi du mail de confirmation
@@ -97,6 +97,8 @@
   {
     //Démarrage de la session
     session_start ();
+
+    
   
     $mdp = $connexion->getMdp();
     $login = $connexion->getLogin();
@@ -111,14 +113,18 @@
       die('Erreur:'.$e->getMessage());
     }
   
-  
+    
+    $mdp = md5($mdp);
+
     //Sélection dans la table utilisateur
-    $reponse=$bdd->prepare('SELECT * FROM user WHERE login = :login AND mdp = :mdp');
+    $reponse=$bdd->prepare('SELECT * FROM user WHERE login = :login AND mdpc = :mdpc');
     $reponse->execute(array(
       'login' => $login,
-      'mdp' => $mdp,
+      'mdpc' => $mdp,
     ));
-  
+    
+
+    var_dump($mdp);
     $data =$reponse->fetch();
   
     //Pour chaque donnée
@@ -127,8 +133,11 @@
       if (isset($login) && isset($mdp))
       {
   
+
+        
+        
         //Si les données correspondent au données de la base de données
-        if ($data['login'] == $login && $data['mdp'] == $mdp)
+        if ($data['login'] == $login && $data['mdpc'] == $mdp)
         {
           //On enregistre login et prénom dans la session
   
