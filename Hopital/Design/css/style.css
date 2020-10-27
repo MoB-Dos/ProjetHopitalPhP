@@ -8544,7 +8544,7 @@ textarea.form-control {
     text-transform: uppercase;
     letter-spacing: .1em; }
 
-.block-2 {
+/* .block-2 {
   margin-bottom: 50px;
   -webkit-perspective: 1000;
   -moz-perspective: 1000;
@@ -8688,7 +8688,7 @@ textarea.form-control {
       -webkit-transform: rotateY(180deg);
       -moz-transform: rotateY(180deg);
       -o-transform: rotateY(180deg);
-      transform: rotateY(180deg); } }
+      transform: rotateY(180deg); } } */
 
 .block-20 {
   overflow: hidden;

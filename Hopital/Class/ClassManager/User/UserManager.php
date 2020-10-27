@@ -395,32 +395,20 @@ public function Recherche(SetUpGestion $rd){
               ?>
 
 
-<div class="col-md-6 col-lg-3 ftco-animate">
-	          <div class="block-2">
-	            <div class="flipper">
-	              <div class="front" style="background-image: url('<?php echo($result3[5]); ?>');">
-	                <div class="box">
-	                  <h2><?php echo($result3[1]." ".$result3[2]); ?></h2>
-	                  <p><?php echo($result3[3]); ?></p>
-	                </div>
-	              </div>
-	              <div class="back">
-	                <!-- back content -->
-	                <blockquote>
-	                  <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem&rdquo;</p>
-	                </blockquote>
-	                <div class="author d-flex">
-	                  <div class="image mr-3 align-self-center">
-	                    <div class="img" style="background-image: url('<?php echo($result3[5]); ?>');"></div>
-	                  </div>
-	                  <div class="name align-self-center"><?php echo($result3[1].$result3[2]) ?><span class="position"><?php echo($result3[3]); ?></span></div>
-	                </div>
-	              </div>
-	            </div>
-	          </div> <!-- .flip-container -->
-            </div>
-            <?php
-            }
+<div class="col-md-6 col-lg-3">
+	  <div class="block-2">
+	    <div class="front" style="background-image: url('<?php echo($result3[5]); ?>');">
+	      <div class="box">
+	          <h2><?php echo($result3[1]." ".$result3[2]); ?></h2>
+	          <p><?php echo($result3[3]); ?></p>
+	      </div>
+	   </div>
+	  </div> 
+</div>
+<?php
+            
+          
+          }
           }
 
 

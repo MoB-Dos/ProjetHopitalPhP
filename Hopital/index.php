@@ -54,7 +54,7 @@
   <body>
     
     <!-- START nav -->
-    <?php  require_once('Tools/NavBar2.php') ?>
+    <?php  require_once('Tools/NavBar.php') ?>
     <!-- END nav -->
     
     <div class="hero-wrap" style="background-image: url('Design/images/bg_1.jpg'); background-attachment:fixed;">

@@ -26,10 +26,10 @@ if(isset($_SESSION['profil']))
         </a>
         </li>
         <li class="nav-item active"><a href="../../index.php" class="nav-link">Accueil</a></li>
-        <li class="nav-item active"><a href="aPropos.php" class="nav-link">A propos</a></li>
-        <li class="nav-item active"><a href="departement.php" class="nav-link">Département</a></li>
-        <li class="nav-item active"><a href="docteur.php" class="nav-link">Docteur</a></li>
-        <li class="nav-item active"><a href="contact.php" class="nav-link">Contact</a></li>
+        <li class="nav-item active"><a href="/enzobirba/ProjethopitalPHP/Hopital/View/Page/aPropos.php" class="nav-link">A propos</a></li>
+        <li class="nav-item active"><a href="/enzobirba/ProjethopitalPHP/Hopital/View/Page/departement.php" class="nav-link">Département</a></li>
+        <li class="nav-item active"><a href="/enzobirba/ProjethopitalPHP/Hopital/View/Page/docteur.php" class="nav-link">Docteur</a></li>
+        <li class="nav-item active"><a href="/enzobirba/ProjethopitalPHP/Hopital/View/Page/contact.php" class="nav-link">Contact</a></li>
 
 
         <div class="btn-group">
@@ -76,7 +76,7 @@ if(isset($_SESSION['profil']))
           <a class="dropdown-item" href="#">Mes rendez-vous</a>
           <a class="dropdown-item" href="#">Modifier mon profil</a>
         <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="../../Traitement/User/decoT.php">Déconnexion</a>
+          <a class="dropdown-item" href="/enzobirba/ProjethopitalPHP/Hopital/Traitement/User/decoT.php">Déconnexion</a>
         </div> 
 
         <?php
@@ -124,11 +124,11 @@ if(isset($_SESSION['profil']))
     <div class="collapse navbar-collapse" id="ftco-nav">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active"><a href="zoneTest.php" class="nav-link">! Zone de TEST !</a></li>
-        <li class="nav-item active"><a href="../../index.php" class="nav-link">Accueil</a></li>
-        <li class="nav-item"><a href="aPropos.php" class="nav-link">A propos</a></li>
-        <li class="nav-item"><a href="departement.php" class="nav-link">Département</a></li>
-        <li class="nav-item"><a href="docteur.php" class="nav-link">Docteur</a></li>
-        <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
+        <li class="nav-item active"><a href="/enzobirba/ProjethopitalPHP/Hopital/index.php" class="nav-link">Accueil</a></li>
+        <li class="nav-item"><a href="/enzobirba/ProjethopitalPHP/Hopital/View/Page/aPropos.php" class="nav-link">A propos</a></li>
+        <li class="nav-item"><a href="/enzobirba/ProjethopitalPHP/Hopital/View/Page/departement.php" class="nav-link">Département</a></li>
+        <li class="nav-item"><a href="/enzobirba/ProjethopitalPHP/Hopital/View/Page/docteur.php" class="nav-link">Docteur</a></li>
+        <li class="nav-item"><a href="/enzobirba/ProjethopitalPHP/Hopital/View/Page/contact.php" class="nav-link">Contact</a></li>
         <li class="nav-item cta"><a href="contact.html" class="nav-link"  style="margin-right: 5px;" data-toggle="modal" data-target="#Connexion"><span>Connexion</span></a></li>
         <li class="nav-item cta"><a href="contact.html" class="nav-link" data-toggle="modal" data-target="#Inscription"><span>Inscription</span></a></li>
       </ul>
@@ -157,7 +157,7 @@ if(isset($_SESSION['profil']))
             </button>
           </div>
           <div class="modal-body">
-            <form action="Traitement/User/connexionT.php" method="post">
+            <form action="/enzobirba/ProjethopitalPHP/Hopital/Traitement/User/connexionT.php" method="post">
               <div class="form-group">
                 <label for="appointment_name" class="text-black" name="login">Login</label>
                 <input type="text" class="form-control" id="login" name="login">
@@ -201,7 +201,7 @@ if(isset($_SESSION['profil']))
             </button>
           </div>
           <div class="modal-body">
-            <form action="Traitement/User/inscriptionT.php" method="post">
+            <form action="/enzobirba/ProjethopitalPHP/Hopital/Traitement/User/inscriptionT.php" method="post">
 
               <div class="form-group">
                 <label for="appointment_name" class="text-black" name="login">Login</label>
@@ -259,7 +259,76 @@ if(isset($_SESSION['profil']))
             </button>
           </div>
           <div class="modal-body">
-            <form action="/killian/ProjethopitalPhp/hopital/Traitement/Dossier/dossierPatienT.php" method="post">
+
+            <form action="/ProjethopitalPhp/hopital/Traitement/Dossier/dossierPatienT.php" method="post">
+
+          
+
+              <div class="form-group">
+                <label for="appointment_name" class="text-black" name="Prenom">Prénom</label>
+                <input type="text" class="form-control" id="Prenom">
+              </div>
+
+              <div class="form-group">
+                <label for="appointment_name" class="text-black" name="Nom">Nom</label>
+                <input type="text" class="form-control" id="Nom">
+              </div>
+
+              <div class="form-group">
+                <label for="appointment_name" class="text-black" name="Date">Date de naissance</label>
+                <input type="Date" class="form-control" id="Date">
+              </div>
+
+              <div class="form-group">
+                <label for="appointment_name" class="text-black" name="Adresse">Adresse</label>
+                <input type="text" class="form-control" id="Adresse">
+              </div>
+
+              <div class="form-group">
+                <label for="appointment_name" class="text-black" name="sq">"sq"</label>
+                <input type="text" class="form-control" id="sq">
+              </div>
+
+              <div class="form-group">
+                <label for="appointment_name" class="text-black" name="OptionTV">Option TV</label>
+                <input type="text" class="form-control" id="OptionTV">
+              </div>
+
+              <div class="form-group">
+                <label for="appointment_email" class="text-black"name="Regime">Regime</label>
+                <input type="text" class="form-control" id="Regime">
+              </div>
+          
+                
+              
+              <div class="form-group">
+                <input type="submit" value="Continuer" class="btn btn-primary">
+              </div>
+              
+            </form>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+
+
+<!--Rendez vous -->
+  <div class="modal fade" id="DossierCréation" tabindex="-1" role="dialog" aria-labelledby="modalAppointmentLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalAppointmentLabel">Votre Dossier Patient</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="../../Traitement/Dossier/dossierTphp" method="post">
+            <form action="../../Traitement/Dossier/dossierPatienTphp" method="post">
+
+
 
               <div class="form-group">
                 <label for="appointment_name" class="text-black" name="Prenom">Prénom</label>
