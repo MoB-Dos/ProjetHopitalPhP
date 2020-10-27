@@ -16,13 +16,14 @@
     <!-- END nav -->
     
     <div class="hero-wrap" style="background-image: url('../../Design/images/bg_6.jpg'); background-attachment:fixed;">
+	<div class="hero-wrap" style="background-image: url('../../Design/images/bg_6.jpg'); background-attachment:fixed;">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
           <div class="col-md-8 ftco-animate text-center">
-            <p class="breadcrumbs"><span class="mr-2"><a href="index.php">Accueil</a></span> <span>Docteur</span></p>
+            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Accueil</a></span> <span>Docteur</span></p>
             <h1 class="mb-3 bread">Des Docteurs exeptionel</h1>
-			<form action="Recherche.php" class="subscribe-form" method="post">
+			<form action="../Tools/Recherche.php" class="subscribe-form" method="post">
                     <div class="form-group d-flex">
                       <input type="text"name="Recherche" class="form-control" placeholder="Entrer votre recherche">
                       <input type="submit" value="Recherche" class="submit px-3">
@@ -37,7 +38,7 @@
         	<div class="col-md-6 col-lg-3 ftco-animate">
 	          <div class="block-2">
 	            <div class="flipper">
-	              <div class="front" style="background-image: url(../../Design/images/doctor-1.jpg);">
+	              <div class="front" style="background-image: url('../../Design/images/doctor-1.jpg');">
 	                <div class="box">
 	                  <h2>Aldin Powell</h2>
 	                  <p>Neurologue</p>
@@ -50,7 +51,7 @@
 	                </blockquote>
 	                <div class="author d-flex">
 	                  <div class="image mr-3 align-self-center">
-	                    <div class="img" style="background-image: url(../../Design/images/doctor-1.jpg);"></div>
+	                    <div class="img" style="background-image: url('../../Design/images/doctor-1.jpg');"></div>
 	                  </div>
 	                  <div class="name align-self-center">Aldin Powell <span class="position">Neurologist</span></div>
 	                </div>
@@ -61,7 +62,7 @@
 	        <div class="col-md-6 col-lg-3 ftco-animate">
 	          <div class="block-2">
 	            <div class="flipper">
-	              <div class="front" style="background-image: url(../../Design/images/doctor-2.jpg);">
+	              <div class="front" style="background-image: url('../../Design/images/doctor-2.jpg');">
 	                <div class="box">
 	                  <h2>Aldin Powell</h2>
 	                  <p>Pediatrician</p>
@@ -74,7 +75,7 @@
 	                </blockquote>
 	                <div class="author d-flex">
 	                  <div class="image mr-3 align-self-center">
-	                    <div class="img" style="background-image: url(../../Design/images/doctor-2.jpg);"></div>
+	                    <div class="img" style="background-image: url('../../Design/images/doctor-2.jpg');"></div>
 	                  </div>
 	                  <div class="name align-self-center">Aldin Powell <span class="position">Pediatrician</span></div>
 	                </div>
@@ -85,7 +86,7 @@
 	        <div class="col-md-6 col-lg-3 ftco-animate">
 	          <div class="block-2">
 	            <div class="flipper">
-	              <div class="front" style="background-image: url(../../Design/images/doctor-3.jpg);">
+	              <div class="front" style="background-image: url('../../Design/images/doctor-3.jpg');">
 	                <div class="box">
 	                  <h2>Aldin Powell</h2>
 	                  <p>Ophthalmologist</p>
@@ -98,7 +99,7 @@
 	                </blockquote>
 	                <div class="author d-flex">
 	                  <div class="image mr-3 align-self-center">
-	                    <div class="img" style="background-image: url(../../Design/images/doctor-3.jpg);"></div>
+	                    <div class="img" style="background-image: url('../../Design/images/doctor-3.jpg');"></div>
 	                  </div>
 	                  <div class="name align-self-center">Aldin Powell <span class="position">Ophthalmologist</span></div>
 	                </div>
@@ -109,7 +110,7 @@
 	        <div class="col-md-6 col-lg-3 ftco-animate">
 	          <div class="block-2">
 	            <div class="flipper">
-	              <div class="front" style="background-image: url(../../Design/images/doctor-4.jpg);">
+	              <div class="front" style="background-image: url('../../Design/images/doctor-4.jpg');">
 	                <div class="box">
 	                  <h2>Aldin Powell</h2>
 	                  <p>Pulmonologist</p>
@@ -122,7 +123,7 @@
 	                </blockquote>
 	                <div class="author d-flex">
 	                  <div class="image mr-3 align-self-center">
-	                    <div class="img" style="background-image: url(../../Design/images/doctor-4.jpg);"></div>
+	                    <div class="img" style="background-image: url('../../Design/images/doctor-4.jpg');"></div>
 	                  </div>
 	                  <div class="name align-self-center">Aldin Powell <span class="position">Pulmonologist</span></div>
 	                </div>
@@ -134,7 +135,7 @@
 	        <div class="col-md-6 col-lg-3 ftco-animate">
 	          <div class="block-2">
 	            <div class="flipper">
-	              <div class="front" style="background-image: url(../../Design/images/doctor-1.jpg);">
+	              <div class="front" style="background-image: url('../../Design/images/doctor-1.jpg');">
 	                <div class="box">
 	                  <h2>Aldin Powell</h2>
 	                  <p>Neurologist</p>
@@ -147,7 +148,7 @@
 	                </blockquote>
 	                <div class="author d-flex">
 	                  <div class="image mr-3 align-self-center">
-	                    <div class="img" style="background-image: url(../../Design/images/doctor-1.jpg);"></div>
+	                    <div class="img" style="background-image: url('../../Design/images/doctor-1.jpg');"></div>
 	                  </div>
 	                  <div class="name align-self-center">Aldin Powell <span class="position">Neurologist</span></div>
 	                </div>
@@ -158,7 +159,7 @@
 	        <div class="col-md-6 col-lg-3 ftco-animate">
 	          <div class="block-2">
 	            <div class="flipper">
-	              <div class="front" style="background-image: url(../../Design/images/doctor-2.jpg);">
+	              <div class="front" style="background-image: url('../../Design/images/doctor-2.jpg');">
 	                <div class="box">
 	                  <h2>Aldin Powell</h2>
 	                  <p>Pediatrician</p>
@@ -171,7 +172,7 @@
 	                </blockquote>
 	                <div class="author d-flex">
 	                  <div class="image mr-3 align-self-center">
-	                    <div class="img" style="background-image: url(../../Design/images/doctor-2.jpg);"></div>
+	                    <div class="img" style="background-image: url('../../Design/images/doctor-2.jpg');"></div>
 	                  </div>
 	                  <div class="name align-self-center">Aldin Powell <span class="position">Pediatrician</span></div>
 	                </div>
@@ -182,7 +183,7 @@
 	        <div class="col-md-6 col-lg-3 ftco-animate">
 	          <div class="block-2">
 	            <div class="flipper">
-	              <div class="front" style="background-image: url(../../Design/images/doctor-3.jpg);">
+	              <div class="front" style="background-image: url('../../Design/images/doctor-3.jpg');">
 	                <div class="box">
 	                  <h2>Aldin Powell</h2>
 	                  <p>Ophthalmologist</p>
@@ -195,7 +196,7 @@
 	                </blockquote>
 	                <div class="author d-flex">
 	                  <div class="image mr-3 align-self-center">
-	                    <div class="img" style="background-image: url(../../Design/images/doctor-3.jpg);"></div>
+	                    <div class="img" style="background-image: url('../../Design/images/doctor-3.jpg');"></div>
 	                  </div>
 	                  <div class="name align-self-center">Aldin Powell <span class="position">Ophthalmologist</span></div>
 	                </div>
@@ -206,7 +207,7 @@
 	        <div class="col-md-6 col-lg-3 ftco-animate">
 	          <div class="block-2">
 	            <div class="flipper">
-	              <div class="front" style="background-image: url(../../Design/images/doctor-4.jpg);">
+	              <div class="front" style="background-image: url('../../Design/images/doctor-4.jpg');">
 	                <div class="box">
 	                  <h2>Aldin Powell</h2>
 	                  <p>Pulmonologist</p>
@@ -219,7 +220,7 @@
 	                </blockquote>
 	                <div class="author d-flex">
 	                  <div class="image mr-3 align-self-center">
-	                    <div class="img" style="background-image: url(../../Design/images/doctor-4.jpg);"></div>
+	                    <div class="img" style="background-image: url('../../Design/images/doctor-4.jpg');"></div>
 	                  </div>
 	                  <div class="name align-self-center">Aldin Powell <span class="position">Pulmonologist</span></div>
 	                </div>

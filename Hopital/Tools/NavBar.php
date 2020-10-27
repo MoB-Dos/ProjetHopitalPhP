@@ -259,7 +259,7 @@ if(isset($_SESSION['profil']))
             </button>
           </div>
           <div class="modal-body">
-            <form action="../../Traitement/Dossier/dossierTphp" method="post">
+            <form action="../../Traitement/Dossier/dossierPatienTphp" method="post">
 
               <div class="form-group">
                 <label for="appointment_name" class="text-black" name="Prenom">Prénom</label>
