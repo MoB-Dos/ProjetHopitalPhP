@@ -259,6 +259,7 @@ if(isset($_SESSION['profil']))
             </button>
           </div>
           <div class="modal-body">
+<<<<<<< HEAD
             <form action="/enzobirba/ProjethopitalPHP/Hopital/Traitement/Dossier/dossierTphp" method="post">
 
               <div class="form-group">
@@ -323,6 +324,9 @@ if(isset($_SESSION['profil']))
           </div>
           <div class="modal-body">
             <form action="../../Traitement/Dossier/dossierTphp" method="post">
+=======
+            <form action="../../Traitement/Dossier/dossierPatienTphp" method="post">
+>>>>>>> 240002fb6e0bb6142ed03481c0c1214477227a70
 
               <div class="form-group">
                 <label for="appointment_name" class="text-black" name="Prenom">Prénom</label>

@@ -395,35 +395,25 @@ public function Recherche(SetUpGestion $rd){
               ?>
 
 
-<div class="col-md-6 col-lg-3 ftco-animate">
-	          <div class="block-2">
-	            <div class="flipper">
-	              <div class="front" style="background-image: url(images/doctor-1.jpg);">
-	                <div class="box">
-	                  <h2><?php echo($result3[1].$result3[2]); ?></h2>
-	                  <p><?php echo($result3[3]); ?></p>
-	                </div>
-	              </div>
-	              <div class="back">
-	                <!-- back content -->
-	                <blockquote>
-	                  <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem&rdquo;</p>
-	                </blockquote>
-	                <div class="author d-flex">
-	                  <div class="image mr-3 align-self-center">
-	                    <div class="img" style="background-image: url(images/doctor-1.jpg);"></div>
-	                  </div>
-	                  <div class="name align-self-center">echo($result3[1].$result3[2]) <span class="position"><?php echo($result3[3]); ?></span></div>
-	                </div>
-	              </div>
-	            </div>
-	          </div> <!-- .flip-container -->
-            <?php
-            }
+<div class="col-md-6 col-lg-3">
+	  <div class="block-2">
+	    <div class="front" style="background-image: url('<?php echo($result3[5]); ?>');">
+	      <div class="box">
+	          <h2><?php echo($result3[1]." ".$result3[2]); ?></h2>
+	          <p><?php echo($result3[3]); ?></p>
+	      </div>
+	   </div>
+	  </div> 
+</div>
+<?php
+            
+          
+          }
           }
 
 
 }
+
 
 
 
@@ -526,6 +516,45 @@ public function ModificationGestion(SetUpGestion $connexion)
     $this-> Deconnexion();
 
     $_SESSION['login'] = $login;
+
+}
+
+public function creeDossier() //en cours
+{
+
+  $prenom = $ajout->getPrenom();
+  $nom =$ajout->getNom();
+  $date = $ajout->getDate();
+  $adresse = $ajout->getAdresse();
+  $sq = $ajout->getSq();
+  $optionTv = $ajout->getOptionTv();
+  $regime = $ajout->getRegime();
+//$_SESSION['login']
+  $profil="user";
+  //var_dump($mail, $login, $mdp, $mdpc);
+
+  //Connexion à la base de données projetweb
+  try
+  {
+  $bdd= new PDO('mysql:host=localhost;dbname=hopitalphp;charset=utf8','root','');
+  }
+  catch(Exception $e)
+  {
+    die('Erreur:'.$e->getMessage());
+  }
+  $reponse=$bdd->prepare('SELECT idInfo FROM infouser WHERE login = :login');
+  $reponse->execute(array(
+    'login' => $_SESSION['login'],
+  ));
+  $result=$reponse->fetch();
+ehcho($result);
+  var_dump($_SESSION['login']);
+
+  //Sélection des données dans la table utilisateur
+  $reponse=$bdd->prepare('INSERT INTO infouser (idInfo, prenom, nom, date, adresse, mutuel, sq, optionTele, regime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);');
+  $reponse->execute(array($login,$mail)); 
+
+  $data=$reponse->fetchall();
 
 }
 
