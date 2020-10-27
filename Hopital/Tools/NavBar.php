@@ -347,9 +347,37 @@ if(isset($_SESSION['profil']))
               </div>
 
               <div class="form-group">
+                <label for="appointment_name" class="text-black" name="Date">Secteur</label>
+                <select class="form-control">
+							    <option value="0" selected disabled>choissisez votre Secteur</option>
+	                  <?php
+					          	try{
+						            $bdd= new PDO('mysql:host=localhost;dbname=hopitalphp;charset=utf8','root','');
+						          }
+
+						          catch(Exception $e){
+							        die('Erreur:'.$e->getMessage());
+						          }
+
+						        $reponse=$bdd->query('SELECT spe FROM infomedecin');
+						        $donne=$reponse->fetchall();
+						        foreach ($donne as $value) {
+							        echo '<option>'.$value['spe'].'</option>';
+						        }
+
+						        ?>
+
+                </select>
+                
+              </div>
+
+
+
+
+              <div class="form-group">
                 <label for="appointment_name" class="text-black" name="Date">Médecin</label>
                 <select class="form-control">
-							    <option value="0" selected disabled>choissisez votre Classe !</option>
+							    <option value="0" selected disabled>choissisez votre Médecin</option>
 	                  <?php
 					          	try{
 						            $bdd= new PDO('mysql:host=localhost;dbname=hopitalphp;charset=utf8','root','');
