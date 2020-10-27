@@ -558,6 +558,10 @@ public function creeDossier() //en cours
   $reponse->execute(array(
     'login' => $_SESSION['login'],
   ));
+  $result=$reponse->fetch();
+ehcho($result);
+  var_dump($_SESSION['login']);
+
   //Sélection des données dans la table utilisateur
   $reponse=$bdd->prepare('INSERT INTO infouser (idInfo, prenom, nom, date, adresse, mutuel, sq, optionTele, regime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);');
   $reponse->execute(array($login,$mail)); 
