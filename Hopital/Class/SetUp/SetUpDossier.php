@@ -1,6 +1,6 @@
 <?php
 
-class SetUpUser
+class SetUpDossier
 {
   private $_nom,$_prenom,$_date,$_adresse,$_sq,$_optionTv,$_regime;
 
