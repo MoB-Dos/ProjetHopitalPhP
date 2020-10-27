@@ -212,7 +212,7 @@ if(isset($_SESSION['profil']))
               <div class="form-group">
                 <label for="appointment_email" class="text-black" name="mail">Email</label>
 
-                <input type="email" class="form-control" id="mail" name="mail" placeholder="test" required>
+                <input type="email" class="form-control" id="mail" name="mail" required>
               </div>
               
               <div class="form-group">
