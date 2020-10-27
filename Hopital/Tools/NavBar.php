@@ -124,11 +124,11 @@ if(isset($_SESSION['profil']))
     <div class="collapse navbar-collapse" id="ftco-nav">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active"><a href="zoneTest.php" class="nav-link">! Zone de TEST !</a></li>
-        <li class="nav-item active"><a href="/enzobirba/ProjethopitalPHP/Hopital/index.php" class="nav-link">Accueil</a></li>
-        <li class="nav-item"><a href="/enzobirba/ProjethopitalPHP/Hopital/View/Page/aPropos.php" class="nav-link">A propos</a></li>
-        <li class="nav-item"><a href="/enzobirba/ProjethopitalPHP/Hopital/View/Page/departement.php" class="nav-link">Département</a></li>
-        <li class="nav-item"><a href="/enzobirba/ProjethopitalPHP/Hopital/View/Page/docteur.php" class="nav-link">Docteur</a></li>
-        <li class="nav-item"><a href="/enzobirba/ProjethopitalPHP/Hopital/View/Page/contact.php" class="nav-link">Contact</a></li>
+        <li class="nav-item active"><a href="/ProjethopitalPHP/Hopital/index.php" class="nav-link">Accueil</a></li>
+        <li class="nav-item"><a href="/ProjethopitalPHP/Hopital/View/Page/aPropos.php" class="nav-link">A propos</a></li>
+        <li class="nav-item"><a href="/ProjethopitalPHP/Hopital/View/Page/departement.php" class="nav-link">Département</a></li>
+        <li class="nav-item"><a href="/ProjethopitalPHP/Hopital/View/Page/docteur.php" class="nav-link">Docteur</a></li>
+        <li class="nav-item"><a href="/ProjethopitalPHP/Hopital/View/Page/contact.php" class="nav-link">Contact</a></li>
         <li class="nav-item cta"><a href="contact.html" class="nav-link"  style="margin-right: 5px;" data-toggle="modal" data-target="#Connexion"><span>Connexion</span></a></li>
         <li class="nav-item cta"><a href="contact.html" class="nav-link" data-toggle="modal" data-target="#Inscription"><span>Inscription</span></a></li>
       </ul>
@@ -201,7 +201,7 @@ if(isset($_SESSION['profil']))
             </button>
           </div>
           <div class="modal-body">
-            <form action="/enzobirba/ProjethopitalPHP/Hopital/Traitement/User/inscriptionT.php" method="post">
+            <form action="/ProjethopitalPHP/Hopital/Traitement/User/inscriptionT.php" method="post">
 
               <div class="form-group">
                 <label for="appointment_name" class="text-black" name="login">Login</label>
@@ -260,7 +260,7 @@ if(isset($_SESSION['profil']))
           </div>
           <div class="modal-body">
 
-            <form action="/enzobirba/ProjethopitalPHP/Hopital/Traitement/Dossier/dossierT.php" method="post">
+            <form action="/ProjethopitalPHP/Hopital/Traitement/Dossier/dossierT.php" method="post">
 
               <div class="form-group">
                 <label for="appointment_name" class="text-black" name="Prenom">Prénom</label>
@@ -323,8 +323,8 @@ if(isset($_SESSION['profil']))
             </button>
           </div>
           <div class="modal-body">
-            <form action="../../Traitement/Dossier/dossierTphp" method="post">
-            <form action="../../Traitement/Dossier/dossierPatienTphp" method="post">
+            
+            <form action="/ProjethopitalPHP/Hopital/Traitement/Dossier/dossierPatienTphp" method="post">
 
 
               <div class="form-group">
