@@ -63,8 +63,8 @@
 
           $mdpc = md5($mdpc);
           
-          $req = $bdd->prepare('INSERT INTO user (login,mdpc,mdp,mail,profil,dossier) VALUES (?,?,?,?,?,?)');
-          $req -> execute(array($login,$mdpc,$mdp,$mail,$profil,$dossier));
+          $req = $bdd->prepare('INSERT INTO user (login,mdpc,mail,profil,dossier) VALUES (?,?,?,?,?)');
+          $req -> execute(array($login,$mdpc,$mail,$profil,$dossier));
           var_dump($req);
 
           //Envoi du mail de confirmation
