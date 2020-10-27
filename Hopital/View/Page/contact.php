@@ -18,8 +18,8 @@
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
           <div class="col-md-8 ftco-animate text-center">
-            <p class="breadcrumbs"><span class="mr-2"><a href="index.php">Home</a></span> <span>Blog</span></p>
-            <h1 class="mb-3 bread">Contact Us</h1>
+            <p class="breadcrumbs"><span class="mr-2"><a href="index.php">Accueil</a></span> <span>Blog</span></p>
+            <h1 class="mb-3 bread">Contactez Nous</h1>
           </div>
         </div>
       </div>
@@ -33,35 +33,35 @@
           </div>
           <div class="w-100"></div>
           <div class="col-md-3">
-            <p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
+            <p><span>adresse:</span> 1 Avenue Claude Vellefaux</p>
           </div>
           <div class="col-md-3">
-            <p><span>Phone:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
+            <p><span>téléphone:</span> <a href="tel://1234567920">01 65v45 23 09</a></p>
           </div>
           <div class="col-md-3">
-            <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+            <p><span>mail:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
           </div>
           <div class="col-md-3">
-            <p><span>Website</span> <a href="#">yoursite.com</a></p>
+            <p><span>site</span> <a href="#">hopitalbariller.com</a></p>
           </div>
         </div>
         <div class="row block-9">
           <div class="col-md-6 pr-md-5">
             <form action="#">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Your Name">
+                <input type="text" class="form-control" placeholder="Votre Nom">
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Your Email">
+                <input type="text" class="form-control" placeholder="Votre mail">
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Subject">
+                <input type="text" class="form-control" placeholder="Sujet">
               </div>
               <div class="form-group">
                 <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
               </div>
               <div class="form-group">
-                <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+                <input type="submit" value="Envoyez le Message" class="btn btn-primary py-3 px-5">
               </div>
             </form>
           

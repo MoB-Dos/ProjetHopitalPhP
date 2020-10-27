@@ -22,7 +22,7 @@
         <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
           <div class="col-md-8 ftco-animate text-center">
             <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Accueil</a></span> <span>Docteur</span></p>
-            <h1 class="mb-3 bread">Des Docteurs exeptionel</h1>
+            <h1 class="mb-3 bread">Des Docteurs exceptionnel</h1>
 			<form action="../Tools/Recherche.php" class="subscribe-form" method="post">
                     <div class="form-group d-flex">
                       <input type="text"name="Recherche" class="form-control" placeholder="Entrer votre recherche">
