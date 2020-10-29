@@ -13,23 +13,64 @@
 
 
 
-<script>
-$(document).ready(function(){
-    $("#myTooltips a").tooltip({
-        
-        template : '<div class="tooltip tooltip-custom"> <div class="title"></div> <div class="tooltip-arrow"> </div> <div class="tooltip-head">  <h6> <i class="fas fa-exclamation-triangle"> </i> <span> Dossier Manquant </span> </h6> </div> </div>'
-    });
-});
-</script>
+
+
 
 </head>
 <body>
-<div class="bs-example"> 
-    <div id="myTooltips">
-        
-        <a href="#" data-toggle="tooltip" data-placement="right" title="Cliquez ici pour Créer votre dossier "><i class="fas fa-exclamation-triangle"> </i></a>
-        
-    </div>
+
+
+<section class="ftco-section">
+<div class="row">
+<div class="col-sm-2" class="mycard">
+            <div class="card-deck">
+                <div class="card"  style="width: 5rem;">
+                    <img class="card-img-top" src="../Design/images/doctor-1.jpg" alt="Card image cap">
+                    <div class="card-header bg-primary text-light">  <h3 class="card-title">Cardiologue</h5></div>
+                    <div class="card-body">
+                        <h3 class="card-title">JARVES Paul</h5>
+                    </div>
+                </div>
+            </div>
 </div>
+<div class="col-sm-2" class="mycard">
+            <div class="card-deck">
+                <div class="card"  style="width: 5rem;">
+                    <img class="card-img-top" src="../Design/images/doctor-1.jpg" alt="Card image cap">
+                    <div class="card-header bg-primary text-light">  <h3 class="card-title">Cardiologue</h5></div>
+                    <div class="card-body">
+                        <h3 class="card-title">JARVES Paul</h5>
+                    </div>
+                </div>
+            </div>
+</div>
+<div class="col-sm-2" class="mycard">
+            <div class="card-deck">
+                <div class="card"  style="width: 5rem;">
+                    <img class="card-img-top" src="../Design/images/doctor-1.jpg" alt="Card image cap">
+                    <div class="card-header bg-primary text-light">  <h3 class="card-title">Cardiologue</h5></div>
+                    <div class="card-body">
+                        <h3 class="card-title">JARVES Paul</h5>
+                    </div>
+                </div>
+            </div>
+</div>
+</div>
+</div>
+</div>
+
+<style>
+
+.mycard{
+
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+}
+ 
+
+
+</style>
+
 </body>   
 </html>
