@@ -1,22 +1,20 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
--- https://www.phpmyadmin.net/
+-- version 4.1.14
+-- http://www.phpmyadmin.net
 --
--- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 27 oct. 2020 à 10:18
--- Version du serveur :  5.7.26
--- Version de PHP :  7.2.18
+-- Client :  127.0.0.1
+-- Généré le :  Ven 30 Octobre 2020 à 16:31
+-- Version du serveur :  5.6.17
+-- Version de PHP :  5.5.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Base de données :  `hopitalphp`
@@ -28,7 +26,6 @@ SET time_zone = "+00:00";
 -- Structure de la table `infomedecin`
 --
 
-DROP TABLE IF EXISTS `infomedecin`;
 CREATE TABLE IF NOT EXISTS `infomedecin` (
   `idMedecin` int(11) NOT NULL,
   `nom` varchar(25) NOT NULL,
@@ -36,8 +33,19 @@ CREATE TABLE IF NOT EXISTS `infomedecin` (
   `spe` varchar(20) NOT NULL,
   `lieu` varchar(35) NOT NULL,
   `photo` text NOT NULL,
+  `lien` text NOT NULL,
   PRIMARY KEY (`idMedecin`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `infomedecin`
+--
+
+INSERT INTO `infomedecin` (`idMedecin`, `nom`, `prenom`, `spe`, `lieu`, `photo`, `lien`) VALUES
+(0, 'Jarves', 'Paul', 'Cardiologue', 'Blanc-Mesnil', '/Slam2/ProjethopitalPHP/Hopital/Design/images/doctor-1.jpg', '/Slam2/ProjethopitalPHP/Hopital/View/PageDocteur/Cardiologue/jarvespaul.php'),
+(1, 'Eluard', 'Jean', 'Radiologue', 'Blanc-Mesnil', '/Slam2/ProjethopitalPHP/Hopital/Design/images/doctor-2.jpg', ''),
+(2, 'Mollary', 'Victor', 'Dérmatologue', 'Blanc-Mesnil', '/Slam2/ProjethopitalPHP/Hopital/Design/images/doctor-3.jpg', ''),
+(3, 'Isthar', 'Johan', 'Cardiologue', 'Blanc-Mesnil', '/Slam2/ProjethopitalPHP/Hopital/Design/images/doctor-4.jpg', '');
 
 -- --------------------------------------------------------
 
@@ -45,7 +53,6 @@ CREATE TABLE IF NOT EXISTS `infomedecin` (
 -- Structure de la table `infouser`
 --
 
-DROP TABLE IF EXISTS `infouser`;
 CREATE TABLE IF NOT EXISTS `infouser` (
   `idInfo` int(11) NOT NULL,
   `nom` varchar(25) NOT NULL,
@@ -62,10 +69,22 @@ CREATE TABLE IF NOT EXISTS `infouser` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `rdv`
+--
+
+CREATE TABLE IF NOT EXISTS `rdv` (
+  `idRDV` int(11) NOT NULL,
+  `heure` time NOT NULL,
+  `date` date NOT NULL,
+  `motif` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `rendezvous`
 --
 
-DROP TABLE IF EXISTS `rendezvous`;
 CREATE TABLE IF NOT EXISTS `rendezvous` (
   `idRdv` int(11) NOT NULL,
   `departement` varchar(30) NOT NULL,
@@ -84,7 +103,6 @@ CREATE TABLE IF NOT EXISTS `rendezvous` (
 -- Structure de la table `user`
 --
 
-DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `login` varchar(25) NOT NULL,
@@ -94,10 +112,10 @@ CREATE TABLE IF NOT EXISTS `user` (
   `profil` varchar(9) NOT NULL,
   `dossier` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
 
 --
--- Déchargement des données de la table `user`
+-- Contenu de la table `user`
 --
 
 INSERT INTO `user` (`id`, `login`, `mdpc`, `mail`, `token`, `profil`, `dossier`) VALUES
@@ -107,7 +125,7 @@ INSERT INTO `user` (`id`, `login`, `mdpc`, `mail`, `token`, `profil`, `dossier`)
 (4, 'test_Doc', '89df4f3cd604f5fccb2345ab329f327c', 'test_Doc@gmail.com', NULL, 'medecin', 0);
 
 --
--- Contraintes pour les tables déchargées
+-- Contraintes pour les tables exportées
 --
 
 --
@@ -115,7 +133,6 @@ INSERT INTO `user` (`id`, `login`, `mdpc`, `mail`, `token`, `profil`, `dossier`)
 --
 ALTER TABLE `rendezvous`
   ADD CONSTRAINT `fk_medecin` FOREIGN KEY (`idMedecin`) REFERENCES `infomedecin` (`idMedecin`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
