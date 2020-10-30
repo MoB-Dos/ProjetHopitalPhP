@@ -394,17 +394,29 @@ public function Recherche(SetUpGestion $rd){
               
               ?>
 
-
-<div class="col-md-6 col-lg-3">
-	  <div class="block-2">
-	    <div class="front" style="background-image: url('<?php echo($result3[5]); ?>');">
-	      <div class="box">
-	          <h2><?php echo($result3[1]." ".$result3[2]); ?></h2>
-	          <p><?php echo($result3[3]); ?></p>
-	      </div>
-	   </div>
-	  </div> 
-</div>
+<div class="col-md-6 col-lg-3 ftco-animate">
+                      <div class="block-2">
+                
+                        <div class="front" href="../index.php" style="background-image: url(<?php echo($result3[5]); ?>);">
+                          <div class="box" >
+                            <h3><?php echo($result3[1]." ".$result3[2]); ?></h3>
+                            <p><?php echo($result3[3]); ?></p>
+                            <a href="../index.php">
+                              Voir le Profil
+                            </a> 
+                          </div>
+                        </div>
+                        <div class="back">
+                        <!-- back content -->
+                        
+                        <div class="author d-flex">
+                          <div class="image mr-3 align-self-center">
+                            <div class="img" style="background-image: url('.$value['photo'].');"></div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                    </div></div>
 <?php
             
           

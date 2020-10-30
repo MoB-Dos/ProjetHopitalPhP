@@ -37,33 +37,69 @@
         <div class="row">
 		 
 		<!-- Début carte -->
-		<div class="col-md-6 col-lg-3 ftco-animate">
-	          <div class="block-2">
-	            
-	              <div class="front" href="../index.php" style="background-image: url('../../Design/images/doctor-2.jpg');">
-	                <div class="box" >
-	                  <h3>Aldin Powell</h3>
-                    <p>Neurologue</p>
-                    <a href="../index.php">
-                    Voir le Profil
-                    </a> 
-	                </div>
-	              </div>
-	              <div class="back">
-	                <!-- back content -->
-	                
-	                <div class="author d-flex">
-	                  <div class="image mr-3 align-self-center">
-	                    <div class="img" style="background-image: url('../../Design/images/doctor-1.jpg');"></div>
-	                  </div>
-	                  
-	                </div>
-	              </div>
-	            </div>
-			</div>
-		</div>
+    <?php
+							// on se connecte à notre base
+							try
+							{
+							$bdd= new PDO('mysql:host=localhost;dbname=hopitalphp;charset=utf8','root','');
+							}
+							catch(Exception $e)
+							{
+							  die('Erreur:'.$e->getMessage());
+							}
+
+							// lancement de la requête. on sélectionne les news que l'on va ordonner suivant l'ordre "inverse" des dates (de la plus récente à la plus vieille : DESC) tout en ne sélectionnant que le nombre voulu de news à afficher (LIMIT)
+							$req = $bdd->query("SELECT * FROM infomedecin");
+							
+
+							$data=$req->fetchall();
+
+
+
+
+							if(isset($data))
+							{
+
+
+							foreach ($data as $value) {
+        
+							echo                  
+		                '<div class="col-md-6 col-lg-3 ftco-animate">
+                      <div class="block-2">
+                
+                        <div class="front" href="../index.php" style="background-image: url('.$value['photo'].');">
+                          <div class="box" >
+                            <h3>'.$value['nom']." ".$value['prenom'].'</h3>
+                            <p>'.$value['spe'].'</p>
+                            <a href="'.$value['lien'].'">
+                              Voir le Profil
+                            </a> 
+                          </div>
+                        </div>
+                        <div class="back">
+                        <!-- back content -->
+                        
+                        <div class="author d-flex">
+                          <div class="image mr-3 align-self-center">
+                            <div class="img" style="background-image: url('.$value['photo'].');"></div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                    </div></div>
+                  ';
+							}
+							}else {
+
+								echo "pas de commentaire";
+
+							}
+
+						?>
+
+
 		<!-- Fin Carte -->
-		
+		</div>
         <div class="row mt-5">
           <div class="col text-center">
             <div class="block-27">
