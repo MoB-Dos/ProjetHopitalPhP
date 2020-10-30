@@ -8544,7 +8544,7 @@ textarea.form-control {
     text-transform: uppercase;
     letter-spacing: .1em; }
 
-/* .block-2 {
+.block-2 {
   margin-bottom: 50px;
   -webkit-perspective: 1000;
   -moz-perspective: 1000;
@@ -8553,22 +8553,36 @@ textarea.form-control {
   -ms-transform: perspective(1000px);
   -moz-transform: perspective(1000px);
   -moz-transform-style: preserve-3d;
-  -ms-transform-style: preserve-3d; }
-  .block-2:hover .back, .block-2.hover .back {
+  -ms-transform-style: preserve-3d; } 
+
+
+  /* .block-2:hover .back, .block-2.hover .back {
+   
     -webkit-transform: rotateY(0deg);
     -moz-transform: rotateY(0deg);
     -o-transform: rotateY(0deg);
     -ms-transform: rotateY(0deg);
-    transform: rotateY(0deg); }
+    transform: rotateY(0deg); } */
+
   .block-2:hover .front, .block-2.hover .front {
+    
+    -webkit-box-shadow: 0 0 70px -10px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 70px -10px rgba(0, 0, 0, 0.4);
+    }
+    
+    /* 
     -webkit-transform: rotateY(180deg);
     -moz-transform: rotateY(180deg);
     -o-transform: rotateY(180deg);
     transform: rotateY(180deg); }
-  .block-2, .block-2 .front, .block-2 .back {
-    width: 100%;
-    height: 427px; }
-  .block-2 .flipper {
+     */
+
+   .block-2 .flipper {
+    
+    -webkit-box-shadow: 0 0 70px -10px rgba(0, 0, 0, 0.4); 
+    box-shadow: 0 0 70px -10px rgba(0, 0, 0, 0.4);
+    }
+    /*
     -webkit-transition: 0.6s;
     -webkit-transform-style: preserve-3d;
     -ms-transition: 0.6s;
@@ -8579,7 +8593,13 @@ textarea.form-control {
     -o-transition: 0.6s;
     transition: 0.6s;
     transform-style: preserve-3d;
-    position: relative; }
+    position: relative; }  
+    */
+  
+  .block-2, .block-2 .front, .block-2 .back {
+      width: 100%;
+      height: 427px; } 
+
   .block-2 .front, .block-2 .back {
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility: hidden;
@@ -8688,7 +8708,7 @@ textarea.form-control {
       -webkit-transform: rotateY(180deg);
       -moz-transform: rotateY(180deg);
       -o-transform: rotateY(180deg);
-      transform: rotateY(180deg); } } */
+      transform: rotateY(180deg); } } 
 
 .block-20 {
   overflow: hidden;

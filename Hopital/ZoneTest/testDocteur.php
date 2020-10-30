@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	
 	
-	<?php  require_once('../../Tools/linkCSS.html') ?>
+	<?php  require_once('../Tools/linkCSS.html') ?>
 
   </head>
   <body>
     
   	<!-- START nav -->
-  	<?php  require_once('../../Tools/NavBar.php') ?>
+  	<?php  require_once('../Tools/NavBar.php') ?>
     <!-- END nav -->
     
     <div class="hero-wrap" style="background-image: url('../../Design/images/bg_6.jpg'); background-attachment:fixed;">
@@ -35,12 +35,12 @@
     <section class="ftco-section">
     	<div class="container">
         <div class="row">
-		 
-		<!-- Début carte -->
-		<div class="col-md-6 col-lg-3 ftco-animate">
+
+          
+        	<div class="col-md-6 col-lg-3 ftco-animate">
 	          <div class="block-2">
 	            
-	              <div class="front" href="../index.php" style="background-image: url('../../Design/images/doctor-2.jpg');">
+	              <div class="front" href="../index.php" style="background-image: url('../Design/images/doctor-2.jpg');">
 	                <div class="box" >
 	                  <h3>Aldin Powell</h3>
                     <p>Neurologue</p>
@@ -60,10 +60,11 @@
 	                </div>
 	              </div>
 	            </div>
-			</div>
-		</div>
-		<!-- Fin Carte -->
-		
+            </div>
+           
+   
+
+        </div>
         <div class="row mt-5">
           <div class="col text-center">
             <div class="block-27">
@@ -84,7 +85,7 @@
 		
 
     <!--START footer-->
-    <?php  require_once('../../Tools/Footer.php') ?>
+    <?php  require_once('../Tools/Footer.php') ?>
     <!--END footer-->
     
   
@@ -93,7 +94,7 @@
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 	
-  <?php  require_once('../../Tools/linkJS.html') ?>
+  <?php  require_once('../Tools/linkJS.html') ?>
     
   </body>
 </html>

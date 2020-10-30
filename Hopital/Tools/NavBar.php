@@ -21,7 +21,7 @@ if(isset($_SESSION['profil']))
 
       
         <li class="nav-item active">
-        <a href="zoneTest.php" class="nav-link">
+        <a href="Traitement/View/Page/zoneTest.php" class="nav-link">
         ! Zone de TEST !
         </a>
         </li>
@@ -260,14 +260,8 @@ if(isset($_SESSION['profil']))
           </div>
           <div class="modal-body">
 
-<<<<<<< HEAD
-            <form action="/Slam2/ProjethopitalPHP/Hopital/Traitement/Dossier/dossierT.php" method="post">
-=======
-            <form action="/ProjethopitalPhp/hopital/Traitement/Dossier/dossierPatienT.php" method="post">
+          <form action="/ProjethopitalPhp/hopital/Traitement/Dossier/dossierPatienT.php" method="post">
 
-          
-
->>>>>>> d548790f0ca845a5f9d489b94788fe14a0922b48
 
               <div class="form-group">
                 <label for="appointment_name" class="text-black" name="Prenom">Prénom</label>
