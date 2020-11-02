@@ -21,18 +21,18 @@
   <section class="ftco-section-parallax">
     <div class="container">
       <div  class="row">
-            <img src="/Slam2/ProjethopitalPHP/Hopital/Design/images/doctor-1.jpg" width="400" height="500">
+            <img src=".$value['image']." width="400" height="500">
 				<div class="col-md-9 p-t-2">
 					
           <?php
           if(isset($_SESSION['login']))
           {
           ?>
-          <h2 class="h2-responsive">Jarves Paul <button type="button" class="btn btn-info-outline waves-effect" data-toggle="modal" data-target="#RendezVouss" >Prendre RDV</button></h2>
+          <h2 class="h2-responsive">.$value['nom'].$value['prenom'].<button type="button" class="btn btn-info-outline waves-effect" data-toggle="modal" data-target="#RendezVouss" >Prendre RDV</button></h2>
           <?php
           }else{
           ?>
-          <h2 class="h2-responsive">Jarves Paul <button type="button" class="btn btn-info-outline waves-effect" data-toggle="modal" data-target="#RendezVoussErreur" >Prendre RDV</button></h2>
+          <h2 class="h2-responsive">.$value['nom'].$value['prenom'].<button type="button" class="btn btn-info-outline waves-effect" data-toggle="modal" data-target="#RendezVoussErreur" >Prendre RDV</button></h2>
           
           <?php
           }
@@ -52,7 +52,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="modalAppointmentLabel">Prendre Rendez vous avec Paul Jarves</h5>
+            <h5 class="modal-title" id="modalAppointmentLabel">Prendre Rendez vous avec .$value['nom'].$value['prenom'].</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -103,7 +103,7 @@
               </div>
               
 
-              <input id="prodId" name="docteurName" type="hidden" value="Jarves"> 
+              <input id="prodId" name="docteurName" type="hidden" value=".$value['nom']."> 
               
             </form>
           </div>
