@@ -3,13 +3,18 @@
 session_start ();
 
 require '../Class/ClassManager/User/UserManager.php';
-require '../Class/SetUp/SetUpUser.php';
+require '../Class/ClassManager/RDVManager.php';
+
 
 
 
 $show = new UserManager();
+$showRDV = new RDVManager();
+
 
 $act = $show->AffichageModification();
+
+$act = $showRDV->ModificationRDV();
 
 
 

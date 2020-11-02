@@ -454,6 +454,8 @@ public function affichage()
         echo "Nom : ".$value['login'].'<br><br>';
         echo "Mail : ".$value['mail'].'<br><br>' ;
 
+        echo "-------------------- <br><br>" ;
+
       }
 
 }

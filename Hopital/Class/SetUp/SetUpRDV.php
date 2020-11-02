@@ -2,7 +2,7 @@
 
 class SetUpRDV
 {
-  private $heure,$date,$motif;
+  private $date,$motif,$horaire,$docteurName;
 
   public function __construct(array $donnees)
   {
@@ -27,14 +27,23 @@ class SetUpRDV
       }
   }
 
-  public function setNom($heure) {
-      if (isset($heure)) {
-          $this->_heure = $heure;
-      } else { trigger_error('erreur nom',E_USER_WARNING);
+  public function setHoraire($horaire) {
+      if (isset($horaire)) {
+          $this->_horaire = $horaire;
+      } else { trigger_error('erreur apresmidi',E_USER_WARNING);
         return; }
   }
 
-  public function setPrenom($date) {
+
+  public function setDocteurName($docteurName) {
+    if (isset($docteurName)) {
+        $this->_docteurName = $docteurName;
+    } else { trigger_error('erreur apresmidi',E_USER_WARNING);
+      return; }
+}
+
+
+  public function setDate($date) {
       if (isset($date)) {
           $this->_date = $date;
       } else { trigger_error('erreur prenom',E_USER_WARNING);
@@ -42,16 +51,17 @@ class SetUpRDV
   }
 
 
-public function setmotif($motif) {
+public function setMotif($motif) {
 
   if (strlen($motif) <= 200) {
-      $this->_sujet = $motif;
+      $this->_motif = $motif;
   } else { trigger_error('erreur sujet',E_USER_WARNING);
     return; }
 }
 
 public function getDate() { return $this->_date; }
-public function getHeure() { return $this->_heure; }
+public function getDocteurName() { return $this->_docteurName; }
+public function getHoraire() { return $this->_horaire;}
 public function getMotif() { return $this->_motif; }
 
 

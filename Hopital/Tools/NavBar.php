@@ -21,7 +21,7 @@ if(isset($_SESSION['profil']))
 
       
         <li class="nav-item active">
-        <a href="Traitement/View/Page/zoneTest.php" class="nav-link">
+        <a href="/Slam2/ProjethopitalPHP/Hopital/View/Page/zoneTest.php" class="nav-link">
         ! Zone de TEST !
         </a>
         </li>
