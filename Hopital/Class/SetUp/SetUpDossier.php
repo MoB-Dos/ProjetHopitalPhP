@@ -2,7 +2,7 @@
 
 class SetUpDossier
 {
-  private $_nom,$_prenom,$_date,$_adresse,$_sq,$_optionTv,$_regime;
+  private $_nom,$_prenom,$_date,$_adresse,$_mutuel,$_sq,$_optionTv,$_regime;
 
   public function __construct(array $donnees)
   {
@@ -41,10 +41,29 @@ class SetUpDossier
         return; }
   }
 
-  public function setMail($date){
+  public function setDate($date){
+    $this->_date = $date;
+    return; }
 
+  public function setAdresse($adresse){
+      $this->_adresse = $adresse;
+      return; }
 
-}
+  public function setMutuel($mutuel){
+      $this->_mutuel = $mutuel;
+     return; }
+
+   public function setSq($sq){
+     $this->_sq = $sq;
+    return; }   
+
+    public function setOptionTv($optionTv){
+     $this->_optionTv = $optionTv;
+    return; }
+
+    public function setRegime($regime){
+      $this->_regime = $regime;
+     return; }
 
   public function setLogin($login) {
       if (is_string($login) && strlen($login) <= 100) {
@@ -92,6 +111,12 @@ public function getObjet() { return $this->_objet; }
 public function getSujet() { return $this->_sujet; }
 public function getNom() { return $this->_nom; }
 public function getPrenom() { return $this->_prenom; }
+public function getDate() { return $this->_date; }
+public function getAdresse() { return $this->_adresse; }
+public function getMutuel() { return $this->_mutuel; }
+public function getSq() { return $this->_sq; }
+public function getOptionTv() { return $this->_optionTv; }
+public function getRegime() { return $this->_regime; }
 public function getLogin() { return $this->_login; }
 public function getMail() { return $this->_mail; }
 public function getMdp() { return $this->_mdp; }

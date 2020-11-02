@@ -531,13 +531,14 @@ public function ModificationGestion(SetUpGestion $connexion)
 
 }
 
-public function creeDossier() //en cours
+public function creeDossier(SetUpDossier $ajout) //en cours
 {
 
   $prenom = $ajout->getPrenom();
   $nom =$ajout->getNom();
   $date = $ajout->getDate();
   $adresse = $ajout->getAdresse();
+  $mutuel = $ajout->getMutuel();
   $sq = $ajout->getSq();
   $optionTv = $ajout->getOptionTv();
   $regime = $ajout->getRegime();
@@ -546,6 +547,7 @@ public function creeDossier() //en cours
   //var_dump($mail, $login, $mdp, $mdpc);
 
   //Connexion à la base de données projetweb
+  
   try
   {
   $bdd= new PDO('mysql:host=localhost;dbname=hopitalphp;charset=utf8','root','');
@@ -554,20 +556,24 @@ public function creeDossier() //en cours
   {
     die('Erreur:'.$e->getMessage());
   }
-  $reponse=$bdd->prepare('SELECT idInfo FROM infouser WHERE login = :login');
-  $reponse->execute(array(
-    'login' => $_SESSION['login'],
-  ));
+  $login=$_SESSION['login'];
+
+  $reponse=$bdd->prepare('SELECT id FROM user WHERE login=?');
+  $reponse->execute(array($login));
   $result=$reponse->fetch();
-ehcho($result);
-  var_dump($_SESSION['login']);
-
+echo("test2 : ".$result[0]);
+var_dump($result[0]);
+$id=$result[0];
   //Sélection des données dans la table utilisateur
-  $reponse=$bdd->prepare('INSERT INTO infouser (idInfo, prenom, nom, date, adresse, mutuel, sq, optionTele, regime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);');
-  $reponse->execute(array($login,$mail)); 
+  $reponse2=$bdd->prepare('INSERT INTO infouser (idInfo, nom, prenom, date, adresse, mutuel, sq, optionTele, regime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)');
+  $reponse2->execute(array($id, $prenom, $nom, $date, $adresse, $mutuel, $sq, $optionTv, $regime)); 
+  //INSERT INTO infouser (idInfo, nom, prenom, date, adresse, mutuel, sq, optionTele, regime) VALUES (42, "Michel", "Bernard", "10-03-1990", "Paris", "123234", "9904930", "non", "viande");
+                                                                                                  
+  $data=$reponse2->fetch();
+var_dump($mutuel);
 
-  $data=$reponse->fetchall();
-
+$reponse=$bdd->prepare('UPDATE user SET dossier=1 WHERE id=?');
+$reponse->execute(array($id));
 }
 
 

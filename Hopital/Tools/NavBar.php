@@ -260,42 +260,47 @@ if(isset($_SESSION['profil']))
           </div>
           <div class="modal-body">
 
-          <form action="/ProjethopitalPhp/hopital/Traitement/Dossier/dossierPatienT.php" method="post">
+          <form action="Traitement/Dossier/dossierPatienT.php" method="post">
 
 
               <div class="form-group">
-                <label for="appointment_name" class="text-black" name="Prenom">Prénom</label>
-                <input type="text" class="form-control" id="Prenom">
+                <label for="appointment_name" class="text-black" name="prenom">Prénom</label>
+                <input type="text" class="form-control" id="prenom" name="prenom">
               </div>
 
               <div class="form-group">
-                <label for="appointment_name" class="text-black" name="Nom">Nom</label>
-                <input type="text" class="form-control" id="Nom">
+                <label for="appointment_name" class="text-black" name="nom">Nom</label>
+                <input type="text" class="form-control" id="nom" name="nom">
               </div>
 
               <div class="form-group">
-                <label for="appointment_name" class="text-black" name="Date">Date de naissance</label>
-                <input type="Date" class="form-control" id="Date">
+                <label for="appointment_name" class="text-black" name="date">Date de naissance</label>
+                <input type="Date" class="form-control" id="date" name="date">
               </div>
 
               <div class="form-group">
-                <label for="appointment_name" class="text-black" name="Adresse">Adresse</label>
-                <input type="text" class="form-control" id="Adresse">
+                <label for="appointment_name" class="text-black" name="adresse">Adresse</label>
+                <input type="text" class="form-control" id="adresse" name="adresse">
               </div>
 
               <div class="form-group">
                 <label for="appointment_name" class="text-black" name="sq">"sq"</label>
-                <input type="text" class="form-control" id="sq">
+                <input type="text" class="form-control" id="sq" name="sq">
+              </div>
+
+              <div class="form-group">
+                <label for="appointment_name" class="text-black" name="mutuel">"Mutuel"</label>
+                <input type="text" class="form-control" id="mutuel" name="mutuel">
               </div>
 
               <div class="form-group">
                 <label for="appointment_name" class="text-black" name="OptionTV">Option TV</label>
-                <input type="text" class="form-control" id="OptionTV">
+                <input type="text" class="form-control" id="optionTv" name="optionTv">
               </div>
 
               <div class="form-group">
-                <label for="appointment_email" class="text-black"name="Regime">Regime</label>
-                <input type="text" class="form-control" id="Regime">
+                <label for="appointment_email" class="text-black" name="regime">Regime</label>
+                <input type="text" class="form-control" id="regime" name="regime">
               </div>
           
                 
