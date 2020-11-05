@@ -151,30 +151,22 @@ $(document).ready(function(){
 });
 
 
-function DelUser(intValue){
 
-console.debug(intValue);
+function AddUser(idValue){
 
-var xhr = new XMLHttpRequest();
-xhr.open("POST", 'AjaxS.php', true);
 
-xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
-xhr.onreadystatechange = function() { //Appelle une fonction au changement d'état.
-  if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-    console.debug("OK");
-  }else{
-    console.debug("NOT OK");
-  }
-}
-xhr.send("test="+intValue);
+var table = document.getElementById("table1");
+
+console.debug(table.rows[1].cells[1].innerHTML);
+ 
+
+
 
 
 }
-
 </script>
 </head>
-
 <body>
 <div class="container-lg">
     <div class="table-responsive">
@@ -187,64 +179,46 @@ xhr.send("test="+intValue);
                     </div>
                 </div>
             </div>
-            <table class="table table-bordered">
+            <table id="table1" class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>Nom</th>
-                        <th>Prenom</th>
-                        <th>Couleur</th>
+                        <th>Name</th>
+                        <th>Department</th>
+                        <th>Phone</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-
-                <?php
-							// on se connecte à notre base
-							try
-							{
-							$bdd= new PDO('mysql:host=localhost;dbname=hopitalphp;charset=utf8','root','');
-							}
-							catch(Exception $e)
-							{
-							  die('Erreur:'.$e->getMessage());
-							}
-
-							// lancement de la requête. on sélectionne les news que l'on va ordonner suivant l'ordre "inverse" des dates (de la plus récente à la plus vieille : DESC) tout en ne sélectionnant que le nombre voulu de news à afficher (LIMIT)
-							$req = $bdd->query("SELECT * FROM tableau");
-							
-
-							$data=$req->fetchall();
-
-
-
-
-							if(isset($data))
-							{
-
-
-							foreach ($data as $value) {
-        
-							echo                  
-                                '<tr>
-                                <td>'.$value['nom'].'</td>
-                                <td>'.$value['prenom'].'</td>
-                                <td>'.$value['couleur'].'</td>
-                                
-                                <td>
-                                     <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                                     <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                     <a class="delete" id="'.$value['id'].'" onclick="DelUser(this.id)" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                                </td>
-                                </tr>';
-							}
-							}else {
-
-								echo "pas de rdv";
-
-							}
-
-				?>
-      
+                    <tr>
+                        <td>John Doe</td>
+                        <td>Administration</td>
+                        <td>(171) 555-2222</td>
+                        <td>
+                            <a class="add" title="Add" onclick="AddUser()" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                            <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                            <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Peter Parker</td>
+                        <td>Customer Service</td>
+                        <td>(313) 555-5735</td>
+                        <td>
+                            <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                            <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                            <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Fran Wilson</td>
+                        <td>Human Resources</td>
+                        <td>(503) 555-9931</td>
+                        <td>
+                            <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                            <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                            <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                        </td>
+                    </tr>      
                 </tbody>
             </table>
         </div>
