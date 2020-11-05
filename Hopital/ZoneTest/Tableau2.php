@@ -151,20 +151,43 @@ $(document).ready(function(){
 });
 
 
+var Add = 0;
+
 
 function AddUser(idValue){
 
+    Add = Add + 1;
+    console.debug(Add);
 
+}
+
+function Hello()
+{
+//nombre de ligne 
+var rowCount = $("#table1 tr").length - 1; 
+
+console.debug(rowCount);
 
 var table = document.getElementById("table1");
 
-console.debug(table.rows[1].cells[1].innerHTML);
+
+
+
+
+for (var i = 1; i <= table.rows.length-1; i++){
+    console.debug(table.rows[i].cells[0].innerHTML);
+
+}
+
+
+}
  
 
 
 
 
-}
+
+
 </script>
 </head>
 <body>
@@ -194,7 +217,7 @@ console.debug(table.rows[1].cells[1].innerHTML);
                         <td>Administration</td>
                         <td>(171) 555-2222</td>
                         <td>
-                            <a class="add" title="Add" onclick="AddUser()" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                            <a class="add" title="Add" onclick="setTimeout(Hello(), 3000)" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
                             <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                             <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                         </td>
@@ -223,6 +246,8 @@ console.debug(table.rows[1].cells[1].innerHTML);
             </table>
         </div>
     </div>
-</div>     
+</div>   
+
+<button   type="button" onclick="Hello()">Show</button>
 </body>
 </html>
