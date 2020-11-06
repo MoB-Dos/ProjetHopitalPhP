@@ -151,38 +151,45 @@ $(document).ready(function(){
 });
 
 
-var Add = 0;
 
-
-function AddUser(idValue){
-
-    Add = Add + 1;
-    console.debug(Add);
-
-}
-
-function Hello()
+function Hello(idUser)
 {
 //nombre de ligne 
 var rowCount = $("#table1 tr").length - 1; 
-
 console.debug(rowCount);
+
+//Ajout dans le Tableau des Noms 
+var addTab = [];
 
 var table = document.getElementById("table1");
 
-
-
-
-
-for (var i = 1; i <= table.rows.length-1; i++){
-    console.debug(table.rows[i].cells[0].innerHTML);
-
+//addTab.push(idUser);
+for (var i = 0; i <= table.rows[0].cells.length-2; i++){
+    addTab.push(table.rows[4].cells[i].innerHTML);
 }
+
+console.debug(addTab);
+
+
+var xhr = new XMLHttpRequest();
+xhr.open("POST", 'AjaxA.php', true);
+
+xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+xhr.onreadystatechange = function() { //Appelle une fonction au changement d'état.
+  if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+    console.debug("OK");
+  }else{
+    console.debug("NOT OK");
+  }
+}
+
+
+xhr.send("tabUser="+addTab);
 
 
 }
  
-
 
 
 
@@ -217,7 +224,7 @@ for (var i = 1; i <= table.rows.length-1; i++){
                         <td>Administration</td>
                         <td>(171) 555-2222</td>
                         <td>
-                            <a class="add" title="Add" onclick="setTimeout(Hello(), 3000)" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                            <a class="add" id="2" title="Add" onclick="setTimeout(Hello.bind(null,this.id), 3000)" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
                             <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                             <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                         </td>

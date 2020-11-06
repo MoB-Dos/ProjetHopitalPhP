@@ -590,17 +590,5 @@ public function Deconnexion()
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 }
  ?>
