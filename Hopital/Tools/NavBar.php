@@ -63,7 +63,7 @@ if(isset($_SESSION['profil']))
 
           ?>
            
-          <a class="dropdown-item" href="#">Voir mon dossier</a>
+          <a class="dropdown-item" href="/Slam2/ProjethopitalPHP/Hopital/View/gestionUser/VoirDossier.php">Voir mon dossier</a>
           
           <?php
 
@@ -73,8 +73,8 @@ if(isset($_SESSION['profil']))
         
           
           
-          <a class="dropdown-item" href="#"  data-toggle="modal" data-target="#RendezVous">Mes rendez-vous</a>
-          <a class="dropdown-item" href="#">Modifier mon profil</a>
+          <a class="dropdown-item" href="/Slam2/ProjethopitalPHP/Hopital/View/gestionUser/VoirDossier.php"  data-toggle="modal" data-target="#RendezVous">Mes rendez-vous</a>
+          <a class="dropdown-item" href="/Slam2/ProjethopitalPHP/Hopital/View/gestionUser/ModifDossier.php">Modifier mon profil</a>
         <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="/Slam2/ProjethopitalPHP/Hopital/Traitement/User/decoT.php">Déconnexion</a>
         </div> 

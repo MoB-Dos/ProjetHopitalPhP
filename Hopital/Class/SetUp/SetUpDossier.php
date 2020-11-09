@@ -2,7 +2,7 @@
 
 class SetUpDossier
 {
-  private $_nom,$_prenom,$_date,$_adresse,$_mutuel,$_sq,$_optionTv,$_regime;
+  private $_nom,$_prenom,$_date,$_adresse,$_mutuel,$_sq,$_optionTv,$_optionTele,$_regime;
 
   public function __construct(array $donnees)
   {
@@ -61,6 +61,10 @@ class SetUpDossier
      $this->_optionTv = $optionTv;
     return; }
 
+    public function setOptionTele($optionTele){
+      $this->_optionTele = $optionTele;
+     return; }
+
     public function setRegime($regime){
       $this->_regime = $regime;
      return; }
@@ -116,6 +120,7 @@ public function getAdresse() { return $this->_adresse; }
 public function getMutuel() { return $this->_mutuel; }
 public function getSq() { return $this->_sq; }
 public function getOptionTv() { return $this->_optionTv; }
+public function getOptionTele() { return $this->_optionTele; }
 public function getRegime() { return $this->_regime; }
 public function getLogin() { return $this->_login; }
 public function getMail() { return $this->_mail; }
