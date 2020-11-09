@@ -216,7 +216,7 @@ public function MdpOublier(SetUpGestion $connexion)
   $sujet = "Voici votre code unique : ".$verif." Pour changer votre mot de passe : http://localhost/ProjetCinemaPhP/Traitement/User/info/MdpOublierT2.php";
   $email = $mail; //c'est pour phpmailer
   $this-> Mail($objet,$sujet,$email);
-  ?>
+  /*?> 
   <script type="text/javascript">
 
         var msg="mail envoyer, suivez ces instruction pour changer votre mot de passe"
@@ -225,12 +225,11 @@ public function MdpOublier(SetUpGestion $connexion)
       alert(msg);
   </script>
 
-<?php
-exit();
+<?php */
 //redirection à mdp2
-header('location: ../../../View/User/MdpOublier2.php');
+header('location: ../../View/Mdp/MdpOublier2.php');
 
-//header("location: ../../../View/User/MdpOublier2.php");
+//header("location: ../../View/Mdp/MdpOublier2.php");
 
 
 }
@@ -255,8 +254,9 @@ public function MdpOublier2()
     //on affiche les données de la table utilisateur
   $req = $bdd->prepare('SELECT id FROM user WHERE mail= ?');
   $req -> execute(array($mail));
-
-
+  $result90=$req->fetch();
+    var_dump($result90);
+    echo ($result90[0]);
     if ($mdp == $mdpc)
     {
 
@@ -264,8 +264,8 @@ public function MdpOublier2()
 
 
       // on modifie les données de la table Utilisateur
-      $req1 = $bdd->prepare('UPDATE user SET mdp = ?, mdpc = ? WHERE mail = ?');
-      $a = $req1 -> execute(array( $mdp, md5($mdp), $mail));
+      $req1 = $bdd->prepare('UPDATE user SET mdpc = ? WHERE id = ?');
+      $a = $req1 -> execute(array( md5($mdp), $result90[0]));
 
 
 var_dump($a)

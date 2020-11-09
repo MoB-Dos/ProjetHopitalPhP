@@ -15,6 +15,8 @@ $add = new UserManager($Setup);
 
 $act = $add->MdpOublier($Setup);
 exit();
+header("location: ../../View/Mdp/MdpOublier2.php");
+
 
 
 ?>
