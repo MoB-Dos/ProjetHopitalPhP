@@ -1,9 +1,13 @@
 <?php
 
 
+echo '<script>';
+echo 'console.log('. console.debug( $_POST ) .')';
+echo '</script>';
+
 $tab= $_POST['tabUser'];
 
-$values = "'" . implode("', '", $_POST['tabUser']) . "'";
+//$values = "'" . implode("', '", $_POST['tabUser']) . "'";
 
 try
 {
@@ -16,7 +20,7 @@ catch(Exception $e)
 
 
 $req = $bdd->prepare("INSERT INTO tableau (nom,prenom,couleur) VALUES (?)");
-$req -> execute(array($values));
+$req -> execute(array($_POST['tabUser']['0']));
 
 
 
