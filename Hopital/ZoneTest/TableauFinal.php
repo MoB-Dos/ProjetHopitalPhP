@@ -11,6 +11,7 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
 <style>
 body {
     color: #404E67;
@@ -110,7 +111,8 @@ $(document).ready(function(){
             '<td><input type="text" class="form-control" name="phone" id="phone"></td>' +
 			'<td>' + actions + '</td>' +
         '</tr>';
-    	$("table").append(row);		
+    	$("table").append(row);	
+        console.debug(index);	
 		$("table tbody tr").eq(index + 1).find(".add, .edit").toggle();
         $('[data-toggle="tooltip"]').tooltip();
     });
@@ -152,16 +154,15 @@ $(document).ready(function(){
 
 
 
-function Hello(idUser)
+function Add(idUser)
 {
 
-//nombre de ligne 
+//calcul nombre de ligne & déclaration du tableau 
 var rowCount = $("#table1 tr").length - 1; 
-
 var table = document.getElementById("table1");
 
-//je récupére mes infos 
 
+var id = rowCount;
 
 var nom = table.rows[rowCount].cells[0].innerHTML;
 
@@ -191,6 +192,27 @@ xhr.onreadystatechange = function() { //Appelle une fonction au changement d'ét
 xhr.send("couleur=" + encodeURI(couleur) + "&nom=" + encodeURI(nom) +"&prenom="+ encodeURI(prenom) +"&id="+ encodeURI(idUser));
 
 }
+
+
+function DelUser(intValue){
+
+
+var xhr = new XMLHttpRequest();
+xhr.open("POST", 'AjaxS.php', true);
+
+xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+xhr.onreadystatechange = function() { //Appelle une fonction au changement d'état.
+  if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+    console.debug("OK");
+  }else{
+    console.debug("NOT OK");
+  }
+}
+xhr.send("test="+intValue);
+
+
+}
  
 
 
@@ -214,49 +236,66 @@ xhr.send("couleur=" + encodeURI(couleur) + "&nom=" + encodeURI(nom) +"&prenom="+
             <table id="table1" class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Department</th>
-                        <th>Phone</th>
+                        <th>Nom</th>
+                        <th>Prenom</th>
+                        <th>Couleur</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>John Doe</td>
-                        <td>Administration</td>
-                        <td>(171) 555-2222</td>
-                        <td>
-                            <a class="add" id="22" title="Add" onclick="setTimeout(Hello.bind(null,this.id), 3000)" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                            <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                            <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Peter Parker</td>
-                        <td>Customer Service</td>
-                        <td>(313) 555-5735</td>
-                        <td>
-                            <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                            <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                            <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Fran Wilson</td>
-                        <td>Human Resources</td>
-                        <td>(503) 555-9931</td>
-                        <td>
-                            <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                            <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                            <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                        </td>
-                    </tr>      
+
+                <?php
+							// on se connecte à notre base
+							try
+							{
+							$bdd= new PDO('mysql:host=localhost;dbname=hopitalphp;charset=utf8','root','');
+							}
+							catch(Exception $e)
+							{
+							  die('Erreur:'.$e->getMessage());
+							}
+
+							// lancement de la requête. on sélectionne les news que l'on va ordonner suivant l'ordre "inverse" des dates (de la plus récente à la plus vieille : DESC) tout en ne sélectionnant que le nombre voulu de news à afficher (LIMIT)
+							$req = $bdd->query("SELECT * FROM tableau");
+							
+
+							$data=$req->fetchall();
+
+
+
+
+							if(isset($data))
+							{
+
+
+							foreach ($data as $value) {
+        
+							echo                  
+                                '<tr>
+                                <td>'.$value['nom'].'</td>
+                                <td>'.$value['prenom'].'</td>
+                                <td>'.$value['couleur'].'</td>
+                                
+                                <td id="'.$value['id'].'">
+                                     <a class="add" id="'.$value['id'].'" onclick="setTimeout(Add.bind(null,this.id), 3000)" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                                     <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                     <a class="delete" id="'.$value['id'].'" onclick="DelUser(this.id)" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                                </td>
+                                </tr>';
+							}
+							}else {
+
+								echo "pas de rdv";
+
+							}
+
+				?>
+      
                 </tbody>
             </table>
         </div>
     </div>
-</div>   
+</div>  
 
-<button   type="button" onclick="Hello()">Show</button>
 </body>
 </html>

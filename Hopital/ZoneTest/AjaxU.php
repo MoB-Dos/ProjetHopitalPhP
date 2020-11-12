@@ -1,7 +1,7 @@
 <?php
 
 
-
+$id = $_POST['id'];
 $couleur= $_POST['couleur'];
 $nom = $_POST['nom'];
 $prenom = $_POST['prenom'];
@@ -17,14 +17,7 @@ catch(Exception $e)
 }
 
 
-
-
-$requ = $bdd->prepare('INSERT INTO tableau (nom,prenom,couleur) VALUES (?,?,?)');
-$requ -> execute(array($nom,$prenom,$couleur));
-
-
-}
-
-
+$req = $bdd->prepare('UPDATE tableau SET nom= ? ,prenom = ?,couleur = ? WHERE id = ?');
+$req -> execute(array($nom,$prenom,$couleur,$id));
 
 ?>
