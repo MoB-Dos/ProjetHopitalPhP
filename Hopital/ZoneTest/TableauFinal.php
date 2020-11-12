@@ -100,7 +100,17 @@ table.table td .add {
 <script>
 $(document).ready(function(){
 	$('[data-toggle="tooltip"]').tooltip();
-	var actions = $("table td:last-child").html();
+	//var actions = $("table td:last-child").html();
+    var index = $("table tbody tr:last-child").index();
+    index = index + 1;
+
+    var actions = '<td id="' + index + '">' +
+    '<a class="add"  id ="5" onclick="setTimeout(Add.bind(null,this.id), 3000)" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>'+
+    '<a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>'+
+    '<a class="delete" id ="5" onclick="DelUser(this.id)" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>'+
+     '</td>';
+
+
 	// Append table with add row form on add new button click
     $(".add-new").click(function(){
 		$(this).attr("disabled", "disabled");
