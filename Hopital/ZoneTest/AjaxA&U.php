@@ -6,6 +6,7 @@ $couleur= $_POST['couleur'];
 $nom = $_POST['nom'];
 $prenom = $_POST['prenom'];
 
+$id;
 
 try
 {
@@ -18,7 +19,7 @@ catch(Exception $e)
 
 
 //On select les donées pour voir si elle existe déja 
-$reponse=$bdd->prepare('SELECT * FROM tableau WHERE id = ?');
+$reponse=$bdd->prepare('SELECT *FROM tableau WHERE id = ?');
 $reponse->execute(array($id)); 
 $data=$reponse->fetchall();
 
@@ -30,7 +31,7 @@ if($data)
 $req = $bdd->prepare('UPDATE tableau SET nom= ? ,prenom = ?,couleur = ? WHERE id = ?');
 $req -> execute(array($nom,$prenom,$couleur,$id));
 
-}else
+}else 
 {
 
 //Insert si les donées n'existe pas     

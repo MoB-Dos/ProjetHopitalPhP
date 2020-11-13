@@ -101,10 +101,9 @@ table.table td .add {
 $(document).ready(function(){
 	$('[data-toggle="tooltip"]').tooltip();
 	//var actions = $("table td:last-child").html();
-    var index = $("table tbody tr:last-child").index();
-    index = index + 1;
-
-    var actions = '<td id="' + index + '">' +
+    var rowCount = $("#table1 tr").length - 1; 
+    
+    var actions = '<td id="' + rowCount  + '">' +
     '<a class="add"  id ="5" onclick="setTimeout(Add.bind(null,this.id), 3000)" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>'+
     '<a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>'+
     '<a class="delete" id ="5" onclick="DelUser(this.id)" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>'+
@@ -115,14 +114,21 @@ $(document).ready(function(){
     $(".add-new").click(function(){
 		$(this).attr("disabled", "disabled");
 		var index = $("table tbody tr:last-child").index();
+        // var rowCount = $("#table1 tr").length ; 
+        var key = "KLPMEEN";
+      
         var row = '<tr>' +
             '<td><input type="text" class="form-control" name="name" id="name"></td>' +
             '<td><input type="text" class="form-control" name="department" id="department"></td>' +
             '<td><input type="text" class="form-control" name="phone" id="phone"></td>' +
-			'<td>' + actions + '</td>' +
+            '<td id="' + key  + '">' +
+                '<a class="add"  id ="5" onclick="setTimeout(Add.bind(null,this.parentElement.id), 3000)" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>'+
+                '<a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>'+
+                '<a class="delete" id ="5" onclick="DelUser(this.id)" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>'+
+            '</td>' +
         '</tr>';
     	$("table").append(row);	
-        console.debug(index);	
+	
 		$("table tbody tr").eq(index + 1).find(".add, .edit").toggle();
         $('[data-toggle="tooltip"]').tooltip();
     });
@@ -172,7 +178,10 @@ var rowCount = $("#table1 tr").length - 1;
 var table = document.getElementById("table1");
 
 
-var id = rowCount;
+
+var id = idUser;
+
+console.debug(idUser);
 
 var nom = table.rows[rowCount].cells[0].innerHTML;
 
@@ -185,7 +194,7 @@ var couleur = table.rows[rowCount].cells[2].innerHTML;
 //j'envoie mes info a mon fichier php
 var xhr = new XMLHttpRequest();
 
-xhr.open("POST", 'AjaxA.php', true);
+xhr.open("POST", 'AjaxA&U.php', true);
 
 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
@@ -199,7 +208,7 @@ xhr.onreadystatechange = function() { //Appelle une fonction au changement d'ét
 }
 
 
-xhr.send("couleur=" + encodeURI(couleur) + "&nom=" + encodeURI(nom) +"&prenom="+ encodeURI(prenom) +"&id="+ encodeURI(idUser));
+xhr.send("couleur=" + encodeURI(couleur) + "&nom=" + encodeURI(nom) +"&prenom="+ encodeURI(prenom) +"&id="+ encodeURI(id));
 
 }
 
@@ -287,7 +296,7 @@ xhr.send("test="+intValue);
                                 <td>'.$value['couleur'].'</td>
                                 
                                 <td id="'.$value['id'].'">
-                                     <a class="add" id="'.$value['id'].'" onclick="setTimeout(Add.bind(null,this.id), 3000)" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                                     <a class="add" id="'.$value['id'].'" onclick="setTimeout(Add.bind(null,this.parentElement.id), 3000)" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
                                      <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                                      <a class="delete" id="'.$value['id'].'" onclick="DelUser(this.id)" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                                 </td>
