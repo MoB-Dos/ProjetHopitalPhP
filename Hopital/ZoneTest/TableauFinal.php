@@ -188,7 +188,7 @@ $(document).on('click', ".delete", function (e) {
     console.debug(idRow);
 
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", 'AjaxS.php', true);
+    xhr.open("POST", 'Ajax/AjaxS.php', true);
 
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Ven 30 Octobre 2020 à 16:31
+-- Généré le :  Ven 13 Novembre 2020 à 15:40
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -100,6 +100,59 @@ CREATE TABLE IF NOT EXISTS `rendezvous` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `tableau`
+--
+
+CREATE TABLE IF NOT EXISTS `tableau` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(30) COLLATE utf8_bin NOT NULL,
+  `prenom` varchar(30) COLLATE utf8_bin NOT NULL,
+  `couleur` varchar(30) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=26 ;
+
+--
+-- Contenu de la table `tableau`
+--
+
+INSERT INTO `tableau` (`id`, `nom`, `prenom`, `couleur`) VALUES
+(3, 'u', 'u', 'u'),
+(8, 'e', 'e', 'e'),
+(9, 'ee', 'ee', 'eee'),
+(18, 'aa', 'a', 'aaa'),
+(19, 'ty', 'yyy', 'tzrtre'),
+(20, 'tesy', 'yesy', 'a fazfa'),
+(21, 'tesy', 'trtrtrtrt', 'a fazfa'),
+(22, 'paul', 'trtrtrtrt', 'a fazfa'),
+(23, 'trt', 'rer', 'ererer'),
+(24, 'trtrrr', 'rer', 'ererer'),
+(25, 'trtrrr', 'rer', 'ererer');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `tableaufinal`
+--
+
+CREATE TABLE IF NOT EXISTS `tableaufinal` (
+  `id` varchar(5) COLLATE utf8_bin NOT NULL,
+  `nom` varchar(30) COLLATE utf8_bin NOT NULL,
+  `prenom` varchar(30) COLLATE utf8_bin NOT NULL,
+  `couleur` varchar(30) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Contenu de la table `tableaufinal`
+--
+
+INSERT INTO `tableaufinal` (`id`, `nom`, `prenom`, `couleur`) VALUES
+('MjLtp', 'e', 'e', 'e'),
+('iMVf1', 'testb', 'testb', 'testb');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `user`
 --
 
@@ -112,7 +165,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `profil` varchar(9) NOT NULL,
   `dossier` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Contenu de la table `user`
