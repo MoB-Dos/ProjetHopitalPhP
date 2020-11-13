@@ -115,16 +115,16 @@ $(document).ready(function(){
 		$(this).attr("disabled", "disabled");
 		var index = $("table tbody tr:last-child").index();
         // var rowCount = $("#table1 tr").length ; 
-        var key = "KLPMEEN";
+        var key = makeid(5);
       
-        var row = '<tr>' +
+        var row = '<tr id="' + key  + '">' +
             '<td><input type="text" class="form-control" name="name" id="name"></td>' +
             '<td><input type="text" class="form-control" name="department" id="department"></td>' +
             '<td><input type="text" class="form-control" name="phone" id="phone"></td>' +
-            '<td id="' + key  + '">' +
-                '<a class="add"  id ="5" onclick="setTimeout(Add.bind(null,this.parentElement.id), 3000)" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>'+
+            '<td >' +
+                '<a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>'+
                 '<a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>'+
-                '<a class="delete" id ="5" onclick="DelUser(this.id)" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>'+
+                '<a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>'+
             '</td>' +
         '</tr>';
     	$("table").append(row);	
@@ -168,70 +168,93 @@ $(document).ready(function(){
     });
 });
 
-
-
-function Add(idUser)
-{
-
-//calcul nombre de ligne & déclaration du tableau 
-var rowCount = $("#table1 tr").length - 1; 
-var table = document.getElementById("table1");
-
-
-
-var id = idUser;
-
-console.debug(idUser);
-
-var nom = table.rows[rowCount].cells[0].innerHTML;
-
-var prenom = table.rows[rowCount].cells[1].innerHTML;
-
-var couleur = table.rows[rowCount].cells[2].innerHTML;
-
-
-
-//j'envoie mes info a mon fichier php
-var xhr = new XMLHttpRequest();
-
-xhr.open("POST", 'AjaxA&U.php', true);
-
-xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-//me previens si il narrive pas a joindre le fichier php
-xhr.onreadystatechange = function() { //Appelle une fonction au changement d'état.
-  if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-    console.debug("OK");
-  }else{
-    console.debug("NOT OK");
-  }
+function makeid(length) {
+   var result           = '';
+   var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+   var charactersLength = characters.length;
+   for ( var i = 0; i < length; i++ ) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+   }
+   return result;
 }
 
 
-xhr.send("couleur=" + encodeURI(couleur) + "&nom=" + encodeURI(nom) +"&prenom="+ encodeURI(prenom) +"&id="+ encodeURI(id));
-
-}
 
 
-function DelUser(intValue){
+$(document).on('click', ".delete", function (e) {
+    e.preventDefault();
+
+    var idRow = $(this).closest('tr').attr('id');
+    console.debug(idRow);
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", 'AjaxS.php', true);
+
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+    xhr.onreadystatechange = function() //Appelle une fonction au changement d'état.
+    { 
+      if (this.readyState === XMLHttpRequest.DONE && this.status === 200) 
+      {
+        console.debug("OK");
+      }
+      else
+      {
+        console.debug("NOT OK");
+      }
+    }
+    
+    xhr.send("id="+idRow);
+
+});
 
 
-var xhr = new XMLHttpRequest();
-xhr.open("POST", 'AjaxS.php', true);
+$(document).on('click', ".add", function (e) {
+    e.preventDefault();
+  
 
-xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    setTimeout(() => { 
+    
+    var idRow = $(this).closest('tr').attr('id');
+    var currentRow=$(this).closest("tr");
+    console.debug(idRow);
+    
+    var child = currentRow.find("td:eq(0)").html();
+    var child1 = currentRow.find("td:eq(1)").html();
+    var child2 = currentRow.find("td:eq(2)").html();
+ 
+  
+    console.debug(child);
+    console.debug(child1);
+    console.debug(child2);
 
-xhr.onreadystatechange = function() { //Appelle une fonction au changement d'état.
-  if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-    console.debug("OK");
-  }else{
-    console.debug("NOT OK");
-  }
-}
-xhr.send("test="+intValue);
+    var xhr = new XMLHttpRequest();
+
+    xhr.open("POST", 'AjaxA&U.php', true);
+
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+    //me previens si il narrive pas a joindre le fichier php
+    xhr.onreadystatechange = function() //Appelle une fonction au changement d'état.
+    { 
+      if (this.readyState === XMLHttpRequest.DONE && this.status === 200) 
+      {
+        console.debug("OK");
+      }
+      else
+      {
+        console.debug("NOT OK");
+      }
+    }
 
 
-}
+    xhr.send("couleur=" + encodeURI(child2) + "&nom=" + encodeURI(child) +"&prenom="+ encodeURI(child1) +"&id="+ encodeURI(idRow));
+
+
+
+    }, 3000);
+
+});
  
 
 
@@ -275,7 +298,7 @@ xhr.send("test="+intValue);
 							}
 
 							// lancement de la requête. on sélectionne les news que l'on va ordonner suivant l'ordre "inverse" des dates (de la plus récente à la plus vieille : DESC) tout en ne sélectionnant que le nombre voulu de news à afficher (LIMIT)
-							$req = $bdd->query("SELECT * FROM tableau");
+							$req = $bdd->query("SELECT * FROM tableaufinal");
 							
 
 							$data=$req->fetchall();
@@ -290,15 +313,15 @@ xhr.send("test="+intValue);
 							foreach ($data as $value) {
         
 							echo                  
-                                '<tr>
+                                '<tr  id="'.$value['id'].'">
                                 <td>'.$value['nom'].'</td>
                                 <td>'.$value['prenom'].'</td>
                                 <td>'.$value['couleur'].'</td>
                                 
-                                <td id="'.$value['id'].'">
-                                     <a class="add" id="'.$value['id'].'" onclick="setTimeout(Add.bind(null,this.parentElement.id), 3000)" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                                <td>
+                                     <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
                                      <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                     <a class="delete" id="'.$value['id'].'" onclick="DelUser(this.id)" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                                     <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                                 </td>
                                 </tr>';
 							}

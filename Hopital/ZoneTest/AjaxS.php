@@ -1,35 +1,24 @@
 
-<!DOCTYPE html>
-<html>
-<head>
-
-</head>
-
-<body>
 
 <?php
 
+$id = $_POST['id'];
 
-
-$p = intval($_POST['test']);
-
-
-
-$con = mysqli_connect('localhost','root','','hopitalphp');
-if (!$con) {
-  die('Could not connect: ' . mysqli_error($con));
+try
+{
+$bdd= new PDO('mysql:host=localhost;dbname=hopitalphp;charset=utf8','root','');
+}
+catch(Exception $e)
+{
+  die('Erreur:'.$e->getMessage());
 }
 
 
+$reponse=$bdd->prepare("DELETE FROM tableaufinal WHERE id = ?");
+$reponse->execute(array($id)); 
 
-mysqli_select_db($con,"ajax_demo");
-$sql="DELETE FROM tableau WHERE id = '".$p."'";
-$result = mysqli_query($con,$sql);
 
-mysqli_close($con);
 
 
 
 ?>
-</body>
-</html> 
