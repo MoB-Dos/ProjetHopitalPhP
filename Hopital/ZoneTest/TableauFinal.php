@@ -212,8 +212,6 @@ $(document).on('click', ".delete", function (e) {
 $(document).on('click', ".add", function (e) {
     e.preventDefault();
   
-
-    setTimeout(() => { 
     
     var idRow = $(this).closest('tr').attr('id');
     var currentRow=$(this).closest("tr");
@@ -254,9 +252,6 @@ $(document).on('click', ".add", function (e) {
 
     xhr.send("couleur=" + encodeURI(child2) + "&nom=" + encodeURI(child) +"&prenom="+ encodeURI(child1) +"&id="+ encodeURI(idRow));
 
-
-
-    }, 0);
 
 });
  
