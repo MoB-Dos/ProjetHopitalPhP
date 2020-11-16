@@ -65,7 +65,8 @@
       <br><br>
     
     <input type="submit" value="retour"/><br><br>
-    
+    <input type="button" value="Telecharger" onclick="window.location.href='../Tools/exportUser.php';" />
+
     </form>
     
 

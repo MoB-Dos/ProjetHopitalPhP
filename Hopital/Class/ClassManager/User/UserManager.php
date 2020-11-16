@@ -283,7 +283,9 @@ var_dump($a)
 
 
         </script>
+        
       <?php
+header('location: ../../index.php');
 
 }
 else { // sinon on affiche nul
