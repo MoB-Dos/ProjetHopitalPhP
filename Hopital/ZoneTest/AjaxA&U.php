@@ -19,24 +19,29 @@ catch(Exception $e)
 
 
 //On select les donées pour voir si elle existe déja 
-$reponse=$bdd->prepare('SELECT * FROM tableaufinal WHERE id = ?');
+$reponse=$bdd->prepare('SELECT * FROM tableau WHERE id = ?');
 $reponse->execute(array($id)); 
 $data=$reponse->fetchall();
+
+
 
 
 if($data)
 {
 
 //Update car les donées existe    
-$req = $bdd->prepare('UPDATE tableaufinal SET nom= ? ,prenom = ?,couleur = ? WHERE id = ?');
+$req = $bdd->prepare('UPDATE tableau SET nom= ? ,prenom = ?,couleur = ? WHERE id = ?');
 $req -> execute(array($nom,$prenom,$couleur,$id));
+echo $id;
 
 }else 
 {
 
 //Insert si les donées n'existe pas     
-$requ = $bdd->prepare('INSERT INTO tableaufinal (id,nom,prenom,couleur) VALUES (?,?,?,?)');
-$requ -> execute(array($id,$nom,$prenom,$couleur));
+$requ = $bdd->prepare('INSERT INTO tableau (nom,prenom,couleur) VALUES (?,?,?)');
+$requ -> execute(array($nom,$prenom,$couleur));
+$id_nouveau = $bdd->lastInsertId();
+echo $id_nouveau;
 
 }
 

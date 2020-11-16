@@ -188,7 +188,7 @@ $(document).on('click', ".delete", function (e) {
     console.debug(idRow);
 
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", 'Ajax/AjaxS.php', true);
+    xhr.open("POST", 'AjaxS.php', true);
 
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
@@ -239,7 +239,11 @@ $(document).on('click', ".add", function (e) {
     { 
       if (this.readyState === XMLHttpRequest.DONE && this.status === 200) 
       {
-        console.debug("OK");
+    
+        document.getElementById(idRow).id = this.responseText;
+        $id = this.responseText;
+        // $(this).closest('tr').attr('id') = this.responseText;
+        
       }
       else
       {
@@ -252,7 +256,7 @@ $(document).on('click', ".add", function (e) {
 
 
 
-    }, 3000);
+    }, 0);
 
 });
  
@@ -298,7 +302,7 @@ $(document).on('click', ".add", function (e) {
 							}
 
 							// lancement de la requête. on sélectionne les news que l'on va ordonner suivant l'ordre "inverse" des dates (de la plus récente à la plus vieille : DESC) tout en ne sélectionnant que le nombre voulu de news à afficher (LIMIT)
-							$req = $bdd->query("SELECT * FROM tableaufinal");
+							$req = $bdd->query("SELECT * FROM tableau");
 							
 
 							$data=$req->fetchall();
@@ -338,6 +342,8 @@ $(document).on('click', ".add", function (e) {
         </div>
     </div>
 </div>  
+
+<div id="txtHint"><b>LAST INSERT ID</b></div>
 
 </body>
 </html>

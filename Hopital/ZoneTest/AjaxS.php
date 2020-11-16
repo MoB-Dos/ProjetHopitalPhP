@@ -14,7 +14,7 @@ catch(Exception $e)
 }
 
 
-$reponse=$bdd->prepare("DELETE FROM tableaufinal WHERE id = ?");
+$reponse=$bdd->prepare("DELETE FROM tableau WHERE id = ?");
 $reponse->execute(array($id)); 
 
 
