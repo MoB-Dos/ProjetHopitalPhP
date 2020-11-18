@@ -2,7 +2,7 @@
 
 class SetUpRDV
 {
-  private $date,$motif,$horaire,$docteurName;
+  private $date,$motif,$horaire,$idMedecin;
 
   public function __construct(array $donnees)
   {
@@ -35,9 +35,9 @@ class SetUpRDV
   }
 
 
-  public function setDocteurName($docteurName) {
-    if (isset($docteurName)) {
-        $this->_docteurName = $docteurName;
+  public function setIdMedecin($idMedecin) {
+    if (isset($idMedecin)) {
+        $this->_idMedecin = $idMedecin;
     } else { trigger_error('erreur apresmidi',E_USER_WARNING);
       return; }
 }
@@ -60,7 +60,7 @@ public function setMotif($motif) {
 }
 
 public function getDate() { return $this->_date; }
-public function getDocteurName() { return $this->_docteurName; }
+public function getIdMedecin() { return $this->_idMedecin; }
 public function getHoraire() { return $this->_horaire;}
 public function getMotif() { return $this->_motif; }
 

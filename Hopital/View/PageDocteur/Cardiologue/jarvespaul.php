@@ -61,49 +61,27 @@
             
             <form action="/Slam2/ProjethopitalPHP/Hopital/Traitement/RendezVous/rendezvousT.php" method="post">
 
-
-
               <div class="form-group">
-
-                <label for="appointment_name" class="text-black" name="Prenom">Date</label>
-                <input type="Date" class="form-control" id="date" name="date"  min="2018-01-01" max="2021-12-31" required >
+                <label for="appointment_name" class="text-black" name="Prenom">Date & Heure</label>
+                <input onchange="DateChange(this.value)" type="Date" class="form-control" id="date" name="date"  min="2018-01-01" max="2021-12-31" required >
               </div>
 
               <div class="form-group">
-              
-                <label for="appointment_name" class="text-black" name="Nom">Heure</label>
-                <!-- <input type="Time" class="form-control" id="heure" name="heure">  -->
-
+              <div  id="txtHint"><b>Choissisez une date.</b></div>
               </div>
-
-              <div class="form-check">
-                  <input class="form-check-input" type="radio" name="horaire" id="matin" value="0" checked>
-                    <label class="form-check-label" for="exampleRadios1">
-                      Matin
-                    </label>
-              </div>
-              <div class="form-check">
-                  <input class="form-check-input" type="radio" name="horaire" id="apresmidi" value="1">
-                  <label class="form-check-label" for="exampleRadios2">
-                      Après Midi
-                  </label>
-              </div>
-
-
-
 
               <div class="form-group">
                 <label for="appointment_name" class="text-black" name="Adresse">Motif</label>
                 <textarea class="form-control" id="motif" name="motif" rows="3"></textarea>
               </div>
 
-            <div class="form-group">
+              <div class="form-group">
 
                 <input type="submit" value="Continuer" class="btn btn-primary">
               </div>
               
 
-              <input id="prodId" name="docteurName" type="hidden" value="Jarves"> 
+              <input id="prodId" name="idMedecin" type="hidden" value="0"> 
               
             </form>
           </div>
@@ -116,48 +94,57 @@
 
 <!-- Rendez-vous erreur  -->
 <div class="modal fade" id="RendezVoussErreur" tabindex="-1" role="dialog" aria-labelledby="modalAppointmentLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            
-          <label for="appointment_name" class="text-black" name="Adresse">Veuillez vous connecter avant de prendre un rendez-vous.</label>s
-          </div>
-          
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
-      </div>
+        <div class="modal-body"> 
+          <label for="appointment_name" class="text-black" name="Adresse">Veuillez vous connecter avant de prendre un rendez-vous.</label>
+        </div>
     </div>
-  
-  <!-- Rendez-vous erreur Fin -->
+  </div>
+</div>
+<!-- Rendez-vous erreur Fin -->
 
-
-
-
-		<script>
+<script>
       var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+1; //January is 0!
-var yyyy = today.getFullYear();
-dd += 3;
- if(dd<10){
-        dd='0'+dd
-    } 
-    if(mm<10){
+      var dd = today.getDate();
+      var mm = today.getMonth()+1; //January is 0!
+      var yyyy = today.getFullYear();
+      dd += 3;
+      if(dd<10){
+         dd='0'+dd
+      } 
+      if(mm<10){
         mm='0'+mm
-    } 
+      } 
+      today = yyyy+'-'+mm+'-'+dd;
+      document.getElementById("date").setAttribute("min", today);
 
-today = yyyy+'-'+mm+'-'+dd;
-document.getElementById("date").setAttribute("min", today);
+function DateChange(str) {
+  console.log(str);
+  if (str=="") 
+  {
+    document.getElementById("txtHint").innerHTML="";
+    return;
+  }
+  var xmlhttp=new XMLHttpRequest();
+  xmlhttp.onreadystatechange=function() 
+  {
+    if (this.readyState==4 && this.status==200) 
+    {
+      document.getElementById("txtHint").innerHTML=this.responseText;
+    }
+  }
+  xmlhttp.open("GET","../../../Ajax/RDVpickerAjax.php?q="+str,true);
+  xmlhttp.send();
+}
 
 
-
-
-    </script>
+</script>
 
 
     

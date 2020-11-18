@@ -10,14 +10,8 @@ class RDVManager
       $horaire = $ajout->getHoraire();
       $date =$ajout->getDate();
       $motif = $ajout->getMotif();
-      $docteurName = $ajout->getDocteurName();
-      
-  
-      
-      
-
-      var_dump($_SESSION['login']);
-
+      $idMedecin = $ajout->getIdMedecin();
+    
       //Connexion à la base de données projetweb
       try
       {
@@ -36,8 +30,10 @@ class RDVManager
 
 
       
-      $req = $bdd->prepare('INSERT INTO rdv (docteur,login,horaire,date,motif) VALUES (?,?,?,?,?)');
-      $req -> execute(array($docteurName,$_SESSION['login'],$horaire,$date,$motif));
+      $req = $bdd->prepare('INSERT INTO rendezvous (date,idHoraire,idMedecin,idUser,motif) VALUES (?,?,?,?,?)');
+      $req -> execute(array($date,$horaire,$idMedecin,$_SESSION['id'],$motif));
+
+      
  }
 
  public function affichageRDV()

@@ -142,6 +142,7 @@
           //On enregistre login et prénom dans la session
   
           $_SESSION['login'] = $login;
+          $_SESSION['id'] =  $data['idUser'];
           $_SESSION['dossier'] = $data['dossier'];
   
           if ($data['profil'] == 'user')

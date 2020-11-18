@@ -11,7 +11,7 @@ $ajout = new SetUpRDV([
     'date' => $_POST['date'],
     'horaire' =>$_POST['horaire'],
     'motif' => $_POST['motif'],
-    'docteurName' => $_POST['docteurName'],
+    'idMedecin' => $_POST['idMedecin'],
 ]); 
 
 
@@ -21,7 +21,7 @@ $act = $add->AjoutRDV($ajout);
 
 
 
-//header("location: ../../index.php");
+header("location: ../../index.php");
 
 
 ?>

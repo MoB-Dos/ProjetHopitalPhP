@@ -62,9 +62,10 @@ if($data)
             <table id="table1" class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>Nom</th>
-                        <th>Prenom</th>
-                        <th>Couleur</th>
+                        <th>Medecin</th>
+                        <th>Date</th>
+                        <th>Horaire</th>
+                        <th>Motif</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -80,10 +81,11 @@ if($data)
 							foreach ($data as $value) {
         
 							echo                  
-              '<tr  id="'.$value['id'].'">
-              <td>'.$value['nom'].'</td>
-              <td>'.$value['prenom'].'</td>
-              <td>'.$value['couleur'].'</td>
+              '<tr  id="'.$value['idRdv'].'">
+              <td>'.$value['idMedecin'].'</td>
+              <td>'.$value['date'].'</td>
+              <td>'.$value['idHoraire'].'</td>
+              <td>'.$value['motif'].'</td>
               
               <td>
                    <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
