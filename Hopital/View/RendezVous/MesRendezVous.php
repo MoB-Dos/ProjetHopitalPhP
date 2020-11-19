@@ -15,21 +15,14 @@
 
   </head>
   <body>
-  <!-- <div class="hero-wrap" style="background-image: url('../../Design/images/bg_6.jpg'); background-attachment:fixed;">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row no-gutters align-items-center justify-content-center" data-scrollax-parent="true">
-          
-          <h1 class="display-4">Fluid jumbotron</h1>
-    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-          
-        </div>
-      </div>
- </div> -->
+
+
+
 
 
 
 <?php
+
 
 try
 {
@@ -39,7 +32,11 @@ catch(Exception $e)
 {
   die('Erreur:'.$e->getMessage());
 }
-$req = $bdd->query("SELECT * FROM rendezvous");
+$req = $bdd->prepare("SELECT idRdv,infomedecin.nom,infomedecin.prenom,date,horaire.horaire,motif 
+FROM rendezvous 
+INNER JOIN infomedecin ON rendezvous.idMedecin = infomedecin.idMedecin
+INNER JOIN horaire ON rendezvous.idHoraire = horaire.idHoraire WHERE idUser = ?");
+$reponse->execute(array($_SESSION['id'])); 
 
 $data=$req->fetchall();
 
@@ -47,7 +44,7 @@ $data=$req->fetchall();
 if($data)
 {
 ?>
-
+<div class="Rdv">
 <div class="container-lg">
     <div class="table-responsive">
         <div class="table-wrapper">
@@ -55,7 +52,7 @@ if($data)
                 <div class="row">
                     <div class="col-sm-8"><h2>Vos <b>Rendez-Vous</b></h2></div>
                     <div class="col-sm-4">
-                        <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
+                        <button type="button" class="btn btn-info takeRDV" ><i class="fa fa-plus"></i> Prendre un nouveau rendez-vous</button>
                     </div>
                 </div>
             </div>
@@ -66,7 +63,7 @@ if($data)
                         <th>Date</th>
                         <th>Horaire</th>
                         <th>Motif</th>
-                        <th>Actions</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -82,9 +79,9 @@ if($data)
         
 							echo                  
               '<tr  id="'.$value['idRdv'].'">
-              <td>'.$value['idMedecin'].'</td>
+              <td>'.$value['nom'].' '.$value['prenom'].'</td>
               <td>'.$value['date'].'</td>
-              <td>'.$value['idHoraire'].'</td>
+              <td>'.$value['horaire'].'</td>
               <td>'.$value['motif'].'</td>
               
               <td>
@@ -102,7 +99,10 @@ if($data)
         </div>
     </div>
 </div>  
-        
+</div>  
+
+<div  id="txtHint"><b>Choissisez une date.</b></div>
+
 <?php
 }
 else

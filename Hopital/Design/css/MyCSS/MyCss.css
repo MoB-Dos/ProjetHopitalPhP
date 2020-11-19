@@ -76,7 +76,7 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 .table-wrapper {
-    width: 700px;
+    width: 900px;
     margin: 30px auto;
     background: #fff;
     padding: 20px;	
@@ -155,6 +155,23 @@ table.table td .add {
 }
 
 
+.table-title .takeRDV {
+    float: right;
+    height: 40px;
+    font-weight: bold;
+    font-size: 12px;
+    text-shadow: none;
+    min-width: 100px;
+    border-radius: 50px;
+    line-height: 13px;
+}
+.table-title .takeRDV i {
+    margin-right: 4px;
+}
+
+
+/* Mes Rendez vous  */
+
 .noRdv
 {
 
@@ -163,6 +180,14 @@ table.table td .add {
     margin-bottom : 300px;
     font-size: large;
 
+}
+
+.Rdv
+{
+ 
+    margin-top: 100px;
+    margin-bottom : 150px;
+    
 }
 
 

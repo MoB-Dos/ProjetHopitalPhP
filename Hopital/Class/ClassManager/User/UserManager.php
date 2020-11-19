@@ -561,25 +561,27 @@ public function creeDossier(SetUpDossier $ajout) //en cours
   {
     die('Erreur:'.$e->getMessage());
   }
+
   $login=$_SESSION['login'];
 
   $reponse=$bdd->prepare('SELECT id FROM user WHERE login=?');
   $reponse->execute(array($login));
   $result=$reponse->fetch();
-echo("test2 : ".$result[0]);
-var_dump($result[0]);
-$id=$result[0];
+  echo("test2 : ".$result[0]);
+  var_dump($result[0]);
+  $id=$result[0];
   //Sélection des données dans la table utilisateur
   $reponse2=$bdd->prepare('INSERT INTO infouser (idInfo, nom, prenom, date, adresse, mutuel, sq, optionTele, regime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)');
   $reponse2->execute(array($id, $prenom, $nom, $date, $adresse, $mutuel, $sq, $optionTv, $regime)); 
   //INSERT INTO infouser (idInfo, nom, prenom, date, adresse, mutuel, sq, optionTele, regime) VALUES (42, "Michel", "Bernard", "10-03-1990", "Paris", "123234", "9904930", "non", "viande");
                                                                                                   
   $data=$reponse2->fetch();
-var_dump($mutuel);
+  var_dump($mutuel);
 
 $reponse=$bdd->prepare('UPDATE user SET dossier=1 WHERE id=?');
 $reponse->execute(array($id));
 $_SESSION['dossier']=1;
+
 }
 
 public function modification(){

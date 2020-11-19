@@ -21,7 +21,7 @@ $add = new UserManager($ajout);
 
 $act = $add->creeDossier($ajout);
 
-header("location: ../../index.php");
+//header("location: ../../index.php");
 
 
 ?>

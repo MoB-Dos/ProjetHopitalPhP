@@ -284,12 +284,12 @@ if(isset($_SESSION['profil']))
               </div>
 
               <div class="form-group">
-                <label for="appointment_name" class="text-black" name="sq">"sq"</label>
+                <label for="appointment_name" class="text-black" name="sq">Sécurité sociale</label>
                 <input type="text" class="form-control" id="sq" name="sq">
               </div>
 
               <div class="form-group">
-                <label for="appointment_name" class="text-black" name="mutuel">"Mutuel"</label>
+                <label for="appointment_name" class="text-black" name="mutuel">Mutuel</label>
                 <input type="text" class="form-control" id="mutuel" name="mutuel">
               </div>
 

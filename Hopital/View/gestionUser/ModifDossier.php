@@ -27,12 +27,16 @@
       die('Erreur:'.$e->getMessage());
     }
     
-    $req=$bdd->prepare('SELECT * FROM user WHERE login= ?');
-    $req->execute(array( $_SESSION['login']));
-    $data1 = $req->fetch();
-    //Sélection dans la table utilisateur
+    // $req=$bdd->prepare('SELECT * FROM user WHERE login= ?');
+    // $req->execute(array( $_SESSION['login']));
+    // $data1 = $req->fetch();
+    // //Sélection dans la table utilisateur
+    // $req=$bdd->prepare('SELECT * FROM infouser WHERE idInfo= ?');
+    // $req->execute(array( $data1[0]));
+    // $data = $req->fetch();
+
     $req=$bdd->prepare('SELECT * FROM infouser WHERE idInfo= ?');
-    $req->execute(array( $data1[0]));
+    $req->execute(array( $_SESSION['id']));
     $data = $req->fetch();
     
     ?>
@@ -158,11 +162,10 @@
       </div>
     </div>
 
---!>
     
   
 
-  <!-- loader -->
+   loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 	

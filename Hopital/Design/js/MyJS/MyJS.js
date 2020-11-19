@@ -88,7 +88,7 @@ $(document).on('click', ".delete", function (e) {
     console.debug(idRow);
 
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", 'Slam2/ProjethopitalPHP/Hopital/Traitement/RendezVousAjax/AjaxS.php', true);
+    xhr.open("POST", '/Slam2/projethopitalPHP/hopital/ajax/AjaxS.php', true);
 
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
@@ -101,6 +101,7 @@ $(document).on('click', ".delete", function (e) {
       else
       {
         console.debug("NOT OK");
+        document.getElementById("txtHint").innerHTML=this.responseText;
       }
     }
     
@@ -130,7 +131,7 @@ $(document).on('click', ".add", function (e) {
 
     var xhr = new XMLHttpRequest();
 
-    xhr.open("POST", 'Slam2/ProjethopitalPHP/Hopital/Traitement/RendezVousAjax/AjaxA&U.php', true);
+    xhr.open("POST", 'AjaxA&U.php', true);
 
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
