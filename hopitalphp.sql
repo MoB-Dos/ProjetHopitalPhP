@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Ven 13 Novembre 2020 à 15:40
+-- Généré le :  Ven 20 Novembre 2020 à 16:21
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -19,6 +19,32 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `hopitalphp`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `horaire`
+--
+
+CREATE TABLE IF NOT EXISTS `horaire` (
+  `idHoraire` int(11) NOT NULL AUTO_INCREMENT,
+  `horaire` varchar(30) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`idHoraire`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=9 ;
+
+--
+-- Contenu de la table `horaire`
+--
+
+INSERT INTO `horaire` (`idHoraire`, `horaire`) VALUES
+(1, '9:00'),
+(2, '9:30'),
+(3, '10:00'),
+(4, '10:30'),
+(5, '11:00'),
+(6, '11:30'),
+(7, '12:00'),
+(8, '12:30');
 
 -- --------------------------------------------------------
 
@@ -55,29 +81,26 @@ INSERT INTO `infomedecin` (`idMedecin`, `nom`, `prenom`, `spe`, `lieu`, `photo`,
 
 CREATE TABLE IF NOT EXISTS `infouser` (
   `idInfo` int(11) NOT NULL,
+  `idUser` int(11) NOT NULL,
   `nom` varchar(25) NOT NULL,
   `prenom` varchar(25) NOT NULL,
   `date` date NOT NULL,
   `adresse` varchar(30) NOT NULL,
   `mutuel` text NOT NULL,
-  `sq` text NOT NULL,
-  `optionTele` varchar(3) NOT NULL,
-  `regime` varchar(9) NOT NULL,
-  PRIMARY KEY (`idInfo`)
+  `secusocial` text NOT NULL,
+  `optionTV` tinyint(1) NOT NULL,
+  `optionWifi` tinyint(1) NOT NULL,
+  `regime` varchar(30) NOT NULL,
+  PRIMARY KEY (`idInfo`),
+  KEY `idUSer` (`idUser`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
 --
--- Structure de la table `rdv`
+-- Contenu de la table `infouser`
 --
 
-CREATE TABLE IF NOT EXISTS `rdv` (
-  `idRDV` int(11) NOT NULL,
-  `heure` time NOT NULL,
-  `date` date NOT NULL,
-  `motif` text COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+INSERT INTO `infouser` (`idInfo`, `idUser`, `nom`, `prenom`, `date`, `adresse`, `mutuel`, `secusocial`, `optionTV`, `optionWifi`, `regime`) VALUES
+(0, 1, 'Birba', 'Enzo', '2001-11-08', '16 rue du 19 mars 1962 ', '4561215616', '78654896', 1, 1, '1');
 
 -- --------------------------------------------------------
 
@@ -86,16 +109,26 @@ CREATE TABLE IF NOT EXISTS `rdv` (
 --
 
 CREATE TABLE IF NOT EXISTS `rendezvous` (
-  `idRdv` int(11) NOT NULL,
-  `departement` varchar(30) NOT NULL,
+  `idRdv` int(11) NOT NULL AUTO_INCREMENT,
   `date` date NOT NULL,
-  `heure` time NOT NULL,
-  `adresse` varchar(30) NOT NULL,
+  `idHoraire` int(11) NOT NULL,
   `idMedecin` int(11) NOT NULL,
-  `commentaire` text NOT NULL,
+  `idUser` int(11) NOT NULL,
+  `motif` text NOT NULL,
+  PRIMARY KEY (`idRdv`),
   KEY `idRdv` (`idRdv`),
-  KEY `idMedecin` (`idMedecin`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  KEY `idMedecin` (`idMedecin`),
+  KEY `idHoraire` (`idHoraire`),
+  KEY `idUser` (`idUser`),
+  KEY `idUser_2` (`idUser`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+
+--
+-- Contenu de la table `rendezvous`
+--
+
+INSERT INTO `rendezvous` (`idRdv`, `date`, `idHoraire`, `idMedecin`, `idUser`, `motif`) VALUES
+(4, '2020-11-08', 4, 0, 1, 'mal de dos ');
 
 -- --------------------------------------------------------
 
@@ -157,34 +190,42 @@ INSERT INTO `tableaufinal` (`id`, `nom`, `prenom`, `couleur`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `user` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `idUser` int(11) NOT NULL AUTO_INCREMENT,
   `login` varchar(25) NOT NULL,
   `mdpc` text NOT NULL,
   `mail` varchar(35) NOT NULL,
-  `token` text,
   `profil` varchar(9) NOT NULL,
   `dossier` tinyint(1) NOT NULL,
-  PRIMARY KEY (`id`)
+  `sessionId` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`idUser`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Contenu de la table `user`
 --
 
-INSERT INTO `user` (`id`, `login`, `mdpc`, `mail`, `token`, `profil`, `dossier`) VALUES
-(1, 'test_ND', '89df4f3cd604f5fccb2345ab329f327c', 'test_ND@gmail.com', NULL, 'user', 0),
-(2, 'test_D', '89df4f3cd604f5fccb2345ab329f327c', 'test_D@gmail.com', NULL, 'user', 1),
-(3, 'test_AD', '89df4f3cd604f5fccb2345ab329f327c', 'test_AD@gmail.com', NULL, 'admin', 0),
-(4, 'test_Doc', '89df4f3cd604f5fccb2345ab329f327c', 'test_Doc@gmail.com', NULL, 'medecin', 0);
+INSERT INTO `user` (`idUser`, `login`, `mdpc`, `mail`, `profil`, `dossier`, `sessionId`) VALUES
+(1, 'test_ND', '89df4f3cd604f5fccb2345ab329f327c', 'test_ND@gmail.com', 'user', 1, 'ppDx0VYomKl9xNGRj5Zy'),
+(2, 'test_D', '89df4f3cd604f5fccb2345ab329f327c', 'test_D@gmail.com', 'user', 1, NULL),
+(3, 'test_AD', '89df4f3cd604f5fccb2345ab329f327c', 'test_AD@gmail.com', 'admin', 0, NULL),
+(4, 'test_Doc', '89df4f3cd604f5fccb2345ab329f327c', 'test_Doc@gmail.com', 'medecin', 0, NULL);
 
 --
 -- Contraintes pour les tables exportées
 --
 
 --
+-- Contraintes pour la table `infouser`
+--
+ALTER TABLE `infouser`
+  ADD CONSTRAINT `fk_UserInfo` FOREIGN KEY (`idUser`) REFERENCES `user` (`idUser`);
+
+--
 -- Contraintes pour la table `rendezvous`
 --
 ALTER TABLE `rendezvous`
+  ADD CONSTRAINT `fk_idHoraire` FOREIGN KEY (`idHoraire`) REFERENCES `horaire` (`idHoraire`),
+  ADD CONSTRAINT `fk_idUser` FOREIGN KEY (`idUser`) REFERENCES `user` (`idUser`),
   ADD CONSTRAINT `fk_medecin` FOREIGN KEY (`idMedecin`) REFERENCES `infomedecin` (`idMedecin`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

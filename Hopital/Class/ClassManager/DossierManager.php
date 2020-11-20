@@ -14,11 +14,9 @@ class DossierManager
       $mutuel = $ajout->getMutuel();
       $sq = $ajout->getSq();
       $optionTv = $ajout->getOptionTv();
+      $optionWifi = $ajout->getOptionWifi();
       $regime = $ajout->getRegime();
       $profil="user";
-      //var_dump($mail, $login, $mdp, $mdpc);
-    
-      //Connexion à la base de données projetweb
       
       try
       {
@@ -28,25 +26,24 @@ class DossierManager
       {
         die('Erreur:'.$e->getMessage());
       }
-    
-      $login=$_SESSION['login'];
+      
       
       //Sélection des données dans la table utilisateur
-      $reponse=$bdd->prepare('SELECT id FROM user WHERE login=?');
-      $reponse->execute(array($login));
-      $result=$reponse->fetch();
+      $reponseSel=$bdd->prepare('SELECT idUser FROM user WHERE sessionId = ?');
+      $reponseSel->execute(array($_SESSION['sessionId']));
+      $result=$reponseSel->fetch();
       $id=$result[0];
       
 
-      $reponse2=$bdd->prepare('INSERT INTO infouser (idInfo, nom, prenom, date, adresse, mutuel, sq, optionTele, regime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)');
-      $reponse2->execute(array($id, $prenom, $nom, $date, $adresse, $mutuel, $sq, $optionTv, $regime)); 
+      $reponseIns=$bdd->prepare('INSERT INTO infouser (idUser, nom, prenom, date, adresse, mutuel, secusocial, optionTV, optionWifi, regime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?,?)');
+      $reponseIns->execute(array($id, $nom, $prenom, $date, $adresse, $mutuel, $sq, $optionTv,$optionWifi, $regime)); 
       //INSERT INTO infouser (idInfo, nom, prenom, date, adresse, mutuel, sq, optionTele, regime) VALUES (42, "Michel", "Bernard", "10-03-1990", "Paris", "123234", "9904930", "non", "viande");
                                                                                                       
-      $data=$reponse2->fetch();
-      var_dump($mutuel);
+      $data=$reponseIns->fetch();
+      
     
-        $reponse=$bdd->prepare('UPDATE user SET dossier=1 WHERE id=?');
-        $reponse->execute(array($id));
+        $reponse=$bdd->prepare('UPDATE user SET dossier = 1 WHERE sessionId = ?');
+        $reponse->execute(array($_SESSION['sessionId']));
         $_SESSION['dossier']=1;
     
     }

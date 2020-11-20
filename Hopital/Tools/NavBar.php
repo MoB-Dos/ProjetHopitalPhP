@@ -3,8 +3,24 @@
 session_start ();
 
 
+try
+{
+$bdd= new PDO('mysql:host=localhost;dbname=hopitalphp;charset=utf8','root','');
+}
+catch(Exception $e){
+die('Erreur:'.$e->getMessage());
+}
+
+
+$req=$bdd->prepare('SELECT * FROM user WHERE sessionId = ?');
+$req->execute(array( $_SESSION['sessionId']));
+$data = $req->fetch();
+
+
+
+
 //quand le User est connecté
-if(isset($_SESSION['profil']))
+if(isset($_SESSION['sessionId']))
 {
 ?>
 
@@ -42,12 +58,12 @@ if(isset($_SESSION['profil']))
         <div class="dropdown-menu" >
 
           
-          <a class="dropdown-item" ><?php echo $_SESSION['login'] ?> </a>
+          <a class="dropdown-item" ><?php echo $data['login'] ?> </a>
          
           <div class="dropdown-divider"></div>
 
         <?php
-        if($_SESSION['dossier'] == 0)
+        if($data['dossier'] == 0)
         {
           ?>
          <div>

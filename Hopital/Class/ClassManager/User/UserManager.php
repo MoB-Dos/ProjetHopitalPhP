@@ -144,7 +144,7 @@
           var_dump($sessionId);
          
 
-          $_SESSION['sessionID'] = $sessionId;
+          $_SESSION['sessionId'] = $sessionId;
 
           $rep=$bdd->prepare('UPDATE user SET sessionId = ? WHERE login = ?');
           $rep->execute(array( $sessionId,$data['login']));
