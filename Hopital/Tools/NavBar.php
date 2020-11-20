@@ -21,7 +21,7 @@ if(isset($_SESSION['profil']))
 
       
         <li class="nav-item active">
-        <a href="/Slam2/ProjethopitalPHP/Hopital/View/Page/zoneTest.php" class="nav-link">
+        <a href="/Slam2/ProjethopitalPHP/Hopital/ZoneTest" class="nav-link">
         ! Zone de TEST !
         </a>
         </li>
@@ -123,7 +123,7 @@ if(isset($_SESSION['profil']))
 
     <div class="collapse navbar-collapse" id="ftco-nav">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item active"><a href="zoneTest.php" class="nav-link">! Zone de TEST !</a></li>
+        <li class="nav-item active"><a href="/Slam2/ProjethopitalPHP/Hopital/ZoneTest" class="nav-link">! Zone de TEST !</a></li>
         <li class="nav-item active"><a href="/Slam2/ProjethopitalPHP/Hopital/index.php" class="nav-link">Accueil</a></li>
         <li class="nav-item"><a href="/Slam2/ProjethopitalPHP/Hopital/View/Page/aPropos.php" class="nav-link">A propos</a></li>
         <li class="nav-item"><a href="/Slam2/ProjethopitalPHP/Hopital/View/Page/departement.php" class="nav-link">Département</a></li>
@@ -248,7 +248,7 @@ if(isset($_SESSION['profil']))
 
 
 
-        <!--Dossier Création -->
+        <!-- Dossier Création
         <div class="modal fade" id="DossierCréation" tabindex="-1" role="dialog" aria-labelledby="modalAppointmentLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -260,7 +260,7 @@ if(isset($_SESSION['profil']))
           </div>
           <div class="modal-body">
 
-          <form action="Traitement/Dossier/dossierPatienT.php" method="post">
+          <form action="/Slam2/projethopitalPHP/Hopital/Traitement/Dossier/dossierPatienT.php" method="post">
 
 
               <div class="form-group">
@@ -314,106 +314,140 @@ if(isset($_SESSION['profil']))
           
         </div>
       </div>
-    </div>
+    </div> -->
 
 
 
-<!--Rendez vous -->
-  <div class="modal fade" id="RendezVous" tabindex="-1" role="dialog" aria-labelledby="modalAppointmentLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
+<!--Dossier Création -->
+<div class="modal fade" id="DossierCréation" tabindex="-1" role="dialog" aria-labelledby="modalAppointmentLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg " role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="modalAppointmentLabel">Votre Dossier Patient</h5>
+            <h5 class="modal-title" id="modalAppointmentLabel">Votre <b>Dossier d'admission</b></h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            
-            <form action="/Slam2/ProjethopitalPHP/Hopital/Traitement/RendezVous/rendezvous.php" method="post">
-
-
-
-              <div class="form-group">
-
-                <label for="appointment_name" class="text-black" name="Prenom">Date</label>
-                <input type="text" class="form-control" id="Prenom">
-              </div>
-
-              <div class="form-group">
-                <label for="appointment_name" class="text-black" name="Nom">Heure</label>
-                <input type="text" class="form-control" id="Nom">
-              </div>
-
-              <div class="form-group">
-                <label for="appointment_name" class="text-black" name="Date">Secteur</label>
-                <select class="form-control">
-							    <option value="0" selected disabled>choissisez votre Secteur</option>
-	                  <?php
-					          	try{
-						            $bdd= new PDO('mysql:host=localhost;dbname=hopitalphp;charset=utf8','root','');
-						          }
-
-						          catch(Exception $e){
-							        die('Erreur:'.$e->getMessage());
-						          }
-
-						        $reponse=$bdd->query('SELECT spe FROM infomedecin');
-						        $donne=$reponse->fetchall();
-						        foreach ($donne as $value) {
-							        echo '<option>'.$value['spe'].'</option>';
-						        }
-
-						        ?>
-
-                </select>
-                
-              </div>
-
-
-
-
-              <div class="form-group">
-                <label for="appointment_name" class="text-black" name="Date">Médecin</label>
-                <select class="form-control">
-							    <option value="0" selected disabled>choissisez votre Médecin</option>
-	                  <?php
-					          	try{
-						            $bdd= new PDO('mysql:host=localhost;dbname=hopitalphp;charset=utf8','root','');
-						          }
-
-						          catch(Exception $e){
-							        die('Erreur:'.$e->getMessage());
-						          }
-
-						        $reponse=$bdd->query('SELECT nom,prenom FROM infomedecin');
-						        $donne=$reponse->fetchall();
-						        foreach ($donne as $value) {
-							        echo '<option>'.$value['nom']." ".$value['prenom'].'</option>';
-						        }
-
-						        ?>
-
-                </select>
-                
-              </div>
-
-              <div class="form-group">
-                <label for="appointment_name" class="text-black" name="Adresse">Motif</label>
-                <input type="text" class="form-control" id="Adresse">
-              </div>
-
-            <div class="form-group">
-
-                <input type="submit" value="Continuer" class="btn btn-primary">
-              </div>
+          <div class="container">
               
-            </form>
+
+                  <form action="/Slam2/projethopitalPHP/Hopital/Traitement/Dossier/dossierPatienT.php" method="post">
+
+                    
+                  <div class="row">
+                  <div class="col-lg-6">
+                    
+                    <div class="form-group">
+                      <label for="appointment_name" class="text-black" name="prenom"><b>Prénom</b></label>
+                      <input type="text" class="form-control" id="prenom" name="prenom" required>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="appointment_name" class="text-black" name="nom"><b>Nom</b></label>
+                      <input type="text" class="form-control" id="nom" name="nom" required>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="appointment_name" class="text-black" name="date"><b>Date de naissance</b></label>
+                      <input type="Date" class="form-control" id="birthday" name="birthday" >
+                    </div>
+
+                    <div class="form-group">
+                      <label for="appointment_name" class="text-black" name="adresse"><b>Adresse</b></label>
+                      <input type="text" class="form-control" id="adresse" name="adresse" required>
+                    </div>
+                  
+                  </div>
+                  
+                  <div class="col-lg-6">
+
+                    <div class="form-group">
+                      <label for="appointment_name" class="text-black" name="sq"><b>Sécurité sociale</b></label>
+                      <input type="text" class="form-control" id="sq" name="sq" required>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="appointment_name" class="text-black" name="mutuel"><b>Mutuel</b></label>
+                      <input type="text" class="form-control" id="mutuel" name="mutuel" required>
+                    </div>
+
+
+                  
+
+                    
+                    <div class="form-group">
+                    <div class="row" style="margin-left: 0px;margin-bottom: -50px;">
+                    
+
+                        <!-- Option Tv -->
+                        <div class="form-group">
+                          <label for="appointment_name" class="text-black" name="tvradio"><b>Option TV</b></label>
+                      
+                        <div class="form-group">
+                          <label  for="tvOui">Oui</label>
+                          <input type="radio"  value="1" id="tvOui" name="tvradio" checked> </br>
+                  
+                          <label  class="text-black" for="tvNon">Non</label>
+                          <input type="radio"  value="0" id="tvNon" name="tvradio" >
+                        </div>
+                        </div>
+                  
+
+                        <!-- Option Wifi -->
+                        <div class="form-group" style="margin-left: 50px;">
+                          <label for="appointment_name" class="text-black" name="wifiradio"><b>Option Wifi</b></label>
+    
+                        <div class="form-group">
+                          <label  for="wifiOui">Oui</label>
+                          <input type="radio"  value="1" id="wifiOui" name="wifiradio" checked> </br>
+                  
+                          <label  class="text-black" for="wifiNon">Non</label>
+                          <input type="radio" value="0" id="wifiNon" name="wifiradio" >
+                        </div>
+                        </div>
+
+                    
+                    </div> 
+                    </div> 
+                    
+
+                    <div class="form-group">
+                      <label for="appointment_email" class="text-black" name="regime"><b>Régime</b></label>
+                      <select  class="form-control" id="regime" name="regime" required>
+                          <option value="" disabled selected>Choissisez votre régime</option>
+                          <option value="1">Végétarien</option>
+                          <option value="2">Vegan</option>
+                          <option value="3">Halal</option>
+                          <option value="3">Kacher</option>
+                      </select>
+                    </div>
+                  
+                  </div>
+
+                  </div>
+                  <div class="row">
+                    
+                  <div class="col-md-2 ml-auto">
+                    <div class="form-group">
+                      <input type="submit" value="Continuer" class="btn btn-primary">
+                    </div>
+                    </div>
+                  </div>
+
+                  
+
+                  </form>
           </div>
+          </div>
+          
           
         </div>
       </div>
     </div>
+
+
+
 
 
 <script language="javascript">

@@ -10,6 +10,7 @@
  require 'Mail/vendor/phpmailer/phpmailer/src/PHPMailer.php';
  require 'Mail/vendor/phpmailer/phpmailer/src/SMTP.php';
  require 'Mail/vendor/autoload.php';
+ require_once "../../Tools/random_compat/lib/random.php";
 
 
  class UserManager
@@ -124,7 +125,6 @@
     ));
     
 
-    var_dump($mdp);
     $data =$reponse->fetch();
   
     //Pour chaque donnée
@@ -133,14 +133,23 @@
       if (isset($login) && isset($mdp))
       {
   
-
+        
         
         
         //Si les données correspondent au données de la base de données
         if ($data['login'] == $login && $data['mdpc'] == $mdp)
         {
           //On enregistre login et prénom dans la session
-  
+          $sessionId =  $this->genererChaineAleatoire(20);
+          var_dump($sessionId);
+         
+
+          $_SESSION['sessionID'] = $sessionId;
+
+          $rep=$bdd->prepare('UPDATE user SET sessionId = ? WHERE login = ?');
+          $rep->execute(array( $sessionId,$data['login']));
+
+          //Doivent disparaitre !!! urgent 
           $_SESSION['login'] = $login;
           $_SESSION['id'] =  $data['idUser'];
           $_SESSION['dossier'] = $data['dossier'];
@@ -188,8 +197,18 @@
         echo 'Veuillez remplir les champs vides';
       }
   
-  }
-  
+}
+
+
+function genererChaineAleatoire($longueur, $listeCar = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')
+{
+ $chaine = '';
+ $max = mb_strlen($listeCar, '8bit') - 1;
+ for ($i = 0; $i < $longueur; ++$i) {
+ $chaine .= $listeCar[random_int(0, $max)];
+ }
+ return $chaine;
+}
   
   
   
@@ -514,7 +533,7 @@ public function ModificationGestion(SetUpGestion $connexion)
   $login =$connexion->getLogin();
  
 
-// connexion à la base de donnés
+  // connexion à la base de données
   try{
     $bdd= new PDO('mysql:host=localhost;dbname=hopitalphp;charset=utf8','root','');
   }
@@ -529,30 +548,16 @@ public function ModificationGestion(SetUpGestion $connexion)
     $req = $bdd->prepare('UPDATE user SET login = ? ,mail = ? Where login = ?');
     $a = $req -> execute(array($login, $mail,$_SESSION['login']));
 
-//deconnexion
+  //deconnexion
     $this-> Deconnexion();
 
     $_SESSION['login'] = $login;
 
 }
 
-public function creeDossier(SetUpDossier $ajout) //en cours
+
+public function Deconnexion()
 {
-
-  $prenom = $ajout->getPrenom();
-  $nom =$ajout->getNom();
-  $date = $ajout->getDate();
-  $adresse = $ajout->getAdresse();
-  $mutuel = $ajout->getMutuel();
-  $sq = $ajout->getSq();
-  $optionTv = $ajout->getOptionTv();
-  $regime = $ajout->getRegime();
-//$_SESSION['login']
-  $profil="user";
-  //var_dump($mail, $login, $mdp, $mdpc);
-
-  //Connexion à la base de données projetweb
-  
   try
   {
   $bdd= new PDO('mysql:host=localhost;dbname=hopitalphp;charset=utf8','root','');
@@ -562,137 +567,11 @@ public function creeDossier(SetUpDossier $ajout) //en cours
     die('Erreur:'.$e->getMessage());
   }
 
-  $login=$_SESSION['login'];
-
-  $reponse=$bdd->prepare('SELECT id FROM user WHERE login=?');
-  $reponse->execute(array($login));
-  $result=$reponse->fetch();
-  echo("test2 : ".$result[0]);
-  var_dump($result[0]);
-  $id=$result[0];
-  //Sélection des données dans la table utilisateur
-  $reponse2=$bdd->prepare('INSERT INTO infouser (idInfo, nom, prenom, date, adresse, mutuel, sq, optionTele, regime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)');
-  $reponse2->execute(array($id, $prenom, $nom, $date, $adresse, $mutuel, $sq, $optionTv, $regime)); 
-  //INSERT INTO infouser (idInfo, nom, prenom, date, adresse, mutuel, sq, optionTele, regime) VALUES (42, "Michel", "Bernard", "10-03-1990", "Paris", "123234", "9904930", "non", "viande");
-                                                                                                  
-  $data=$reponse2->fetch();
-  var_dump($mutuel);
-
-$reponse=$bdd->prepare('UPDATE user SET dossier=1 WHERE id=?');
-$reponse->execute(array($id));
-$_SESSION['dossier']=1;
-
-}
-
-public function modification(){
-  {
-
-
-    try{
-      $bdd= new PDO('mysql:host=localhost;dbname=hopitalphp;charset=utf8','root','');
-    }
-    
-    catch(Exception $e){
-      die('Erreur:'.$e->getMessage());
-    }
-    
-    
-    //Sélection dans la table utilisateur
-    $req=$bdd->prepare('SELECT * FROM infouser WHERE login= ?');
-    $req->execute(array( $_SESSION['login']));
-    $data = $req->fetch();
-    
-    ?>
-    
-    <!-- Formulaire de modification -->
-    <form method="post" action="../../../Traitement/User/Info/ModifT.php">
-    
-      Votre nom:
-      <input type="text" name="nom" value=<?php echo $data['nom'];?>>
-      <br><br>
-    
-      Votre prenom:
-      <input type="text" name="prenom" value=<?php echo $data['prenom'];?>>
-      <br><br>
-    
-      Votre date:
-      <input type="text" name="date de naissance" value=<?php echo $data['date'];?>>
-      <br><br>
-    
-      Votre adresse:
-      <input type="text" name="adresse" value=<?php echo $data['adresse'];?>>
-      <br><br>
-
-      Votre mutuel:
-      <input type="text" name="mutuel" value=<?php echo $data['mutuel'];?>>
-      <br><br>
-
-      Votre sécurité sociale:
-      <input type="text" name="sq" value=<?php echo $data['sq'];?>>
-      <br><br>
-
-      Votre Option Télé:
-      <input type="text" name="optionTele" value=<?php echo $data['optionTele'];?>>
-      <br><br>
-
-      Votre régime:
-      <input type="text" name="regime" value=<?php echo $data['regime'];?>>
-      <br><br>
-    
-    <input type="submit" value="Envoyer"/><br><br>
-    
-    </form>
-    
-      <?php
-    
-    }
-}
-
-public function AffichageModification2(SetUpDossier $ajout)
-{
-//initialisation du cookie login
- // setcookie('login',$_SESSION['login'], time() + 365*24*3600, null, null, false, true);
-
-//initialisation des variables
-  $nom = $ajout->getNom();
-  $prenom = $ajout->getPrenom();
-  $date = $ajout->getDate();
-  $adresse = $ajout->getAdresse();
-  $mutuel = $ajout->getMutuel();
-  $sq = $ajout->getSq();
-  $optionTele = $ajout->getOptionTele();  
-  $regime = $ajout->getRegime();
-
-
-
-//connexiob à la basse de données
-  try{
-    $bdd= new PDO('mysql:host=localhost;dbname=hopitalphp;charset=utf8','root','');
-  }
-
-  catch(Exception $e){
-    die('Erreur:'.$e->getMessage());
-  }
-
-
-  $req=$bdd->prepare('SELECT * FROM user WHERE login= ?');
-  $req->execute(array( $_SESSION['login']));
-  $data007 = $req->fetch();
-
-  var_dump($nom, $prenom, $date, $adresse, $adresse, $mutuel, $sq, $optionTele, $regime, $data007[0]);
-  //Modification dans la table utilisateur
-    $req2 = $bdd->prepare('UPDATE infouser SET nom = ?, prenom = ?, date = ?, adresse = ?, mutuel = ?, sq= ?, optionTele = ?, regime = ? WHERE idInfo = ?');
-    $reponse79 = $req2 -> execute(array($nom, $prenom, $date, $adresse, $mutuel, $sq, $optionTele, $regime, $data007[0] ));
-
-
-}
-
-
-public function Deconnexion()
-{
+  $repp=$bdd->prepare('UPDATE user SET sessionId = null WHERE sessionId = ?');
+  $repp->execute(array( $_SESSION['sessionID']));
 
   session_destroy();
-
+  
 }
 
 
