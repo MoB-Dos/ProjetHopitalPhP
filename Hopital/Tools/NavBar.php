@@ -3,6 +3,14 @@
 session_start ();
 
 
+
+
+
+
+//quand le User est connecté
+if(isset($_SESSION['sessionId']))
+{
+
 try
 {
 $bdd= new PDO('mysql:host=localhost;dbname=hopitalphp;charset=utf8','root','');
@@ -19,9 +27,7 @@ $data = $req->fetch();
 
 
 
-//quand le User est connecté
-if(isset($_SESSION['sessionId']))
-{
+
 ?>
 
 

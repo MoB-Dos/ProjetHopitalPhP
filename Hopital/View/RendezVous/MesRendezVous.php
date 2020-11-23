@@ -32,11 +32,17 @@ catch(Exception $e)
 {
   die('Erreur:'.$e->getMessage());
 }
+
+$reponse=$bdd->prepare('SELECT idUser FROM user WHERE sessionId = ?');
+$reponse->execute(array($_SESSION['sessionId'])); 
+$dataId=$reponse->fetch();
+  
+
 $req = $bdd->prepare("SELECT idRdv,infomedecin.nom,infomedecin.prenom,date,horaire.horaire,motif 
 FROM rendezvous 
 INNER JOIN infomedecin ON rendezvous.idMedecin = infomedecin.idMedecin
 INNER JOIN horaire ON rendezvous.idHoraire = horaire.idHoraire WHERE idUser = ?");
-$reponse->execute(array($_SESSION['id'])); 
+$req->execute(array($dataId[0])); 
 
 $data=$req->fetchall();
 
@@ -100,8 +106,6 @@ if($data)
     </div>
 </div>  
 </div>  
-
-<div  id="txtHint"><b>Choissisez une date.</b></div>
 
 <?php
 }

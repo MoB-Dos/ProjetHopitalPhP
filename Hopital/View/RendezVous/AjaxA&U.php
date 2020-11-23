@@ -2,11 +2,11 @@
 
 
 $id = $_POST['id'];
-$couleur= $_POST['couleur'];
-$nom = $_POST['nom'];
-$prenom = $_POST['prenom'];
+$medecin = $_POST['medecin'];
+$date = $_POST['date'];
+$horaire = $_POST['horaire'];
+$motif = $_POST['motif'];
 
-$id;
 
 try
 {
@@ -19,7 +19,7 @@ catch(Exception $e)
 
 
 //On select les donées pour voir si elle existe déja 
-$reponse=$bdd->prepare('SELECT * FROM tableau WHERE id = ?');
+$reponse=$bdd->prepare('SELECT * FROM rendezvous WHERE idRdv = ?');
 $reponse->execute(array($id)); 
 $data=$reponse->fetchall();
 
@@ -30,16 +30,16 @@ if($data)
 {
 
 //Update car les donées existe    
-$req = $bdd->prepare('UPDATE tableau SET nom= ? ,prenom = ?,couleur = ? WHERE id = ?');
-$req -> execute(array($nom,$prenom,$couleur,$id));
+$req = $bdd->prepare('UPDATE rendezvous SET date = ? ,idHoraire = ? ,idMedecin = ? ,motif = ? WHERE id = ?');
+$req -> execute(array($motif,$id);
 echo $id;
 
 }else 
 {
 
 //Insert si les donées n'existe pas     
-$requ = $bdd->prepare('INSERT INTO tableau (nom,prenom,couleur) VALUES (?,?,?)');
-$requ -> execute(array($nom,$prenom,$couleur));
+$requ = $bdd->prepare('INSERT INTO rendezvousv (date,idHoraire,idMedecin,motif) VALUES (?,?,?,?)');
+$requ -> execute(array($date,$horaire,$medecin,$motif));
 $id_nouveau = $bdd->lastInsertId();
 echo $id_nouveau;
 

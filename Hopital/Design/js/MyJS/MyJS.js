@@ -123,11 +123,13 @@ $(document).on('click', ".add", function (e) {
     var child = currentRow.find("td:eq(0)").html();
     var child1 = currentRow.find("td:eq(1)").html();
     var child2 = currentRow.find("td:eq(2)").html();
+    var child3 = currentRow.find("td:eq(3)").html();
  
   
     console.debug(child);
     console.debug(child1);
     console.debug(child2);
+    console.debug(child3);
 
     var xhr = new XMLHttpRequest();
 
@@ -149,7 +151,7 @@ $(document).on('click', ".add", function (e) {
     }
 
 
-    xhr.send("couleur=" + encodeURI(child2) + "&nom=" + encodeURI(child) +"&prenom="+ encodeURI(child1) +"&id="+ encodeURI(idRow));
+    xhr.send("horaire=" + encodeURI(child2) + "&medecin=" + encodeURI(child) +"&date="+ encodeURI(child1) +"&motif="+ encodeURI(child3) +"&id="+ encodeURI(idRow));
 
 
 
