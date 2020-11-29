@@ -12,9 +12,16 @@
   	<!-- START nav -->
   	<?php  require_once('../../Tools/NavBar.php') ?>
     <!-- END nav -->
+
+	<div id="txtHint" class="noRdv">
+  	<b>Département en maintenance </b><br>
+
+
+</div>
+
    
     
-    <div class="hero-wrap" style="background-image: url('../../Design/images/bg_6.jpg'); background-attachment:fixed;">
+    <!-- <div class="hero-wrap" style="background-image: url('../../Design/images/bg_6.jpg'); background-attachment:fixed;">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
@@ -202,7 +209,7 @@
 	                </div>
 	              </div>
 	              <div class="back">
-	                <!-- back content -->
+	               
 	                <blockquote>
 	                  <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem&rdquo;</p>
 	                </blockquote>
@@ -214,7 +221,7 @@
 	                </div>
 	              </div>
 	            </div>
-	          </div> <!-- .flip-container -->
+	          </div> 
 	        </div>
 	        <div class="col-md-6 col-lg-3 ftco-animate">
 	          <div class="block-2">
@@ -226,7 +233,7 @@
 	                </div>
 	              </div>
 	              <div class="back">
-	                <!-- back content -->
+	               
 	                <blockquote>
 	                  <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem&rdquo;</p>
 	                </blockquote>
@@ -238,7 +245,7 @@
 	                </div>
 	              </div>
 	            </div>
-	          </div> <!-- .flip-container -->
+	          </div> 
 	        </div>
 	        <div class="col-md-6 col-lg-3 ftco-animate">
 	          <div class="block-2">
@@ -250,7 +257,7 @@
 	                </div>
 	              </div>
 	              <div class="back">
-	                <!-- back content -->
+	             
 	                <blockquote>
 	                  <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem&rdquo;</p>
 	                </blockquote>
@@ -262,7 +269,7 @@
 	                </div>
 	              </div>
 	            </div>
-	          </div> <!-- .flip-container -->
+	          </div> 
 	        </div>
 	        <div class="col-md-6 col-lg-3 ftco-animate">
 	          <div class="block-2">
@@ -274,7 +281,7 @@
 	                </div>
 	              </div>
 	              <div class="back">
-	                <!-- back content -->
+	               
 	                <blockquote>
 	                  <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem&rdquo;</p>
 	                </blockquote>
@@ -286,7 +293,7 @@
 	                </div>
 	              </div>
 	            </div>
-	          </div> <!-- .flip-container -->
+	          </div>
 	        </div>
 
 	        <div class="col-md-6 col-lg-3 ftco-animate">
@@ -299,7 +306,7 @@
 	                </div>
 	              </div>
 	              <div class="back">
-	                <!-- back content -->
+	              
 	                <blockquote>
 	                  <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem&rdquo;</p>
 	                </blockquote>
@@ -311,7 +318,7 @@
 	                </div>
 	              </div>
 	            </div>
-	          </div> <!-- .flip-container -->
+	          </div> 
 	        </div>
 	        <div class="col-md-6 col-lg-3 ftco-animate">
 	          <div class="block-2">
@@ -323,7 +330,7 @@
 	                </div>
 	              </div>
 	              <div class="back">
-	                <!-- back content -->
+	                
 	                <blockquote>
 	                  <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem&rdquo;</p>
 	                </blockquote>
@@ -335,7 +342,7 @@
 	                </div>
 	              </div>
 	            </div>
-	          </div> <!-- .flip-container -->
+	          </div> 
 	        </div>
 	        <div class="col-md-6 col-lg-3 ftco-animate">
 	          <div class="block-2">
@@ -347,7 +354,7 @@
 	                </div>
 	              </div>
 	              <div class="back">
-	                <!-- back content -->
+	                
 	                <blockquote>
 	                  <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem&rdquo;</p>
 	                </blockquote>
@@ -359,7 +366,7 @@
 	                </div>
 	              </div>
 	            </div>
-	          </div> <!-- .flip-container -->
+	          </div>
 	        </div>
 	        <div class="col-md-6 col-lg-3 ftco-animate">
 	          <div class="block-2">
@@ -371,7 +378,7 @@
 	                </div>
 	              </div>
 	              <div class="back">
-	                <!-- back content -->
+	              
 	                <blockquote>
 	                  <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem&rdquo;</p>
 	                </blockquote>
@@ -383,11 +390,11 @@
 	                </div>
 	              </div>
 	            </div>
-	          </div> <!-- .flip-container -->
+	          </div> 
 	        </div>
         </div>
     	</div>
-    </section>
+    </section> -->
 		
 
     <!--START footer-->

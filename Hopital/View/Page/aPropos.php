@@ -28,7 +28,7 @@
       <div class="container-fluid d-flex">
         <div class="section-2-blocks-wrapper row no-gutters">
           <div class="img col-sm-12 col-lg-6" style="background-image: url('../../Design/images/about.jpg');">
-            <a href="https://vimeo.com/45830194" class="button popup-vimeo"><span class="ion-ios-play"></span></a>
+            <a href="https://www.youtube.com/watch?v=c1NIpA3dxtk" class="button popup-vimeo"><span class="ion-ios-play"></span></a>
           </div>
           <div class="text col-lg-6 ftco-animate">
             <div class="text-inner align-self-start">
@@ -36,7 +36,6 @@
               <h3>Bienvenue dans l'Hopital REMEDIC, un lieu prestigieux ou les meilleurs medecin serve la cause de la santé depuis 1983</h3>
               <p>Peut importe l'heure ,le jour, si il pleut, vente ou neige nous serons la  pour vous</p>
 
-              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
             </div>
           </div>
         </div>
