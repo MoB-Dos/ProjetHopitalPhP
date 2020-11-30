@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
     <title>Remedic - Free Bootstrap 4 Template by Colorlib</title>
@@ -27,26 +28,22 @@
       die('Erreur:'.$e->getMessage());
     }
     
-    $req=$bdd->prepare('SELECT * FROM user WHERE login= ?');
-    $req->execute(array( $_SESSION['login']));
-    $data1 = $req->fetch();
-    //Sélection dans la table utilisateur
-    $req=$bdd->prepare('SELECT * FROM infouser WHERE idInfo= ?');
-    $req->execute(array( $data1[0]));
-    $data = $req->fetch();
+    $req=$bdd->prepare('SELECT nom,prenom,date FROM infouser INNER JOIN user ON infouser.idUser = user.idUser WHERE user.sessionId = ?');
+    $req->execute(array( $_SESSION['sessionId']));
+    $data = $req->fetchall();
     
     ?>
     
     <!-- Formulaire de modification -->
     <form method="post" action="../../index.php">
     
-    Votre nom : <?php echo $data['nom'];?>
+    Votre nom : <?php echo 'tt'+$data['nom']+'tt';?>
       <br><br>
     
-      Votre prenom : <?php echo $data['prenom'];?>
+    Votre prenom : <?php echo $data['prenom'];?>
       <br><br>
     
-      Votre date : <?php echo $data['date'];?>
+    Votre date : <?php echo $data['date'];?>
       <br><br>
     
       Votre adresse : <?php echo $data['adresse'];?>
@@ -56,9 +53,6 @@
       <br><br>
 
       Votre sécurité sociale : <?php echo $data['sq'];?>
-      <br><br>
-
-      Votre Option Télé : <?php echo $data['optionTele'];?>
       <br><br>
 
       Votre régime : <?php echo $data['regime'];?>

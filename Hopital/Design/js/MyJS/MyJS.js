@@ -1,3 +1,8 @@
+  var idRow = $(this).closest('tr').attr('id');
+    var currentRow=$(this).closest("tr");
+
+
+
 $(document).ready(function(){
 	$('[data-toggle="tooltip"]').tooltip();
 	//var actions = $("table td:last-child").html();
@@ -35,7 +40,7 @@ $(document).ready(function(){
 	// Add row on add button click
 	$(document).on("click", ".add", function(){
 		var empty = false;
-		var input = $(this).parents("tr").find('input[type="text"]');
+		var input = $(this).parents("tr").find('.form-control');
         input.each(function(){
 			if(!$(this).val()){
 				$(this).addClass("error");
@@ -55,11 +60,17 @@ $(document).ready(function(){
     });
 	// Edit row on edit button click
 	$(document).on("click", ".edit", function(){		
-        $(this).parents("tr").find("td:not(:last-child)").each(function(){
-			$(this).html('<input type="text" class="form-control" value="' + $(this).text() + '">');
+    //     $(this).parents("tr").find("td:not(:last-child)").each(function(){
+		// 	$(this).html('<input type="text" class="form-control" value="' + $(this).text() + '">');
+    // });	
+
+
+
+    $(this).parents("tr").each(function(){
+      $(this).find("td:eq(3)").html('<input type="text" class="form-control" value="' +	$(this).find("td:eq(3)").text() + '">');
     });	
   
-    
+
 		$(this).parents("tr").find(".add, .edit").toggle();
 		$(".add-new").attr("disabled", "disabled");
     });

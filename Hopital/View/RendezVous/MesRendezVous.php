@@ -58,7 +58,7 @@ if($data)
                 <div class="row">
                     <div class="col-sm-8"><h2>Vos <b>Rendez-Vous</b></h2></div>
                     <div class="col-sm-4">
-                        <button type="button" class="btn btn-info takeRDV" ><i class="fa fa-plus"></i> Prendre un nouveau rendez-vous</button>
+                        <a href="../Page/docteur.php"><button type="button" class="btn btn-info takeRDV"  ><i class="fa fa-plus"></i> Prendre un nouveau rendez-vous </button> </a>
                     </div>
                 </div>
             </div>
