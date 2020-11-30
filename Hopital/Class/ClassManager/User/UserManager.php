@@ -66,13 +66,13 @@
           
           $req = $bdd->prepare('INSERT INTO user (login,mdpc,mail,profil,dossier) VALUES (?,?,?,?,?)');
           $req -> execute(array($login,$mdpc,$mail,$profil,$dossier));
-          var_dump($req);
+         
 
           //Envoi du mail de confirmation
           $objet = "Bienvenue à l'Hopital Bariller!";
           $sujet = "Vous pourrez recevoir ici toutes les nouvautés aux sujets de l'établissement mais aussi vos prochain rendez-vous !";
           $email = $mail;
-          $this-> Mail($objet,$sujet,$email);
+          //$this-> Mail($objet,$sujet,$email);
           
         
           $_SESSION['login'] = $login;
@@ -93,15 +93,18 @@
      /*  $connexion = new SetUpUser([
         'login' => $login,
         'mdp' => $mdp,
-    ]);
+          ]);
     
-    $try = new UserManager($connexion);
+          $try = new UserManager($connexion);
     
-    $act = $try->Connexion($connexion);
+          $act = $try->Connexion($connexion);
     
+
     header("location: ../../index.php"); //marche pas
   
        */
+
+
   
   }
 

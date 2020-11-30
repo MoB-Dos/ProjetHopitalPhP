@@ -57,7 +57,9 @@ $(document).ready(function(){
 	$(document).on("click", ".edit", function(){		
         $(this).parents("tr").find("td:not(:last-child)").each(function(){
 			$(this).html('<input type="text" class="form-control" value="' + $(this).text() + '">');
-		});		
+    });	
+  
+    
 		$(this).parents("tr").find(".add, .edit").toggle();
 		$(".add-new").attr("disabled", "disabled");
     });
@@ -143,6 +145,8 @@ $(document).on('click', ".add", function (e) {
       if (this.readyState === XMLHttpRequest.DONE && this.status === 200) 
       {
         console.debug("OK");
+
+        document.getElementById("txtHint").innerHTML=this.responseText;
       }
       else
       {

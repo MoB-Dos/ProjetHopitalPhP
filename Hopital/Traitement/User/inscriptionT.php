@@ -16,8 +16,6 @@ $add = new UserManager($ajout);
 
 $act = $add->Inscription($ajout);
 
-var_dump($_SESSION['login']);
-
 header("location: ../../index.php");
 
 
