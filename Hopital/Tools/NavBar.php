@@ -201,7 +201,6 @@ $data = $req->fetch();
 
               </div>
           
-              <label class="text-grey">Mot de passe oublié cliquez <a href="View/Mdp/MdpOublier.php"> ici </a></label>
          
               <div class="form-group">
                 <input type="submit" value="Continuer" class="btn btn-primary">

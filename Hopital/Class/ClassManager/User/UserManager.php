@@ -89,8 +89,8 @@
           echo '<meta http-equiv="refresh" content="0;URL=Inscription.php">';
         }
        }
-       /*
-       $connexion = new SetUpUser([
+       
+     /*  $connexion = new SetUpUser([
         'login' => $login,
         'mdp' => $mdp,
           ]);
@@ -99,9 +99,12 @@
     
           $act = $try->Connexion($connexion);
     
-          header("location: ../../index.php"); //marche pas
-          */
-       
+
+    header("location: ../../index.php"); //marche pas
+  
+       */
+
+
   
   }
 
@@ -330,7 +333,6 @@ public function mail($objet,$sujet,$email)
 
   try {
 
-      $mail->SMTPDebug = SMTP::DEBUG_SERVER;
       $mail->isSMTP();
       $mail->Host       = 'smtp.gmail.com';
       $mail->SMTPAuth   = true;
@@ -565,6 +567,35 @@ public function ModificationGestion(SetUpGestion $connexion)
     $_SESSION['login'] = $login;
 
 }
+
+
+public function sendMail(SetUpuser $ouf)
+{
+
+
+ //on initialise nos variables
+  $mail = $ouf->getMail();
+  $sujet =$ouf->getSujet();
+  $nom =$ouf->getNom();
+  $sujet2 =$ouf->getSujet();
+  $message =$ouf->getMessage();
+
+
+          //Envoi du mail de confirmation
+          $objet = "MR ".$nom." mail : ".$mail." Sujet : ".$sujet2;
+          $email='projetweb932@gmail.com';
+          $this-> Mail($objet,$message,$email);
+          var_dump($objet);
+          var_dump($message);
+
+          
+ }
+          
+          
+
+  
+
+
 
 
 public function Deconnexion()
