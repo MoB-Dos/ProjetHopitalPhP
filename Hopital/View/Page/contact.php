@@ -33,16 +33,16 @@
           </div>
           <div class="w-100"></div>
           <div class="col-md-3">
-            <p><span>adresse:</span> 1 Avenue Claude Vellefaux</p>
+            <p><span>adresse :</span> 1 Avenue Claude Vellefaux</p>
           </div>
           <div class="col-md-3">
-            <p><span>téléphone:</span> <a href="tel://1234567920">01 65v45 23 09</a></p>
+            <p><span>téléphone :</span> <a href="tel://1234567920">01 65 45 23 09</a></p>
           </div>
           <div class="col-md-3">
             <p><span>mail:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
           </div>
           <div class="col-md-3">
-            <p><span>site</span> <a href="#">hopitalbariller.com</a></p>
+            <p><span>site : </span> <a href="#">hopitalbariller.com</a></p>
           </div>
         </div>
         <div class="row block-9">
