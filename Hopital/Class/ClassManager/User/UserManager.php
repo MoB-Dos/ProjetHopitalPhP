@@ -569,6 +569,35 @@ public function ModificationGestion(SetUpGestion $connexion)
 }
 
 
+public function sendMail(SetUpuser $ouf)
+{
+
+
+ //on initialise nos variables
+  $mail = $ouf->getMail();
+  $sujet =$ouf->getSujet();
+  $nom =$ouf->getNom();
+  $sujet2 =$ouf->getSujet();
+  $message =$ouf->getMessage();
+
+
+          //Envoi du mail de confirmation
+          $objet = "MR ".$nom." mail : ".$mail." Sujet : ".$sujet2;
+          $email='projetweb932@gmail.com';
+          $this-> Mail($objet,$message,$email);
+          var_dump($objet);
+          var_dump($message);
+
+          
+ }
+          
+          
+
+  
+
+
+
+
 public function Deconnexion()
 {
   try

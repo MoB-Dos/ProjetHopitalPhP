@@ -2,7 +2,7 @@
 
 class SetUpUser
 {
-  private $_nom,$_prenom,$_mail,$_login,$_mdp,$_mdp2,$_objet,$_sujet;
+  private $_nom,$_prenom,$_mail,$_login,$_mdp,$_mdp2,$_objet,$_sujet,$_sujet2,$_message;
 
   public function __construct(array $donnees)
   {
@@ -93,6 +93,21 @@ public function setSujet($sujet) {
     return; }
 }
 
+public function setSujet2($sujet2) {
+
+  if (strlen($sujet2) <= 200) {
+      $this->_sujet2 = $sujet2;
+  } else { trigger_error('erreur sujet',E_USER_WARNING);
+    return; }
+}
+
+public function setMessage($message) {
+
+  if (strlen($message) <= 200) {
+      $this->_message = $message;
+  } else { trigger_error('erreur sujet',E_USER_WARNING);
+    return; }
+}
 public function getObjet() { return $this->_objet; }
 public function getSujet() { return $this->_sujet; }
 public function getNom() { return $this->_nom; }
@@ -101,6 +116,9 @@ public function getLogin() { return $this->_login; }
 public function getMail() { return $this->_mail; }
 public function getMdp() { return $this->_mdp; }
 public function getMdp2() { return $this->_mdp2; }
+public function getSujet2() { return $this->_sujet2; }
+public function getMessage() { return $this->_message; }
+
 
 }
 
