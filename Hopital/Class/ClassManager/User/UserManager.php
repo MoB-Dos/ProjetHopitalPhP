@@ -89,8 +89,8 @@
           echo '<meta http-equiv="refresh" content="0;URL=Inscription.php">';
         }
        }
-       /*
-       $connexion = new SetUpUser([
+       
+     /*  $connexion = new SetUpUser([
         'login' => $login,
         'mdp' => $mdp,
     ]);
@@ -100,8 +100,8 @@
     $act = $try->Connexion($connexion);
     
     header("location: ../../index.php"); //marche pas
-  */
-       
+  
+       */
   
   }
 
@@ -330,7 +330,6 @@ public function mail($objet,$sujet,$email)
 
   try {
 
-      $mail->SMTPDebug = SMTP::DEBUG_SERVER;
       $mail->isSMTP();
       $mail->Host       = 'smtp.gmail.com';
       $mail->SMTPAuth   = true;
