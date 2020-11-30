@@ -89,8 +89,19 @@
           echo '<meta http-equiv="refresh" content="0;URL=Inscription.php">';
         }
        }
-  
-  
+       /*
+       $connexion = new SetUpUser([
+        'login' => $login,
+        'mdp' => $mdp,
+    ]);
+    
+    $try = new UserManager($connexion);
+    
+    $act = $try->Connexion($connexion);
+    
+    header("location: ../../index.php"); //marche pas
+  */
+       
   
   }
 
