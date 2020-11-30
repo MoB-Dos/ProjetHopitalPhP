@@ -23,7 +23,7 @@ $requ = $bdd->prepare('INSERT INTO tableau (nom,prenom,couleur) VALUES (?,?,?)')
 $requ -> execute(array($nom,$prenom,$couleur));
 
 
-}
+
 
 
 

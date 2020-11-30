@@ -147,10 +147,11 @@ $data = $req->fetch();
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active"><a href="/Slam2/ProjethopitalPHP/Hopital/ZoneTest" class="nav-link">! Zone de TEST !</a></li>
         <li class="nav-item active"><a href="/Slam2/ProjethopitalPHP/Hopital/index.php" class="nav-link">Accueil</a></li>
-        <li class="nav-item"><a href="/Slam2/ProjethopitalPHP/Hopital/View/Page/aPropos.php" class="nav-link">A propos</a></li>
-        <li class="nav-item"><a href="/Slam2/ProjethopitalPHP/Hopital/View/Page/departement.php" class="nav-link">Département</a></li>
-        <li class="nav-item"><a href="/Slam2/ProjethopitalPHP/Hopital/View/Page/docteur.php" class="nav-link">Docteur</a></li>
-        <li class="nav-item"><a href="/Slam2/ProjethopitalPHP/Hopital/View/Page/contact.php" class="nav-link">Contact</a></li>
+        <li class="nav-item active"><a href="/Slam2/ProjethopitalPHP/Hopital/View/Page/aPropos.php" class="nav-link">A propos</a></li>
+        <li class="nav-item active"><a href="/Slam2/ProjethopitalPHP/Hopital/View/Page/departement.php" class="nav-link">Département</a></li>
+        <li class="nav-item active"><a href="/Slam2/ProjethopitalPHP/Hopital/View/Page/docteur.php" class="nav-link">Docteur</a></li>
+        <li class="nav-item active"><a href="/Slam2/ProjethopitalPHP/Hopital/View/Page/contact.php" class="nav-link">Contact</a></li>
+
         <li class="nav-item cta"><a href="contact.html" class="nav-link"  style="margin-right: 5px;" data-toggle="modal" data-target="#Connexion"><span>Connexion</span></a></li>
         <li class="nav-item cta"><a href="contact.html" class="nav-link" data-toggle="modal" data-target="#Inscription"><span>Inscription</span></a></li>
       </ul>
@@ -241,9 +242,11 @@ $data = $req->fetch();
 
                 <label for="appointment_mdp" class="text-black" name="mdp">Mot de passe :</label> 
 
-                <img href='#' src="https://img.icons8.com/material/24/000000/visible--v1.png" id="icon" onclick='showHidePassword("mdp")'/>
+                <img href='#' src="https://img.icons8.com/material/24/000000/visible--v1.png" id="icon2" onclick= "showHidePassword('mdp')" />
                 
                 <input type="password" id="mdp" class="form-control" name="mdp"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required> 
+
+                <label  class="text-grey" name="mdp">8 caractères, une majuscule et une minuscule</label> 
 
                 
               </div>
@@ -252,7 +255,9 @@ $data = $req->fetch();
               
                 <label for="appointment_mdp" class="text-black" name="mdp2" >Réecrivez votre mot de passe :</label>   
 
-                <input type="password" id="mdp" class="form-control" name="mdp2" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required> 
+                
+
+                <input type="password" id="mdp2" class="form-control" name="mdp2" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required> 
                
               </div>
                 
@@ -474,37 +479,47 @@ $data = $req->fetch();
 
 <script language="javascript">
 
-
+  // var elements = document.getElementsByClassName("mdpp");
 
 
   
 function showHidePassword(id) {
   
+
+  // elements.forEach((input) => {
+
+    // if (input.type == "password") {
+
+    // input.type = "text";
+    // document.getElementById("icon").src = "https://img.icons8.com/material-sharp/24/000000/closed-eye.png";
+    // document.getElementById("icon2").src = "https://img.icons8.com/material-sharp/24/000000/closed-eye.png";
+
+    // } else {
+
+    // input.type = "password";
+    // document.getElementById("icon").src = "https://img.icons8.com/material/24/000000/visible--v1.png";
+    // document.getElementById("icon2").src = "https://img.icons8.com/material/24/000000/visible--v1.png";
+    // }
+
+
+  // }
     var x = document.getElementById(id);
     if (x.type == "password") {
-    x.type = "text";
 
+    x.type = "text";
     document.getElementById("icon").src = "https://img.icons8.com/material-sharp/24/000000/closed-eye.png";
-    
+    document.getElementById("icon2").src = "https://img.icons8.com/material-sharp/24/000000/closed-eye.png";
+
     } else {
+
     x.type = "password";
     document.getElementById("icon").src = "https://img.icons8.com/material/24/000000/visible--v1.png";
-    
+    document.getElementById("icon2").src = "https://img.icons8.com/material/24/000000/visible--v1.png";
     }
 
    
 }
 
-function showHidePassword2() {
-  //document.getElementById('password').type = 'text';
-
-
-  if (document.getElementById('checkbox2').checked == false) {
-    document.getElementById('password2').type = 'password'
-  }else if(document.getElementById('checkbox2').checked == true) {
-    document.getElementById('password2').type = 'text'
-  }
-}
 
 
 

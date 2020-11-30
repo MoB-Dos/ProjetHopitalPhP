@@ -97,47 +97,49 @@
                 <h2 class="mb-4">Département Cardiologie</h2>
                 <p>Nous saurons traité votre coeur avec toute la patience qu'il merite</p>
                 <p>Pour tout problèmes lié a celui ci cest dans ce département que vous allez pouvoir trouver un docteur qualifié pour vos attentes </p>
-                <p><a href="#" class="btn btn-primary">En savoir plus</a></p>
+                <p><a href="view/Page/departement.php" class="btn btn-primary">En savoir plus</a></p>
               </div>
 
               <div class="tab-pane fade py-5" id="v-pills-buffet" role="tabpanel" aria-labelledby="v-pills-buffet-tab">
                 <span class="icon mb-3 d-block flaticon-neurology"></span>
                 <h2 class="mb-4">Département Neurogolie</h2>
-                <p>ICI VOTRE TEXTE, consectetur adipisicing elit. Nesciunt voluptate, quibusdam sunt iste dolores consequatur</p>
-                <p>Inventore fugit error iure nisi reiciendis fugiat illo pariatur quam sequi quod iusto facilis officiis nobis sit quis molestias asperiores rem, blanditiis! Commodi exercitationem vitae deserunt qui nihil ea, tempore et quam natus quaerat doloremque.</p>
-                <p><a href="#" class="btn btn-primary">En savoir plus</a></p>
+                <p>Le département de Neurologie regroupe l’ensemble des unités de neurologie du bâtiment Paul Castaigne.
+                 Les patients sont accueillis pour des bilans diagnostiques et/ou pour des prises en charge thérapeutiques. 
+                 Le département comporte des secteurs de consultation (avec des consultations d’urgence), d’hospitalisation de jour, d’hospitalisation de semaine et d’hospitalisation traditionnelle. </p>
+                 <p>Outre l’expertise dans les différents domaines de la neurologie, une des spécificités du département est son secteur de réanimation dédié aux patients neurologiques. </p>
+                <p><a href="view/Page/departement.php" class="btn btn-primary">En savoir plus</a></p>
               </div>
 
               <div class="tab-pane fade py-5" id="v-pills-fitness" role="tabpanel" aria-labelledby="v-pills-fitness-tab">
                 <span class="icon mb-3 d-block flaticon-stethoscope"></span>
-                <h2 class="mb-4">Département Diagnostique</h2>
-                <p>ICI VOTRE TEXTE,, consectetur adipisicing elit. Nesciunt voluptate, quibusdam sunt iste dolores consequatur</p>
-                <p>Inventore fugit error iure nisi reiciendis fugiat illo pariatur quam sequi quod iusto facilis officiis nobis sit quis molestias asperiores rem, blanditiis! Commodi exercitationem vitae deserunt qui nihil ea, tempore et quam natus quaerat doloremque.</p>
-                <p><a href="#" class="btn btn-primary">En savoir plus</a></p>
+                <h2 class="mb-4">Medecin Généraliste</h2>
+                <p>Le médecin généraliste est un médecin qui a choisi la spécialité de médecine générale. Il se consacre donc à toutes les maladies et pathologies humaines dans leur ensemble sans en avoir choisi de particulière.</p>
+                <p><a href="view/Page/departement.php" class="btn btn-primary">En savoir plus</a></p>
               </div>
 
               <div class="tab-pane fade py-5" id="v-pills-reception" role="tabpanel" aria-labelledby="v-pills-reception-tab">
                 <span class="icon mb-3 d-block flaticon-tooth"></span>
                 <h2 class="mb-4">Département Dentition</h2>
-                <p>ICI VOTRE TEXTE,, consectetur adipisicing elit. Nesciunt voluptate, quibusdam sunt iste dolores consequatur</p>
-                <p>Inventore fugit error iure nisi reiciendis fugiat illo pariatur quam sequi quod iusto facilis officiis nobis sit quis molestias asperiores rem, blanditiis! Commodi exercitationem vitae deserunt qui nihil ea, tempore et quam natus quaerat doloremque.</p>
-                <p><a href="#" class="btn btn-primary">En savoir plus</a></p>
+                <p>Dentiste désigne un praticien spécialiste des dents et qui donne donc professionnellement des soins dentaires. </p>
+                <p><a href="view/Page/departement.php" class="btn btn-primary">En savoir plus</a></p>
               </div>
 
               <div class="tab-pane fade py-5" id="v-pills-sea" role="tabpanel" aria-labelledby="v-pills-sea-tab">
                 <span class="icon mb-3 d-block flaticon-vision"></span>
                 <h2 class="mb-4">Département Ophthalmologie </h2>
-                <p>ICI VOTRE TEXTE,, consectetur adipisicing elit. Nesciunt voluptate, quibusdam sunt iste dolores consequatur</p>
-                <p>Inventore fugit error iure nisi reiciendis fugiat illo pariatur quam sequi quod iusto facilis officiis nobis sit quis molestias asperiores rem, blanditiis! Commodi exercitationem vitae deserunt qui nihil ea, tempore et quam natus quaerat doloremque.</p>
-                <p><a href="#" class="btn btn-primary">En savoir plus</a></p>
+                <p>Médecin chargé de traiter les maladies des yeux, et de leurs annexes. Il réalise généralement un examen ophtalmologique avant d'établir son diagnostic, 
+                en interrogeant le patient et en faisant un examen physique de ce dernier. </p>
+
+                <p><a href="view/Page/departement.php" class="btn btn-primary">En savoir plus</a></p>
               </div>
 
               <div class="tab-pane fade py-5" id="v-pills-spa" role="tabpanel" aria-labelledby="v-pills-spa-tab">
                 <span class="icon mb-3 d-block flaticon-ambulance"></span>
                 <h2 class="mb-4">Département Urgence </h2>
-                <p>ICI VOTRE TEXTE,, consectetur adipisicing elit. Nesciunt voluptate, quibusdam sunt iste dolores consequatur</p>
-                <p>Inventore fugit error iure nisi reiciendis fugiat illo pariatur quam sequi quod iusto facilis officiis nobis sit quis molestias asperiores rem, blanditiis! Commodi exercitationem vitae deserunt qui nihil ea, tempore et quam natus quaerat doloremque.</p>
-                <p><a href="#" class="btn btn-primary">En savoir plus</a></p>
+                <p>Les urgences sont assurées à la fois par la médecine libérale et la médecine hospitalière, 
+                mais force est de constater que de plus en plus de patients se dirigent vers l’hôpital public en cas d’urgence, avec, 
+                comme conséquence fâcheuse, des délais d’attente de plus en plus longs dans les services d'accueil des urgences (SAU).</p>
+                <p><a href="view/Page/departement.php" class="btn btn-primary">En savoir plus</a></p>
               </div>
             </div>
           </div>
@@ -151,7 +153,7 @@
     	<div class="container">
     		<div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 heading-section ftco-animate text-center">
-            <h2 class="mb-4">Our Experienced Doctors</h2>
+            <h2 class="mb-4">Nos Docteurs Expérimenter</h2>
           </div>
         </div>
         <div class="row">
@@ -261,8 +263,8 @@
     	<div class="container">
     		<div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
-            <h2 class="mb-4">Some fun facts</h2>
-            <span class="subheading">Far far away, behind the word mountains, far from the countries</span>
+            <h2 class="mb-4">Quelque chiffres amusant</h2>
+         
           </div>
         </div>
     		<div class="row justify-content-center">
@@ -272,7 +274,7 @@
 		            <div class="block-18 text-center">
 		              <div class="text">
 		                <strong class="number" data-number="60">0</strong>
-		                <span>Hospital</span>
+		                <span>Hopitals</span>
 		              </div>
 		            </div>
 		          </div>
@@ -280,7 +282,7 @@
 		            <div class="block-18 text-center">
 		              <div class="text">
 		                <strong class="number" data-number="200">0</strong>
-		                <span>Doctors</span>
+		                <span>Docteurs</span>
 		              </div>
 		            </div>
 		          </div>
@@ -288,7 +290,7 @@
 		            <div class="block-18 text-center">
 		              <div class="text">
 		                <strong class="number" data-number="100">0</strong>
-		                <span>Clinics</span>
+		                <span>Clinique</span>
 		              </div>
 		            </div>
 		          </div>
@@ -296,7 +298,7 @@
 		            <div class="block-18 text-center">
 		              <div class="text">
 		                <strong class="number" data-number="200">0</strong>
-		                <span>Reviews</span>
+		                <span>Revues</span>
 		              </div>
 		            </div>
 		          </div>
@@ -308,7 +310,7 @@
     <!--Fin Panel FunFact-->
 
     <!--Début Panel Avis-->
-    <section class="ftco-section testimony-section">
+    <!-- <section class="ftco-section testimony-section">
       <div class="container">
       	<div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 heading-section ftco-animate text-center">
@@ -378,7 +380,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
     <!--Fin Panel Avis-->
 
 

@@ -31,7 +31,7 @@ if($data)
 
 //Update car les donées existe    
 $req = $bdd->prepare('UPDATE rendezvous SET date = ? ,idHoraire = ? ,idMedecin = ? ,motif = ? WHERE id = ?');
-$req -> execute(array($motif,$id);
+$req -> execute(array($date,$horaire,$medecin,$motif,$id));
 echo $id;
 
 }else 
