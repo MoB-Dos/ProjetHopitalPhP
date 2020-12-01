@@ -86,7 +86,7 @@
 
           <div class="form-group">
             <label  for="tvOui">Oui</label>
-            <input type="radio"  value="1" id="tvOui" name="tvradio" <?php echo ($data['optionTV'] == 'non') ? 'checked': '';?>> </br>
+            <input type="radio"  value="1" id="tvOui" name="tvradio" <?php echo ($data['optionTV'] == 'oui') ? 'checked': '';?>> </br>
 
             <label  class="text-black" for="tvNon">Non</label>
             <input type="radio"  value="0" id="tvNon" name="tvradio" <?php echo ($data['optionTV'] == 'non') ? 'checked': '';?> >
@@ -116,10 +116,10 @@
         <label for="appointment_email" class="text-black" name="regime"><b>Régime</b></label>
         <select  class="form-control" id="regime" name="regime" required>
             <option value="" disabled selected>Choissisez votre régime</option>
-            <option value="1">Végétarien</option>
-            <option value="2">Vegan</option>
-            <option value="3">Halal</option>
-            <option value="3">Kacher</option>
+            <option value="1" <?php echo ($data['regime'] == 'vegetarien') ? 'selected': '';?>>Végétarien</option>
+            <option value="2" <?php echo ($data['regime'] == 'vegan') ? 'selected': '';?>>Vegan</option>
+            <option value="3" <?php echo ($data['regime'] == 'halal') ? 'selected': '';?>>Halal</option>
+            <option value="3" <?php echo ($data['regime'] == 'kacher') ? 'selected': '';?>>Kacher</option>
         </select>
       </div>
 
