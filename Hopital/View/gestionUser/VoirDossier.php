@@ -28,40 +28,73 @@
       die('Erreur:'.$e->getMessage());
     }
     
-    $req=$bdd->prepare('SELECT nom,prenom,date FROM infouser INNER JOIN user ON infouser.idUser = user.idUser WHERE user.sessionId = ?');
+    $req=$bdd->prepare(" SELECT * FROM infouser INNER JOIN user ON infouser.idUser = user.idUser WHERE user.sessionId = ? ");
     $req->execute(array( $_SESSION['sessionId']));
-    $data = $req->fetchall();
+    $data = $req->fetch();
     
     ?>
     
+
+    <div style="margin-top: 50px;margin-left: 60px;font-size:50px;">
+    <b>Votre Dossier</b>
+    </div>
     <!-- Formulaire de modification -->
-    <form method="post" action="../../index.php">
+  
     
-    Votre nom : <?php echo 'tt'+$data['nom']+'tt';?>
+    <div class="container" style="margin-top: 100px;margin-bottom: 100px;font-size:20px;">
+
+    <div class="row">
+    
+    <div class="col-lg-6">
+    
+      Nom : <?php echo $data['nom'];?>
       <br><br>
     
-    Votre prenom : <?php echo $data['prenom'];?>
+      Prénom : <?php echo $data['prenom'];?>
       <br><br>
     
-    Votre date : <?php echo $data['date'];?>
+      Date de naissance : <?php echo $data['date'];?>
       <br><br>
     
-      Votre adresse : <?php echo $data['adresse'];?>
+      Adresse : <?php echo $data['adresse'];?>
       <br><br>
 
-      Votre mutuel : <?php echo $data['mutuel'];?>
-      <br><br>
-
-      Votre sécurité sociale : <?php echo $data['sq'];?>
-      <br><br>
-
-      Votre régime : <?php echo $data['regime'];?>
+      Mutuel : <?php echo $data['mutuel'];?>
       <br><br>
     
-    <input type="submit" value="retour"/><br><br>
-    <input type="button" value="Telecharger" onclick="window.location.href='../Tools/exportUser.php';" />
+    </div>
+    
 
-    </form>
+    
+    <div class="col-lg-6">
+
+      Sécurité sociale : <?php echo $data['secusocial'];?>
+      <br><br>
+      
+      Option TV : <?php echo $data['optionTV'];?>
+      <br><br>
+      
+      Option Wifi : <?php echo $data['optionWifi'];?>
+      <br><br>
+
+      Régime : <?php echo $data['regime'];?>
+      <br><br>
+    
+      <input type="button" value="Telecharger" onclick="window.location.href='../Tools/exportUser.php';" />
+
+      <input type="button" value="Modifier" onclick="window.location.href='ModifDossier.php';" />
+    </div>
+    
+    </div>
+    
+    </div>
+
+   
+    
+    
+    
+
+   
     
 
 
@@ -144,8 +177,6 @@
         </div>
       </div>
     </div>
-
---!>
     
   
 
