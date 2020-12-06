@@ -90,6 +90,33 @@ $data = $req->fetch();
           <?php
 
         }
+
+        if($data['profil'] == 'admin')
+        {
+          ?>
+         <div>
+         <span class="admin"></span> 
+          <a class="dropdown-item" href="view/Page/AdminPanel.php">Panel Admin</a>
+        </div>          
+          
+          <?php
+
+        }
+
+
+
+        if($data['profil'] == 'medecin')
+        {
+          ?>
+         <div>
+         <span class="admin"></span> 
+          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#">Panel Medecin</a>
+        </div>          
+          
+          <?php
+
+        }
+
         ?>
           
         

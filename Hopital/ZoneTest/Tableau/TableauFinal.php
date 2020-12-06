@@ -161,6 +161,7 @@ $(document).ready(function(){
 		$(this).parents("tr").find(".add, .edit").toggle();
 		$(".add-new").attr("disabled", "disabled");
     });
+    
 	// Delete row on delete button click
 	$(document).on("click", ".delete", function(){
         $(this).parents("tr").remove();
@@ -248,6 +249,9 @@ $(document).on('click', ".add", function (e) {
         console.debug("NOT OK");
       }
     }
+
+
+
 
 
     xhr.send("couleur=" + encodeURI(child2) + "&nom=" + encodeURI(child) +"&prenom="+ encodeURI(child1) +"&id="+ encodeURI(idRow));
