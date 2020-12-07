@@ -150,10 +150,9 @@ class DossierManager
         $reponseSel->execute(array($_SESSION['sessionId']));
         $result=$reponseSel->fetch();
         $id=$result[0];
-      
  
         //Modification dans la table utilisateur
-          $req2 = $bdd->prepare('UPDATE infouser SET nom = ?, prenom = ?, date = ?, adresse = ?, mutuel = ?, secusocial= ?, optionTV = ?,optionWifi = ?, regime = ? WHERE idInfo = ?');
+          $req2 = $bdd->prepare('UPDATE infouser SET nom = ?, prenom = ?, date = ?, adresse = ?, mutuel = ?, secusocial= ?, optionTV = ?,optionWifi = ?, regime = ? WHERE idUser = ?');
           $reponse79 = $req2 -> execute(array($nom, $prenom, $date, $adresse, $mutuel, $sq, $optionTv,$optionWifi, $regime, $id));
       
       

@@ -23,7 +23,7 @@ $add = new DossierManager($modif);
 $act = $add->AffichageModification2($modif);
 
 
-//header("location: ../../index.php");
+header("location: ../../index.php");
 
 
 ?>

@@ -123,7 +123,6 @@ $data = $req->fetch();
           
           
           <a class="dropdown-item" href="/Slam2/ProjethopitalPHP/Hopital/View/RendezVous/MesRendezVous.php" >Mes rendez-vous</a>
-          <a class="dropdown-item" href="/Slam2/ProjethopitalPHP/Hopital/View/gestionUser/ModifDossier.php">Modifier mon profil</a>
         <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="/Slam2/ProjethopitalPHP/Hopital/Traitement/User/decoT.php">Déconnexion</a>
         </div> 
