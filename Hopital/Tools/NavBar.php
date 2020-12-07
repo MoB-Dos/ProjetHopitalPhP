@@ -223,8 +223,7 @@ $data = $req->fetch();
 
                 <input type="password" id="mdp2"  class="form-control" id="appointment_email" name="mdp" > 
              
-
-                
+                <p> Mot de passe oublié ?<a href="View/Mdp/MdpOublier.php">Cliquez ici</a> ?<br /></p>                
 
               </div>
           
