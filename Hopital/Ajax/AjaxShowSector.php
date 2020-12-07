@@ -1,5 +1,7 @@
 <?php
 
+//le fichier sert a afficher les tableaux pour le panel admin
+
 $sector = $_POST['sector'];
 
 try{
@@ -10,22 +12,22 @@ try{
     die('Erreur:'.$e->getMessage());
   }
 
+//on prends dans la bdd les user par type de profil
 $reponse=$bdd->prepare('SELECT * FROM user WHERE profil = ?');
 $reponse -> execute(array($sector));
 $data=$reponse->fetchall();
 
 
+//on prends dans la bdd la totalité des rdv
 $req = $bdd->query("SELECT idRdv,infomedecin.nom,infomedecin.prenom,date,horaire.horaire,motif 
 FROM rendezvous 
 INNER JOIN infomedecin ON rendezvous.idMedecin = infomedecin.idMedecin
 INNER JOIN horaire ON rendezvous.idHoraire = horaire.idHoraire");
 $dataRdv=$req->fetchall();
 
-// <div class="col-sm-8"><h2>Les <b>.$value['profil'].</b></h2></div>
-// <div class="col-sm-4">
-// <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
-// </div>
 
+
+//on affiche deux tableaux un si l'admin veut voir les profils et un autre si il veut voir les rdv
 if($sector != 'rdv'){
 
 if($sector == 'user'){

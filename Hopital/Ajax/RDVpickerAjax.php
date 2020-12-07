@@ -1,5 +1,7 @@
 <?php
 
+//le fichier sert a envoyer la liste des rdv disponible a l'heure choisie 
+
 $q = $_GET['q'];
 
 try{

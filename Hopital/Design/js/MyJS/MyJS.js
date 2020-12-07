@@ -77,6 +77,8 @@ $(".add-new").attr("disabled", "disabled");
     });
 });
 
+
+//fonction pour générer un id 
 function makeid(length) {
    var result           = '';
    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -89,14 +91,20 @@ function makeid(length) {
 
 
 
+//Fonction CRUD
+
+
+
 
 $(document).on('click', ".delete", function (e) {
     e.preventDefault();
 
+
+
+    //on récupére l'id et le type de donées a supprimer  
     var idRow = $(this).closest('tr').attr('id');
     var tyype =  document.getElementById("hiddenType").value;
-    console.debug(idRow);
-    console.debug(tyype);
+
     var xhr = new XMLHttpRequest();
     xhr.open("POST", '/Slam2/projethopitalPHP/hopital/ajax/AjaxS.php', true);
 
@@ -119,7 +127,7 @@ $(document).on('click', ".delete", function (e) {
 
 });
 
-
+//on ajoute les informations dans la bdd
 $(document).on('click', ".add", function (e) {
     e.preventDefault();
 
@@ -128,22 +136,16 @@ $(document).on('click', ".add", function (e) {
 
       var t = document.getElementById("select1");
       var strUser = t.value;
-      console.debug(strUser);
-  
+
+      //on prends d'abords l'id de la ligne
       var idRow = $(this).closest('tr').attr('id');
       var currentRow=$(this).closest("tr");
-      console.debug(idRow);
-      
+    
+      //puis chaque cellule 
       var child = currentRow.find("td:eq(0)").html();
       var child1 = currentRow.find("td:eq(1)").html();
       var child2 = currentRow.find("td:eq(2)").html();
       var child3 = currentRow.find("td:eq(3)").html();
-      
-      console.debug(child);
-      console.debug(child1);
-      console.debug(child2);
-      console.debug(child3);
-  
   
       var xhr = new XMLHttpRequest();
   
@@ -161,60 +163,18 @@ $(document).on('click', ".add", function (e) {
           $id = this.responseText;
           document.getElementById("test").html = this.responseText;
           console.debug("OK");
-          // $(this).closest('tr').attr('id') = this.responseText;
-          
         }
         else
         {
           console.debug("NOT OK");
         }
       }
-  
-  
+
+      // on envoie la totalité des informations  
       xhr.send("login=" + encodeURI(child) + "&mail=" + encodeURI(child1) +"&dossier="+ encodeURI(child2) +"&sessionId="+ encodeURI(child3)+"&profil="+ encodeURI(strUser) +"&id="+ encodeURI(idRow));
-  
-    // var idRow = $(this).closest('tr').attr('id');
-    // var currentRow=$(this).closest("tr");
-    // console.debug(idRow);
-
-    // var child = currentRow.find("td:eq(0)").html();
-    // var child1 = currentRow.find("td:eq(1)").html();
-    // var child2 = currentRow.find("td:eq(2)").html();
-    // var child3 = currentRow.find("td:eq(3)").html();
 
 
-    // console.debug(child);
-    // console.debug(child1);
-    // console.debug(child2);
-    // console.debug(child3);
-
-    // var xhr = new XMLHttpRequest();
-
-    // xhr.open("POST", 'AjaxA&U.php', true);
-
-    // xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-    // //me previens si il narrive pas a joindre le fichier php
-    // xhr.onreadystatechange = function() //Appelle une fonction au changement d'état.
-    // {
-    //   if (this.readyState === XMLHttpRequest.DONE && this.status === 200)
-    //   {
-    //     console.debug("OK");
-
-    //     document.getElementById("txtHint").innerHTML=this.responseText;
-    //   }
-    //   else
-    //   {
-    //     console.debug("NOT OK");
-    //   }
-    // }
-
-
-    // xhr.send("horaire=" + encodeURI(child2) + "&medecin=" + encodeURI(child) +"&date="+ encodeURI(child1) +"&motif="+ encodeURI(child3) +"&id="+ encodeURI(idRow));
-
-
-
-    }, 3000);
+    }, 1000);
 
 });
 

@@ -41,12 +41,7 @@ $data = $req->fetch();
     <div class="collapse navbar-collapse" id="ftco-nav">
       <ul class="navbar-nav ml-auto">
 
-      
-        <li class="nav-item active">
-        <a href="/Slam2/ProjethopitalPHP/Hopital/ZoneTest" class="nav-link">
-        ! Zone de TEST !
-        </a>
-        </li>
+    
         <li class="nav-item active"><a href="../../index.php" class="nav-link">Accueil</a></li>
         <li class="nav-item active"><a href="/Slam2/ProjethopitalPHP/Hopital/View/Page/aPropos.php" class="nav-link">A propos</a></li>
         <li class="nav-item active"><a href="/Slam2/ProjethopitalPHP/Hopital/View/Page/departement.php" class="nav-link">Département</a></li>
@@ -68,7 +63,10 @@ $data = $req->fetch();
          
           <div class="dropdown-divider"></div>
 
+
+        
         <?php
+        //le message est different selon si on a un dossier ou non 
         if($data['dossier'] == 0)
         {
           ?>
@@ -91,6 +89,8 @@ $data = $req->fetch();
 
         }
 
+
+        //l'affichage est different selon si on a un profil admin 
         if($data['profil'] == 'admin')
         {
           ?>
@@ -119,8 +119,7 @@ $data = $req->fetch();
 
         ?>
           
-        
-          
+                  
           
           <a class="dropdown-item" href="/Slam2/ProjethopitalPHP/Hopital/View/RendezVous/MesRendezVous.php" >Mes rendez-vous</a>
         <div class="dropdown-divider"></div>
@@ -140,15 +139,7 @@ $data = $req->fetch();
         ?>
 
         </div> 
-  
-          <!-- <div id="myTooltips">
-              
-            <a href="#" data-toggle="tooltip" title="Cliquez ici pour Créer votre dossier "><i class="fas fa-exclamation-triangle"> </i></a>
-        
-          </div> -->
-
-  
-  
+    
       </ul>
     </div>
   </div>
@@ -171,7 +162,6 @@ $data = $req->fetch();
 
     <div class="collapse navbar-collapse" id="ftco-nav">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item active"><a href="/Slam2/ProjethopitalPHP/Hopital/ZoneTest" class="nav-link">! Zone de TEST !</a></li>
         <li class="nav-item active"><a href="/Slam2/ProjethopitalPHP/Hopital/index.php" class="nav-link">Accueil</a></li>
         <li class="nav-item active"><a href="/Slam2/ProjethopitalPHP/Hopital/View/Page/aPropos.php" class="nav-link">A propos</a></li>
         <li class="nav-item active"><a href="/Slam2/ProjethopitalPHP/Hopital/View/Page/departement.php" class="nav-link">Département</a></li>
@@ -295,78 +285,6 @@ $data = $req->fetch();
         </div>
       </div>
     </div>
-
-
-
-
-        <!-- Dossier Création
-        <div class="modal fade" id="DossierCréation" tabindex="-1" role="dialog" aria-labelledby="modalAppointmentLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="modalAppointmentLabel">Votre Dossier Patient</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-
-          <form action="/Slam2/projethopitalPHP/Hopital/Traitement/Dossier/dossierPatienT.php" method="post">
-
-
-              <div class="form-group">
-                <label for="appointment_name" class="text-black" name="prenom">Prénom</label>
-                <input type="text" class="form-control" id="prenom" name="prenom">
-              </div>
-
-              <div class="form-group">
-                <label for="appointment_name" class="text-black" name="nom">Nom</label>
-                <input type="text" class="form-control" id="nom" name="nom">
-              </div>
-
-              <div class="form-group">
-                <label for="appointment_name" class="text-black" name="date">Date de naissance</label>
-                <input type="Date" class="form-control" id="date" name="date">
-              </div>
-
-              <div class="form-group">
-                <label for="appointment_name" class="text-black" name="adresse">Adresse</label>
-                <input type="text" class="form-control" id="adresse" name="adresse">
-              </div>
-
-              <div class="form-group">
-                <label for="appointment_name" class="text-black" name="sq">Sécurité sociale</label>
-                <input type="text" class="form-control" id="sq" name="sq">
-              </div>
-
-              <div class="form-group">
-                <label for="appointment_name" class="text-black" name="mutuel">Mutuel</label>
-                <input type="text" class="form-control" id="mutuel" name="mutuel">
-              </div>
-
-              <div class="form-group">
-                <label for="appointment_name" class="text-black" name="OptionTV">Option TV</label>
-                <input type="text" class="form-control" id="optionTv" name="optionTv">
-              </div>
-
-              <div class="form-group">
-                <label for="appointment_email" class="text-black" name="regime">Regime</label>
-                <input type="text" class="form-control" id="regime" name="regime">
-              </div>
-          
-                
-              
-              <div class="form-group">
-                <input type="submit" value="Continuer" class="btn btn-primary">
-              </div>
-              
-            </form>
-          </div>
-          
-        </div>
-      </div>
-    </div> -->
-
 
 
 <!--Dossier Création -->
@@ -503,30 +421,10 @@ $data = $req->fetch();
 
 <script language="javascript">
 
-  // var elements = document.getElementsByClassName("mdpp");
 
-
-  
 function showHidePassword(id) {
   
 
-  // elements.forEach((input) => {
-
-    // if (input.type == "password") {
-
-    // input.type = "text";
-    // document.getElementById("icon").src = "https://img.icons8.com/material-sharp/24/000000/closed-eye.png";
-    // document.getElementById("icon2").src = "https://img.icons8.com/material-sharp/24/000000/closed-eye.png";
-
-    // } else {
-
-    // input.type = "password";
-    // document.getElementById("icon").src = "https://img.icons8.com/material/24/000000/visible--v1.png";
-    // document.getElementById("icon2").src = "https://img.icons8.com/material/24/000000/visible--v1.png";
-    // }
-
-
-  // }
     var x = document.getElementById(id);
     if (x.type == "password") {
 
@@ -543,8 +441,6 @@ function showHidePassword(id) {
 
    
 }
-
-
 
 
 </script>

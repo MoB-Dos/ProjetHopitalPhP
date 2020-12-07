@@ -39,19 +39,19 @@ class DossierManager
       $result=$reponseSel->fetch();
       $id=$result[0];
       
-      var_dump($id);
+
 
       $reponseIns=$bdd->prepare('INSERT INTO infouser (idUser, nom, prenom, date, adresse, mutuel, secusocial, optionTV, optionWifi, regime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?,?)');
       $reponseIns->execute(array($id, $nom, $prenom, $date, $adresse, $mutuel, $sq, $optionTv,$optionWifi, $regime)); 
-      //INSERT INTO infouser (idInfo, nom, prenom, date, adresse, mutuel, sq, optionTele, regime) VALUES (42, "Michel", "Bernard", "10-03-1990", "Paris", "123234", "9904930", "non", "viande");
+    
                                                                                                       
       $data=$reponseIns->fetch();
       
-    
-        $reponse=$bdd->prepare('UPDATE user SET dossier = 1 WHERE sessionId = ?');
-        $reponse->execute(array($_SESSION['sessionId']));
-        $_SESSION['dossier']=1;
-    
+     //on modifie la valeur dossier pour pouvoir indiquer qu'il a bien été realiser 
+      $reponse=$bdd->prepare('UPDATE user SET dossier = 1 WHERE sessionId = ?');
+      $reponse->execute(array($_SESSION['sessionId']));
+      $_SESSION['dossier']=1;
+  
     }
 
     public function modification(){
@@ -74,7 +74,7 @@ class DossierManager
           
           ?>
           
-          <!-- Formulaire de modification -->
+          <!-- affichage du Formulaire de modification -->
           <form method="post" action="../../../Traitement/User/Info/ModifT.php">
           
             Votre nom:
@@ -120,8 +120,7 @@ class DossierManager
       
       public function AffichageModification2(SetUpDossier $modif)
       {
-      //initialisation du cookie login
-       // setcookie('login',$_SESSION['login'], time() + 365*24*3600, null, null, false, true);
+     
       
       //initialisation des variables
       $prenom = $modif->getPrenom();
@@ -136,7 +135,7 @@ class DossierManager
       
       
       
-      //connexiob à la basse de données
+      //connexion à la basse de données
         try{
           $bdd= new PDO('mysql:host=localhost;dbname=hopitalphp;charset=utf8','root','');
         }
@@ -145,15 +144,15 @@ class DossierManager
           die('Erreur:'.$e->getMessage());
         }
       
-      
+        //on récupére l'idUser avec le sessionId
         $reponseSel=$bdd->prepare('SELECT idUser FROM user WHERE sessionId = ?');
         $reponseSel->execute(array($_SESSION['sessionId']));
         $result=$reponseSel->fetch();
         $id=$result[0];
  
         //Modification dans la table utilisateur
-          $req2 = $bdd->prepare('UPDATE infouser SET nom = ?, prenom = ?, date = ?, adresse = ?, mutuel = ?, secusocial= ?, optionTV = ?,optionWifi = ?, regime = ? WHERE idUser = ?');
-          $reponse79 = $req2 -> execute(array($nom, $prenom, $date, $adresse, $mutuel, $sq, $optionTv,$optionWifi, $regime, $id));
+        $req2 = $bdd->prepare('UPDATE infouser SET nom = ?, prenom = ?, date = ?, adresse = ?, mutuel = ?, secusocial= ?, optionTV = ?,optionWifi = ?, regime = ? WHERE idUser = ?');
+        $reponse79 = $req2 -> execute(array($nom, $prenom, $date, $adresse, $mutuel, $sq, $optionTv,$optionWifi, $regime, $id));
       
       
       }
