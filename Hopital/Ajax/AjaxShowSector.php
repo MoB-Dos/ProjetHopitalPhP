@@ -27,6 +27,10 @@ $dataRdv=$req->fetchall();
 // </div>
 
 if($sector != 'rdv'){
+
+if($sector == 'user'){
+    echo'<a href="../tools/exportUser"><button class="btn btn-primary">exporter Patient</button></a>';
+}
 echo '<div class="Rdv">
 <div class="container-lg">
     <div class="table-responsive">
@@ -113,7 +117,7 @@ else
 {
 
             
-
+echo'<a href="../tools/exportRDV"><button class="btn btn-primary">exporter rendez-vous</button></a>';
 echo '<div class="Rdv">
 <div class="container-lg">
     <div class="table-responsive">
@@ -172,12 +176,9 @@ echo '<div class="Rdv">
 
 </div>  
 
+
+
 <input id="hiddenType"  type="hidden" value="rdv">';
             }
 
-
-
-// <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-// <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-// <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
 ?>
