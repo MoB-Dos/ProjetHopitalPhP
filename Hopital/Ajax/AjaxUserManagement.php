@@ -8,6 +8,8 @@ $dossier = $_POST['child2'];
 $sessionId = $_POST['child3'];
 $profil =  $_POST['child4'];
 
+$mdp = 'Azertyu1';
+$mdpc = md5($mdp);
 
 try
 {
@@ -26,6 +28,8 @@ $data=$reponse->fetchall();
 
 
 
+
+
 if($data)
 {
 
@@ -38,8 +42,8 @@ $dataa=$req->fetchall();
 {
 
 //Insert si les donées n'existe pas     
-$requ = $bdd->prepare('INSERT INTO user (login,mail,mdpc,dossier,sessionId,profil) VALUES (?,?,?,?,?,?)');
-$requ -> execute(array($login,$mail,0,$dossier,$sessionId,$profil));
+$requ = $bdd->prepare('INSERT INTO user (login,mdpc,mail,profil,dossier,sessionId) VALUES (?,?,?,?,?,?)');
+$requ -> execute(array($login,$mdpc,$mail,$profil,$dossier,$sessionId));
 $id_nouveau = $bdd->lastInsertId();
 echo $id_nouveau;
 

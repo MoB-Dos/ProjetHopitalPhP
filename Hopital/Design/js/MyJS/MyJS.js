@@ -125,10 +125,8 @@ $(document).on('click', ".add", function (e) {
 
     setTimeout(() => {
 
-
       var t = document.getElementById("select1");
       var strUser = t.value;
-
       console.debug(strUser);
   
       var idRow = $(this).closest('tr').attr('id');
@@ -140,6 +138,11 @@ $(document).on('click', ".add", function (e) {
       var child2 = currentRow.find("td:eq(2)").html();
       var child3 = currentRow.find("td:eq(3)").html();
       
+      console.debug(child);
+      console.debug(child1);
+      console.debug(child2);
+      console.debug(child3);
+  
   
       var xhr = new XMLHttpRequest();
   
@@ -168,7 +171,6 @@ $(document).on('click', ".add", function (e) {
   
       xhr.send("login=" + encodeURI(child2) + "&mail=" + encodeURI(child) +"&dossier="+ encodeURI(child1) +"&sessionId="+ encodeURI(child3)+"&profil="+ encodeURI(strUser) +"&id="+ encodeURI(idRow));
   
-
     // var idRow = $(this).closest('tr').attr('id');
     // var currentRow=$(this).closest("tr");
     // console.debug(idRow);

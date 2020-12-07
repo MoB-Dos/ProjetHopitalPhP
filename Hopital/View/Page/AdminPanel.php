@@ -87,6 +87,11 @@ $(document).on('click', ".add", function (e) {
     var child2 = currentRow.find("td:eq(2)").html();
     var child3 = currentRow.find("td:eq(3)").html();
     
+    console.debug(child);
+    console.debug(child1);
+    console.debug(child2);
+    console.debug(child3);
+
 
     var xhr = new XMLHttpRequest();
 
@@ -124,9 +129,11 @@ $(document).on('click', ".add", function (e) {
 
 <div class="SelectUser">
 <select onchange="SectorChange(this.value)" id="select1">
+<option value="0" selected disabled >--Choisir un Profil--</option>
 <option value="user" >Patient</option>
-<option value="admin">Docteur</option>
+<option value="admin">Admin</option>
 <option value="medecin">Medecin</option>
+<option value="rdv">Voir les rendez-vous</option>
 </select>
 </div>
 
