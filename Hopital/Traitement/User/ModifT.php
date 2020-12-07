@@ -1,29 +1,29 @@
 <?php
 session_start ();
 
-require '../../Class/ClassManager/User/UserManager.php';
+require '../../Class/ClassManager/DossierManager.php';
 require '../../Class/SetUp/SetUpDossier.php';
 
-$ajout = new SetUpDossier([
-    'nom' => $_POST['nom'],
-    'prenom' =>$_POST['prenom'],
-    'date' => $_POST['date'],
+$modif = new SetUpDossier([
+    'prenom' => $_POST['prenom'],
+    'nom' =>$_POST['nom'],
+    'date' => $_POST['birthday'],
     'adresse' => $_POST['adresse'],
-    'mutuel' => $_POST['mutuel'],
     'sq' => $_POST['sq'],
-    'optionTele' => $_POST['optionTele'],
+    'mutuel' => $_POST['mutuel'],
+    'optionTv' => $_POST['tvradio'],
+    'optionWifi' => $_POST['wifiradio'],
     'regime' => $_POST['regime'],
 
 ]); 
 
 
-$add = new UserManager($ajout);
+$add = new DossierManager($modif);
 
-$act = $add->AffichageModification2($ajout);
+$act = $add->AffichageModification2($modif);
 
-var_dump($_SESSION['login']);
 
-header("location: ../../index.php");
+//header("location: ../../index.php");
 
 
 ?>

@@ -28,8 +28,14 @@
       die('Erreur:'.$e->getMessage());
     }
     
-    $req=$bdd->prepare(" SELECT * FROM infouser INNER JOIN user ON infouser.idUser = user.idUser WHERE user.sessionId = ? ");
-    $req->execute(array( $_SESSION['sessionId']));
+
+    $reqId=$bdd->prepare(" SELECT idUser FROM user WHERE sessionId = ? ");
+    $reqId->execute(array( $_SESSION['sessionId']));
+    $dataId = $reqId->fetch();
+
+    // $req=$bdd->prepare(" SELECT * FROM infouser INNER JOIN user ON infouser.idUser = user.idUser WHERE user.sessionId = ? ");
+    $req=$bdd->prepare(" SELECT * FROM infouser WHERE idUser = ? ");
+    $req->execute(array($dataId['0']));
     $data = $req->fetch();
     
     ?>

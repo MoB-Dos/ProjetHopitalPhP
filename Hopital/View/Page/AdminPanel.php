@@ -139,6 +139,9 @@ $(document).on('click', ".add", function (e) {
 
 
 
+
+
+
 <div id="idSector" class="noUser">
   <b>...</b><br>
 </div>

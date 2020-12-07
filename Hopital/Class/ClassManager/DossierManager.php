@@ -17,6 +17,11 @@ class DossierManager
       $optionWifi = $ajout->getOptionWifi();
       $regime = $ajout->getRegime();
       $profil="user";
+
+      $optionTv = ($optionTv == '1') ? 'oui': 'non';
+      $optionWifi = ($optionTv == '1') ? 'oui': 'non';
+    
+      
       
       try
       {
@@ -34,6 +39,7 @@ class DossierManager
       $result=$reponseSel->fetch();
       $id=$result[0];
       
+      var_dump($id);
 
       $reponseIns=$bdd->prepare('INSERT INTO infouser (idUser, nom, prenom, date, adresse, mutuel, secusocial, optionTV, optionWifi, regime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?,?)');
       $reponseIns->execute(array($id, $nom, $prenom, $date, $adresse, $mutuel, $sq, $optionTv,$optionWifi, $regime)); 
@@ -112,20 +118,21 @@ class DossierManager
           }
       }
       
-      public function AffichageModification2(SetUpDossier $ajout)
+      public function AffichageModification2(SetUpDossier $modif)
       {
       //initialisation du cookie login
        // setcookie('login',$_SESSION['login'], time() + 365*24*3600, null, null, false, true);
       
       //initialisation des variables
-        $nom = $ajout->getNom();
-        $prenom = $ajout->getPrenom();
-        $date = $ajout->getDate();
-        $adresse = $ajout->getAdresse();
-        $mutuel = $ajout->getMutuel();
-        $sq = $ajout->getSq();
-        $optionTele = $ajout->getOptionTele();  
-        $regime = $ajout->getRegime();
+      $prenom = $modif->getPrenom();
+      $nom =$modif->getNom();
+      $date = $modif->getDate();
+      $adresse = $modif->getAdresse();
+      $mutuel =$modif->getMutuel();
+      $sq = $modif->getSq();
+      $optionTv = $modif->getOptionTv();
+      $optionWifi =$modif->getOptionWifi();
+      $regime = $modif->getRegime();
       
       
       
@@ -139,14 +146,15 @@ class DossierManager
         }
       
       
-        $req=$bdd->prepare('SELECT * FROM user WHERE login= ?');
-        $req->execute(array( $_SESSION['login']));
-        $data007 = $req->fetch();
+        $reponseSel=$bdd->prepare('SELECT idUser FROM user WHERE sessionId = ?');
+        $reponseSel->execute(array($_SESSION['sessionId']));
+        $result=$reponseSel->fetch();
+        $id=$result[0];
       
-        var_dump($nom, $prenom, $date, $adresse, $adresse, $mutuel, $sq, $optionTele, $regime, $data007[0]);
+ 
         //Modification dans la table utilisateur
-          $req2 = $bdd->prepare('UPDATE infouser SET nom = ?, prenom = ?, date = ?, adresse = ?, mutuel = ?, sq= ?, optionTele = ?, regime = ? WHERE idInfo = ?');
-          $reponse79 = $req2 -> execute(array($nom, $prenom, $date, $adresse, $mutuel, $sq, $optionTele, $regime, $data007[0] ));
+          $req2 = $bdd->prepare('UPDATE infouser SET nom = ?, prenom = ?, date = ?, adresse = ?, mutuel = ?, secusocial= ?, optionTV = ?,optionWifi = ?, regime = ? WHERE idInfo = ?');
+          $reponse79 = $req2 -> execute(array($nom, $prenom, $date, $adresse, $mutuel, $sq, $optionTv,$optionWifi, $regime, $id));
       
       
       }

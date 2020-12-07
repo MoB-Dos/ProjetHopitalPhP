@@ -1,8 +1,9 @@
 <?php
 
 $id = $_POST['id'];
+$type = $_POST['type'];
 
-echo $id;
+
 
 try
 {
@@ -13,9 +14,13 @@ catch(Exception $e)
   die('Erreur:'.$e->getMessage());
 }
 
-
-$reponse=$bdd->prepare("DELETE FROM rendezvous WHERE idRDV = ?");
-$reponse->execute(array($id)); 
-
+if($type == 'rdv'){
+  $reponse=$bdd->prepare("DELETE FROM rendezvous WHERE idRDV = ?");
+  $reponse->execute(array($id)); 
+}else if ($type == 'admin')
+{
+  $reponse=$bdd->prepare("DELETE FROM user WHERE idUser = ?");
+  $reponse->execute(array($id)); 
+}
 
 ?>

@@ -50,9 +50,12 @@ echo '<table id="table1" class="table table-bordered">
             <th>Login</th>
             <th>Mail</th>
             <th>Dossier</th>
-            <th>sessionId</th>
-            <th>Action</th>
-        </tr>
+            <th>sessionId</th>';
+            if($sector != 'user'){
+            echo '<th>Action</th>';
+            }
+        echo 
+        '</tr>
     </thead>
     <tbody>';
       
@@ -65,13 +68,20 @@ echo '<table id="table1" class="table table-bordered">
               <td>'.$value['dossier'].'</td>
               <td>'.$value['sessionId'].'</td>
               
-              <td>
-        
-              <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+              <td>';
+              
+              if($value['profil'] != 'user'){
+
+              
+              echo 
+              
+              '<a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
               <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-              <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-      
-              </td>
+              <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>';
+              
+              }
+
+              echo '</td> 
               </tr>';
               }
 					
@@ -92,7 +102,9 @@ echo
 </div>
 
 
-</div>  ';
+</div>  
+
+<input id="hiddenType"  type="hidden" value="admin">';
 
 
 
@@ -158,7 +170,9 @@ echo '<div class="Rdv">
 </div>
 
 
-</div>  ';
+</div>  
+
+<input id="hiddenType"  type="hidden" value="rdv">';
             }
 
 

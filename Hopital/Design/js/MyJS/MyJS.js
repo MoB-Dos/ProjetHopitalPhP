@@ -94,8 +94,9 @@ $(document).on('click', ".delete", function (e) {
     e.preventDefault();
 
     var idRow = $(this).closest('tr').attr('id');
+    var tyype =  document.getElementById("hiddenType").value;
     console.debug(idRow);
-
+    console.debug(tyype);
     var xhr = new XMLHttpRequest();
     xhr.open("POST", '/Slam2/projethopitalPHP/hopital/ajax/AjaxS.php', true);
 
@@ -110,11 +111,11 @@ $(document).on('click', ".delete", function (e) {
       else
       {
         console.debug("NOT OK");
-        document.getElementById("txtHint").innerHTML=this.responseText;
+       
       }
     }
 
-    xhr.send("id="+idRow);
+    xhr.send("id="+idRow + "&type=" + encodeURI(tyype));
 
 });
 
@@ -158,6 +159,7 @@ $(document).on('click', ".add", function (e) {
       
           document.getElementById(idRow).id = this.responseText;
           $id = this.responseText;
+          document.getElementById("test").html = this.responseText;
           console.debug("OK");
           // $(this).closest('tr').attr('id') = this.responseText;
           
@@ -169,7 +171,7 @@ $(document).on('click', ".add", function (e) {
       }
   
   
-      xhr.send("login=" + encodeURI(child2) + "&mail=" + encodeURI(child) +"&dossier="+ encodeURI(child1) +"&sessionId="+ encodeURI(child3)+"&profil="+ encodeURI(strUser) +"&id="+ encodeURI(idRow));
+      xhr.send("login=" + encodeURI(child) + "&mail=" + encodeURI(child1) +"&dossier="+ encodeURI(child2) +"&sessionId="+ encodeURI(child3)+"&profil="+ encodeURI(strUser) +"&id="+ encodeURI(idRow));
   
     // var idRow = $(this).closest('tr').attr('id');
     // var currentRow=$(this).closest("tr");
