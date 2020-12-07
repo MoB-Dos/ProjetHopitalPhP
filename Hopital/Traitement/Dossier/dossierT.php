@@ -11,13 +11,11 @@ $ajout = new SetUpDossier([
     'mdp2' => $_POST['mdp2'],
 ]); 
 
-var_dump($_POST['login']);
 
 $add = new UserManager($ajout);
 
 $act = $add->Inscription($ajout);
 
-var_dump($_SESSION['login']);
 
 header("location: ../../index.php");
 

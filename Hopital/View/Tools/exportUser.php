@@ -65,7 +65,7 @@ $dataRepas=$reponseMenu->fetchall();
 
 
 $cells = 2;
-
+// on rentre toute les données de la bdd dans le tableau à l'aide du foreach
 foreach($dataRepas as $value)
 {
   $sheet->setCellValue('A'.$cells, $value['idInfo']);
@@ -88,7 +88,7 @@ foreach($dataRepas as $value)
 
 
 
-
+//on donne un nom au fichier
 $file = "BilanUser.xlsx";
 $writer = new Xlsx($spreadsheet);
 $writer->save($file);

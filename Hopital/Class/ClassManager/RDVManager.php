@@ -6,13 +6,13 @@ class RDVManager
 
  public function AjoutRDV(SetUpRDV $ajout)
  {
-
-      $horaire = $ajout->getHoraire();
+      //déclaration des variables
+      $horaire = $ajout->getHforaire();
       $date =$ajout->getDate();
       $motif = $ajout->getMotif();
       $idMedecin = $ajout->getIdMedecin();
     
-      //Connexion à la base de données projetweb
+      //Connexion à la base de données hopitalphp
       try
       {
       $bdd= new PDO('mysql:host=localhost;dbname=hopitalphp;charset=utf8','root','');
@@ -29,7 +29,7 @@ class RDVManager
       // $data=$reponse->fetchall();
 
 
-      
+      //insertion dans la table rendezvous
       $req = $bdd->prepare('INSERT INTO rendezvous (date,idHoraire,idMedecin,idUser,motif) VALUES (?,?,?,?,?)');
       $req -> execute(array($date,$horaire,$idMedecin,$_SESSION['id'],$motif));
 
@@ -38,7 +38,7 @@ class RDVManager
 
  public function affichageRDV()
 {
-
+  //Connexion à la base de données hopitalphp
   try
   {
     $bdd= new PDO('mysql:host=localhost;dbname=hopitalphp;charset=utf8','root','');
@@ -79,7 +79,7 @@ class RDVManager
 public function ModificationRDV()
 {
 
-
+//Connexion à la base de données hopitalphp
 try{
   $bdd= new PDO('mysql:host=localhost;dbname=hopitalphp;charset=utf8','root','');
 }
