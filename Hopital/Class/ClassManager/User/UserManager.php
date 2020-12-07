@@ -20,7 +20,7 @@
   public function inscription(SetUpUser $ajout)
   {
   
-
+      //Déclaration des variables
       $mail = $ajout->getMail();
       $login =$ajout->getLogin();
       $mdp = $ajout->getMdp();
@@ -28,7 +28,6 @@
   
       $profil="user";
       $dossier="0";
-      var_dump($mail, $login, $mdp, $mdpc);
 
       //Connexion à la base de données projetweb
       try
@@ -61,7 +60,7 @@
         {
           
           
-
+          //cryptage du mot de passe
           $mdpc = md5($mdpc);
           
           $req = $bdd->prepare('INSERT INTO user (login,mdpc,mail,profil,dossier) VALUES (?,?,?,?,?)');
@@ -114,7 +113,7 @@
     session_start ();
 
     
-  
+    //Déclaration des variables
     $mdp = $connexion->getMdp();
     $login = $connexion->getLogin();
   
@@ -128,7 +127,7 @@
       die('Erreur:'.$e->getMessage());
     }
   
-    
+    //cryptage du mot de passe
     $mdp = md5($mdp);
 
     //Sélection dans la table utilisateur
@@ -155,7 +154,6 @@
         {
           //On enregistre login et prénom dans la session
           $sessionId =  $this->genererChaineAleatoire(20);
-          var_dump($sessionId);
          
 
           $_SESSION['sessionId'] = $sessionId;
@@ -167,7 +165,7 @@
           $_SESSION['login'] = $login;
           $_SESSION['id'] =  $data['idUser'];
           $_SESSION['dossier'] = $data['dossier'];
-  
+          //Si la variable profil = user on fait : 
           if ($data['profil'] == 'user')
           {
             //Renvoi vers la page Classique
@@ -176,7 +174,7 @@
             $_SESSION['profil'] = "user";
   
           }
-  
+          //Si la variable profil = admin on fait :           
           if ($data['profil'] == 'admin')
           {
             //Renvoi vers la page Admin
@@ -184,6 +182,7 @@
             $_SESSION['profil'] = "admin";
   
           }
+          //Si la variable profil = medecin on fait : 
           if ($data['profil'] == 'medecin')
           {
             //Renvoi vers la page Admin
@@ -216,6 +215,7 @@
 
 function genererChaineAleatoire($longueur, $listeCar = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')
 {
+  //génération d'une chaine aléatoire
  $chaine = '';
  $max = mb_strlen($listeCar, '8bit') - 1;
  for ($i = 0; $i < $longueur; ++$i) {
@@ -231,7 +231,7 @@ public function MdpOublier(SetUpGestion $connexion)
   try{
     //connexion à la base de données
     $bdd= new PDO('mysql:host=localhost;dbname=hopitalphp;charset=utf8','root','');
-  }
+  } 
 
   catch(Exception $e){
     die('Erreur:'.$e->getMessage());
@@ -242,7 +242,7 @@ public function MdpOublier(SetUpGestion $connexion)
   // initialisation des varaibles verif et mail
   setcookie('verif',$verif, time() + 365*24*3600, null, null, false, true);
   setcookie('mail',$mail, time() + 365*24*3600, null, null, false, true);
-  //modification de la table utilisateur
+  //saisit de la table utilisateur
   $req = $bdd->prepare('SELECT id FROM user WHERE mail= ?');
   $req -> execute(array($mail));
   //on rentre les différent champ du mail
@@ -289,8 +289,8 @@ public function MdpOublier2()
   $req = $bdd->prepare('SELECT idUser FROM user WHERE mail= ?');
   $req -> execute(array($mail));
   $result90=$req->fetch();
-    var_dump($result90);
     echo ($result90[0]);
+    //Si les mot de passe dont identiques on fait : 
     if ($mdp == $mdpc)
     {
 
@@ -302,7 +302,6 @@ public function MdpOublier2()
       $a = $req1 -> execute(array( md5($mdp), $result90[0]));
 
 
-var_dump($a)
 
 
 
@@ -329,6 +328,7 @@ else { // sinon on affiche nul
 
 public function mail($objet,$sujet,$email)
 {
+  //initialisation de l'envoie de mail
   $mail = new PHPMailer(true);
 
   try {
@@ -397,38 +397,43 @@ public function Recherche(SetUpGestion $rd){
       {
         die('Erreur:'.$e->getMessage());
       }
-          
+          //saisit de recherche présente dans la base de donnée
           $req = $bdd->prepare('SELECT idMedecin, INSTR(nom, ?) AS verifnom, INSTR(prenom, ?) AS verifprenom, INSTR(spe, ?) AS verifspe, INSTR(lieu, ?) AS veriflieu
           FROM infomedecin');
           $req -> execute(array($Recherche, $Recherche, $Recherche, $Recherche));
           $result=$req->fetchALL();
-
+          //saisit du nombre de medecin
           $req2 = $bdd->query('SELECT COUNT(idMedecin) FROM infomedecin');
           $result2=$req2->fetch();
+          //Pour i allant de result2-1 on fait : 
           for ($i = 0; $i<=$result2[0]-1; $i++) {
             $find=0;
-
+            //Si $resul[i][1]=1 on affiche le medecin
             if ($result[$i][1]!=0){
               $find=1;
             }
+            //Si $resul[i][2]=1 on affiche le medecin
             if ($result[$i][2]!=0){
               $find=1;
             }
+            //Si $resul[i][3]=1 on affiche le medecin
             if ($result[$i][3]!=0){
               $find=1;
             }
+            //Si $resul[i][4]=1 on affiche le medecin
             if ($result[$i][4]!=0){
               $find=1;
             }
+            //Si find est différent de 0 on fait : 
             if ($find!=0){
-
+              // on affiche le medecin dans le resultat de recherche
               $req3=$bdd->prepare('SELECT * FROM infomedecin WHERE idMedecin= ?');
               $req3->execute(array($result[$i][0]));
 
               $result3=$req3->fetch();
               
               ?>
-
+<!-- Affichage d'un ou plusieurs médecin en dessous de la barre de recherche) -->
 <div class="col-md-6 col-lg-3 ftco-animate">
                       <div class="block-2">
                 
@@ -585,8 +590,7 @@ public function sendMail(SetUpuser $ouf)
           $objet = "MR ".$nom." mail : ".$mail." Sujet : ".$sujet2;
           $email='projetweb932@gmail.com';
           $this-> Mail($objet,$message,$email);
-          var_dump($objet);
-          var_dump($message);
+
 
           
  }
@@ -600,6 +604,7 @@ public function sendMail(SetUpuser $ouf)
 
 public function Deconnexion()
 {
+  //Déconnexion de l'utilisateur
   try
   {
   $bdd= new PDO('mysql:host=localhost;dbname=hopitalphp;charset=utf8','root','');
