@@ -247,7 +247,7 @@ public function MdpOublier(SetUpGestion $connexion)
   $req -> execute(array($mail));
   //on rentre les différent champ du mail
   $objet = "Rebienvenue dans le club !";
-  $sujet = "Voici votre code unique : ".$verif." Pour changer votre mot de passe : http://localhost/ProjetCinemaPhP/Traitement/User/info/MdpOublierT2.php";
+  $sujet = "Voici votre code unique : ".$verif." ";
   $email = $mail; //c'est pour phpmailer
   $this-> Mail($objet,$sujet,$email);
   /*?> 
@@ -286,7 +286,7 @@ public function MdpOublier2()
       die('Erreur:'.$e->getMessage());
     }
     //on affiche les données de la table utilisateur
-  $req = $bdd->prepare('SELECT id FROM user WHERE mail= ?');
+  $req = $bdd->prepare('SELECT idUser FROM user WHERE mail= ?');
   $req -> execute(array($mail));
   $result90=$req->fetch();
     var_dump($result90);
@@ -298,7 +298,7 @@ public function MdpOublier2()
 
 
       // on modifie les données de la table Utilisateur
-      $req1 = $bdd->prepare('UPDATE user SET mdpc = ? WHERE id = ?');
+      $req1 = $bdd->prepare('UPDATE user SET mdpc = ? WHERE idUser = ?');
       $a = $req1 -> execute(array( md5($mdp), $result90[0]));
 
 
