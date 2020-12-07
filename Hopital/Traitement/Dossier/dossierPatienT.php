@@ -16,7 +16,6 @@ $ajout = new SetUpDossier([
     'regime' => $_POST['regime'],
 ]); 
 
-var_dump($ajout);
 $add = new DossierManager($ajout);
 
 $act = $add->AjoutDossier($ajout);

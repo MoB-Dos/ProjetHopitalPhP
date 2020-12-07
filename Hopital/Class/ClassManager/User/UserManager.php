@@ -29,7 +29,7 @@
       $profil="user";
       $dossier="0";
 
-      //Connexion à la base de données projetweb
+      //Connexion à la base de données hopitalphp
       try
       {
       $bdd= new PDO('mysql:host=localhost;dbname=hopitalphp;charset=utf8','root','');
@@ -62,7 +62,7 @@
           
           //cryptage du mot de passe
           $mdpc = md5($mdpc);
-          
+          //insertion dans la table utilisateur
           $req = $bdd->prepare('INSERT INTO user (login,mdpc,mail,profil,dossier) VALUES (?,?,?,?,?)');
           $req -> execute(array($login,$mdpc,$mail,$profil,$dossier));
          
@@ -73,7 +73,7 @@
           $email = $mail;
           //$this-> Mail($objet,$sujet,$email);
           
-        
+          //déclaration des sessions
           $_SESSION['login'] = $login;
           $_SESSION['profil'] = "user";
           $_SESSION['dossier'] = "0";
@@ -117,7 +117,7 @@
     $mdp = $connexion->getMdp();
     $login = $connexion->getLogin();
   
-    //Connexion à la base de données projetweb
+    //Connexion à la base de données hopitalphp
     try
     {
     $bdd= new PDO('mysql:host=localhost;dbname=hopitalphp;charset=utf8','root','');
@@ -137,7 +137,7 @@
       'mdpc' => $mdp,
     ));
     
-
+    //déclaration de la variable $data
     $data =$reponse->fetch();
   
     //Pour chaque donnée
@@ -155,9 +155,9 @@
           //On enregistre login et prénom dans la session
           $sessionId =  $this->genererChaineAleatoire(20);
          
-
+          //Déclaration de la variable $_SESSION['sessionid']
           $_SESSION['sessionId'] = $sessionId;
-
+          //mise à jour de la table utilisateur
           $rep=$bdd->prepare('UPDATE user SET sessionId = ? WHERE login = ?');
           $rep->execute(array( $sessionId,$data['login']));
 
@@ -169,8 +169,9 @@
           if ($data['profil'] == 'user')
           {
             //Renvoi vers la page Classique
-  
+            //initialisation du cookie profil
             setcookie('profil','user', time() + 365*24*3600, null, null, false, true);
+            //initialisation de la variable $_SESSION['profil]
             $_SESSION['profil'] = "user";
   
           }
@@ -178,15 +179,19 @@
           if ($data['profil'] == 'admin')
           {
             //Renvoi vers la page Admin
+            //initialisation du cookie profil
             setcookie('profil', 'admin', time() + 365*24*3600, null, null, false, true);
+            //initialisation de la variable $_SESSION['profil]
             $_SESSION['profil'] = "admin";
-  
+            
           }
           //Si la variable profil = medecin on fait : 
           if ($data['profil'] == 'medecin')
           {
             //Renvoi vers la page Admin
+            //initialisation du cookie profil
             setcookie('profil', 'medecin', time() + 365*24*3600, null, null, false, true);
+            //initialisation de la variable $_SESSION['profil]
             $_SESSION['profil'] = "medecin";
             
 
@@ -277,7 +282,7 @@ public function MdpOublier2()
 //si le verif saisit est égal au cookie verif
   if ($_POST["verif"]=$_COOKIE["verif"]) {
     try{
-      //connexion à la base de données
+      //connexion à la base de données hopital php
 
       $bdd= new PDO('mysql:host=localhost;dbname=hopitalphp;charset=utf8','root','');
     }
@@ -318,6 +323,7 @@ public function MdpOublier2()
         </script>
         
       <?php
+      //Redirection vers l'index
 header('location: ../../index.php');
 
 }
@@ -388,7 +394,7 @@ public function Recherche(SetUpGestion $rd){
 
   $Recherche = $rd->getRecherche();
 
-      //Connexion à la base de données projetweb
+      //Connexion à la base de données hopitalphp
       try
       {
       $bdd= new PDO('mysql:host=localhost;dbname=hopitalphp;charset=utf8','root','');
@@ -605,6 +611,7 @@ public function sendMail(SetUpuser $ouf)
 public function Deconnexion()
 {
   //Déconnexion de l'utilisateur
+  //connexion à la base de donnée hopitalphp
   try
   {
   $bdd= new PDO('mysql:host=localhost;dbname=hopitalphp;charset=utf8','root','');
@@ -613,7 +620,7 @@ public function Deconnexion()
   {
     die('Erreur:'.$e->getMessage());
   }
-
+//mise à jour de la table utilisateur
   $repp=$bdd->prepare('UPDATE user SET sessionId = null WHERE sessionId = ?');
   $repp->execute(array( $_SESSION['sessionID']));
 

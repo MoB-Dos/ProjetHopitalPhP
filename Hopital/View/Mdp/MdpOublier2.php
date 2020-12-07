@@ -27,7 +27,7 @@
 
 <input type="password"  id="mdp" name="mdp2" placeholder="Retaper votre Mot De Passe" required /> </br> </br>
 
-
+<!-- Formulaire de modification de mot de passe-->
 
 <input type="submit" value="Confirmer"  />
   </form>
