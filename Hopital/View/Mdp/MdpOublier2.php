@@ -67,7 +67,7 @@
           <section class="ftco-section-parallax">
     <div class="container">
       <div  class="row">
-            <img src="/Slam2/ProjethopitalPHP/Hopital/Design/images/doctor-1.jpg" width="400" height="500">
+            <img src="/ProjethopitalPHP/Hopital/Design/images/doctor-1.jpg" width="400" height="500">
 				<div class="col-md-9 p-t-2">
 </div>
 </div>

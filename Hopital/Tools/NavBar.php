@@ -43,10 +43,10 @@ $data = $req->fetch();
 
     
         <li class="nav-item active"><a href="../../index.php" class="nav-link">Accueil</a></li>
-        <li class="nav-item active"><a href="/Slam2/ProjethopitalPHP/Hopital/View/Page/aPropos.php" class="nav-link">A propos</a></li>
-        <li class="nav-item active"><a href="/Slam2/ProjethopitalPHP/Hopital/View/Page/departement.php" class="nav-link">Département</a></li>
-        <li class="nav-item active"><a href="/Slam2/ProjethopitalPHP/Hopital/View/Page/docteur.php" class="nav-link">Docteur</a></li>
-        <li class="nav-item active"><a href="/Slam2/ProjethopitalPHP/Hopital/View/Page/contact.php" class="nav-link">Contact</a></li>
+        <li class="nav-item active"><a href="/ProjethopitalPHP/Hopital/View/Page/aPropos.php" class="nav-link">A propos</a></li>
+        <li class="nav-item active"><a href="/ProjethopitalPHP/Hopital/View/Page/departement.php" class="nav-link">Département</a></li>
+        <li class="nav-item active"><a href="/ProjethopitalPHP/Hopital/View/Page/docteur.php" class="nav-link">Docteur</a></li>
+        <li class="nav-item active"><a href="/ProjethopitalPHP/Hopital/View/Page/contact.php" class="nav-link">Contact</a></li>
 
 
         <div class="btn-group">
@@ -83,7 +83,7 @@ $data = $req->fetch();
 
           ?>
            
-          <a class="dropdown-item" href="/Slam2/ProjethopitalPHP/Hopital/View/gestionUser/VoirDossier.php">Voir mon dossier</a>
+          <a class="dropdown-item" href="/ProjethopitalPHP/Hopital/View/gestionUser/VoirDossier.php">Voir mon dossier</a>
           
           <?php
 
@@ -121,9 +121,9 @@ $data = $req->fetch();
           
                   
           
-          <a class="dropdown-item" href="/Slam2/ProjethopitalPHP/Hopital/View/RendezVous/MesRendezVous.php" >Mes rendez-vous</a>
+          <a class="dropdown-item" href="/ProjethopitalPHP/Hopital/View/RendezVous/MesRendezVous.php" >Mes rendez-vous</a>
         <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="/Slam2/ProjethopitalPHP/Hopital/Traitement/User/decoT.php">Déconnexion</a>
+          <a class="dropdown-item" href="/ProjethopitalPHP/Hopital/Traitement/User/decoT.php">Déconnexion</a>
         </div> 
 
         <?php
@@ -162,11 +162,11 @@ $data = $req->fetch();
 
     <div class="collapse navbar-collapse" id="ftco-nav">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item active"><a href="/Slam2/ProjethopitalPHP/Hopital/index.php" class="nav-link">Accueil</a></li>
-        <li class="nav-item active"><a href="/Slam2/ProjethopitalPHP/Hopital/View/Page/aPropos.php" class="nav-link">A propos</a></li>
-        <li class="nav-item active"><a href="/Slam2/ProjethopitalPHP/Hopital/View/Page/departement.php" class="nav-link">Département</a></li>
-        <li class="nav-item active"><a href="/Slam2/ProjethopitalPHP/Hopital/View/Page/docteur.php" class="nav-link">Docteur</a></li>
-        <li class="nav-item active"><a href="/Slam2/ProjethopitalPHP/Hopital/View/Page/contact.php" class="nav-link">Contact</a></li>
+        <li class="nav-item active"><a href="/ProjethopitalPHP/Hopital/index.php" class="nav-link">Accueil</a></li>
+        <li class="nav-item active"><a href="/ProjethopitalPHP/Hopital/View/Page/aPropos.php" class="nav-link">A propos</a></li>
+        <li class="nav-item active"><a href="/ProjethopitalPHP/Hopital/View/Page/departement.php" class="nav-link">Département</a></li>
+        <li class="nav-item active"><a href="/ProjethopitalPHP/Hopital/View/Page/docteur.php" class="nav-link">Docteur</a></li>
+        <li class="nav-item active"><a href="/ProjethopitalPHP/Hopital/View/Page/contact.php" class="nav-link">Contact</a></li>
 
         <li class="nav-item cta"><a href="contact.html" class="nav-link"  style="margin-right: 5px;" data-toggle="modal" data-target="#Connexion"><span>Connexion</span></a></li>
         <li class="nav-item cta"><a href="contact.html" class="nav-link" data-toggle="modal" data-target="#Inscription"><span>Inscription</span></a></li>
@@ -196,7 +196,7 @@ $data = $req->fetch();
             </button>
           </div>
           <div class="modal-body">
-            <form action="/Slam2/ProjethopitalPHP/Hopital/Traitement/User/connexionT.php" method="post">
+            <form action="/ProjethopitalPHP/Hopital/Traitement/User/connexionT.php" method="post">
               <div class="form-group">
                 <label for="appointment_name" class="text-black" name="login">Login</label>
                 <input type="text" class="form-control" id="login" name="login">
@@ -238,7 +238,7 @@ $data = $req->fetch();
             </button>
           </div>
           <div class="modal-body">
-            <form action="/Slam2/ProjethopitalPHP/Hopital/Traitement/User/inscriptionT.php" method="post">
+            <form action="/ProjethopitalPHP/Hopital/Traitement/User/inscriptionT.php" method="post">
 
               <div class="form-group">
                 <label for="appointment_name" class="text-black" name="login">Login</label>
@@ -301,7 +301,7 @@ $data = $req->fetch();
           <div class="container">
               
 
-                  <form action="/Slam2/projethopitalPHP/Hopital/Traitement/Dossier/dossierPatienT.php" method="post">
+                  <form action="/projethopitalPHP/Hopital/Traitement/Dossier/dossierPatienT.php" method="post">
 
                     
                   <div class="row">

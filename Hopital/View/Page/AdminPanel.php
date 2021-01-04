@@ -49,7 +49,7 @@ function SectorChange(sector)
     console.debug(sector);
     
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", '/Slam2/projethopitalPHP/hopital/ajax/AjaxShowSector.php', true);
+    xhr.open("POST", '/projethopitalPHP/hopital/ajax/AjaxShowSector.php', true);
 
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
@@ -95,7 +95,7 @@ $(document).on('click', ".add", function (e) {
 
     var xhr = new XMLHttpRequest();
 
-    xhr.open("POST", '/Slam2/projethopitalPHP/hopital/ajax/AjaxUserManagement.php', true);
+    xhr.open("POST", '/projethopitalPHP/hopital/ajax/AjaxUserManagement.php', true);
 
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 

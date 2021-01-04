@@ -121,7 +121,7 @@ else
 
 <div id="txtHint" class="noRdv">
   <b>Pas de Rendez-Vous pris pour l'instant...</b><br>
-  <a href="http://localhost/Slam2/ProjethopitalPHP/Hopital/View/Page/docteur.php">cliquez ici pour prendre rendez-vous</a>
+  <a href="http://localhost/ProjethopitalPHP/Hopital/View/Page/docteur.php">cliquez ici pour prendre rendez-vous</a>
 
 </div>
 

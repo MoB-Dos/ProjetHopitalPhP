@@ -59,7 +59,7 @@
           </div>
           <div class="modal-body">
             
-            <form action="/Slam2/ProjethopitalPHP/Hopital/Traitement/RendezVous/rendezvousT.php" method="post">
+            <form action="/ProjethopitalPHP/Hopital/Traitement/RendezVous/rendezvousT.php" method="post">
 
 
 
