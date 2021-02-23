@@ -1,18 +1,15 @@
 <?php
+require_once($_SERVER['DOCUMENT_ROOT'] . "/ProjethopitalPhP/Class/ClassManager/PdoManager.php");
+
+$add = new PdoManager();
 
 //le fichier sert a envoyer la liste des rdv disponible a l'heure choisie 
 
 $q = $_GET['q'];
 
-try{
-    $bdd= new PDO('mysql:host=localhost;dbname=hopitalphp;charset=utf8','root','');
-  }
 
-  catch(Exception $e){
-    die('Erreur:'.$e->getMessage());
-  }
 
-$reponse=$bdd->prepare('SELECT * FROM horaire WHERE idHoraire not in (SELECT idHoraire FROM rendezvous WHERE idMedecin = "0" AND date = ?)');
+$reponse=$add->connexionBDD()->prepare('SELECT * FROM horaire WHERE idHoraire not in (SELECT idHoraire FROM rendezvous WHERE idMedecin = "0" AND date = ?)');
 $reponse -> execute(array($q));
 $data=$reponse->fetchall();
 

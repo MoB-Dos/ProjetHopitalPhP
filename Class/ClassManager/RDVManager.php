@@ -9,10 +9,10 @@ class RDVManager extends PdoManager
 
     public function AjoutRDV(SetUpRDV $ajout)
     {
-        $bdd = parent::connexion_bd();
+        $bdd = parent::connexionBDD();
 
         //déclaration des variables
-        $horaire = $ajout->getHforaire();
+        $horaire = $ajout->getHoraire();
         $date = $ajout->getDate();
         $motif = $ajout->getMotif();
         $idMedecin = $ajout->getIdMedecin();
@@ -35,7 +35,7 @@ class RDVManager extends PdoManager
     public function affichageRDV()
     {
 
-        $bdd = parent::connexion_bd();
+        $bdd = parent::connexionBDD();
 
         //Commande sql pour selectionner dans la table utilisateur
         $req = $bdd->prepare('SELECT * FROM rdv WHERE login = :login');
@@ -66,7 +66,7 @@ class RDVManager extends PdoManager
     public function ModificationRDV()
     {
 
-        $bdd = parent::connexion_bd();
+        $bdd = parent::connexionBDD();
 
 
 //Sélection dans la table utilisateur

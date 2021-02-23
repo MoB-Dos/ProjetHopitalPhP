@@ -9,10 +9,10 @@ use PHPMailer\PHPMailer\SMTP;
 require_once($_SERVER['DOCUMENT_ROOT'] . "/ProjethopitalPhP/Class/ClassManager/PdoManager.php");
 
 
-require 'Mail/vendor/phpmailer/phpmailer/src/Exception.php';
-require 'Mail/vendor/phpmailer/phpmailer/src/PHPMailer.php';
-require 'Mail/vendor/phpmailer/phpmailer/src/SMTP.php';
-require 'Mail/vendor/autoload.php';
+require 'User/Mail/vendor/phpmailer/phpmailer/src/Exception.php';
+require 'User/Mail/vendor/phpmailer/phpmailer/src/PHPMailer.php';
+require 'User/Mail/vendor/phpmailer/phpmailer/src/SMTP.php';
+//require 'User/Mail/vendor/autoload.php';
 require_once "../../Tools/random_compat/lib/random.php";
 
 
@@ -24,7 +24,7 @@ class UserManager extends PdoManager
     {
 
 
-        $bdd = parent::connexion_bd();
+        $bdd = parent::connexionBDD();
 
         //Déclaration des variables
         $mail = $ajout->getMail();
@@ -100,7 +100,7 @@ class UserManager extends PdoManager
         //Démarrage de la session
         session_start();
 
-        $bdd = parent::connexion_bd();
+        $bdd = parent::connexionBDD();
 
 
         //Déclaration des variables
@@ -201,7 +201,7 @@ class UserManager extends PdoManager
 
     public function MdpOublier(SetUpGestion $connexion)
     {
-        $bdd = parent::connexion_bd();
+        $bdd = parent::connexionBDD();
 
 //initialisation des variables mail et verif
         $mail = $connexion->getMail();
@@ -238,7 +238,7 @@ class UserManager extends PdoManager
     public function MdpOublier2()
     {
 
-        $bdd = parent::connexion_bd();
+        $bdd = parent::connexionBDD();
 
 //initialisation des variables
         $mdp = $_POST['mdp'];
@@ -284,7 +284,7 @@ class UserManager extends PdoManager
         }
     }
 
-    public function mail($objet, $sujet, $email)
+    /*public function mail($objet, $sujet, $email)
     {
         //initialisation de l'envoie de mail
         $mail = new PHPMailer(true);
@@ -345,7 +345,7 @@ class UserManager extends PdoManager
     public function Recherche(SetUpGestion $rd)
     {
 
-        $bdd = parent::connexion_bd();
+        $bdd = parent::connexionBDD();
 
         $Recherche = $rd->getRecherche();
 
@@ -426,7 +426,7 @@ class UserManager extends PdoManager
     public function affichage()
     {
 
-        $bdd = parent::connexion_bd();
+        $bdd = parent::connexionBDD();
 
 
         //Commande sql pour selectionner dans la table utilisateur
@@ -453,7 +453,7 @@ class UserManager extends PdoManager
     {
 
 
-        $bdd = parent::connexion_bd();
+        $bdd = parent::connexionBDD();
 
 
 //Sélection dans la table utilisateur
@@ -486,7 +486,7 @@ class UserManager extends PdoManager
     public function ModificationGestion(SetUpGestion $connexion)
     {
 
-        $bdd = parent::connexion_bd();
+        $bdd = parent::connexionBDD();
 
 
 //  setcookie('login',$_SESSION['login'], time() + 365*24*3600, null, null, false, true);
@@ -508,7 +508,7 @@ class UserManager extends PdoManager
     }
 
 
-    public function sendMail(SetUpuser $ouf)
+    /*public function sendMail(SetUpuser $ouf)
     {
 
 
@@ -526,13 +526,13 @@ class UserManager extends PdoManager
         $this->Mail($objet, $message, $email);
 
 
-    }
+    }*/
 
 
     public function Deconnexion()
     {
         //Déconnexion de l'utilisateur
-        $bdd = parent::connexion_bd();
+        $bdd = parent::connexionBDD();
 
 //mise à jour de la table utilisateur
         $repp = $bdd->prepare('UPDATE user SET sessionId = null WHERE sessionId = ?');

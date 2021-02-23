@@ -1,5 +1,5 @@
 
-<footer class="ftco-footer ftco-bg-dark ftco-section img" style="background-image: url(images/bg_5.jpg);">
+<footer class="ftco-footer ftco-bg-dark ftco-section img" style="background-image: url('../../Design/images/bg_5.jpg');">
     	<div class="overlay"></div>
       <div class="container">
         <div class="row mb-5">

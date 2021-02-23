@@ -1,7 +1,7 @@
 <?php
 session_start ();
 
-require '../../Class/ClassManager/User/UserManager.php';
+require '../../Class/ClassManager/UserManager.php';
 require '../../Class/SetUp/SetUpUser.php';
 
 $ajout = new SetUpUser([

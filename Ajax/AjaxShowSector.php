@@ -4,22 +4,19 @@
 
 $sector = $_POST['sector'];
 
-try{
-    $bdd= new PDO('mysql:host=localhost;dbname=hopitalphp;charset=utf8','root','');
-  }
+require_once($_SERVER['DOCUMENT_ROOT'] . "/ProjethopitalPhP/Class/ClassManager/PdoManager.php");
 
-  catch(Exception $e){
-    die('Erreur:'.$e->getMessage());
-  }
+$add = new PdoManager();
+
 
 //on prends dans la bdd les user par type de profil
-$reponse=$bdd->prepare('SELECT * FROM user WHERE profil = ?');
+$reponse=$add->connexionBDD()->prepare('SELECT * FROM user WHERE profil = ?');
 $reponse -> execute(array($sector));
 $data=$reponse->fetchall();
 
 
 //on prends dans la bdd la totalité des rdv
-$req = $bdd->query("SELECT idRdv,infomedecin.nom,infomedecin.prenom,date,horaire.horaire,motif 
+$req = $add->connexionBDD()->query("SELECT idRdv,infomedecin.nom,infomedecin.prenom,date,horaire.horaire,motif 
 FROM rendezvous 
 INNER JOIN infomedecin ON rendezvous.idMedecin = infomedecin.idMedecin
 INNER JOIN horaire ON rendezvous.idHoraire = horaire.idHoraire");

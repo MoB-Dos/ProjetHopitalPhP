@@ -8,7 +8,7 @@ class DossierManager extends PdoManager
 
     public function AjoutDossier(SetUpDossier $ajout) //en cours
     {
-        $bdd = parent::connexion_bd();
+        $bdd = parent::connexionBDD();
 
         $prenom = $ajout->getPrenom();
         $nom = $ajout->getNom();
@@ -50,7 +50,7 @@ class DossierManager extends PdoManager
         {
 
 
-            $bdd = parent::connexion_bd();
+            $bdd = parent::connexionBDD();
 
             //Sélection dans la table utilisateur
             $req = $bdd->prepare('SELECT * FROM infouser WHERE login= ?');
@@ -107,7 +107,7 @@ class DossierManager extends PdoManager
     {
 
 
-        $bdd = parent::connexion_bd();
+        $bdd = parent::connexionBDD();
 
         //initialisation des variables
         $prenom = $modif->getPrenom();

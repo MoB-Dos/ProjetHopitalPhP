@@ -6,13 +6,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <?php require_once("../../Tools/linkCSS.php") ?>
+    <?php require_once("../../Tools/linkCSS.php")?>
 
 </head>
 <body>
 
 <?php require_once('../../Tools/linkJS.php') ?>
-
 <!-- START nav -->
 <?php require_once('../../Tools/NavBar.php') ?>
 <!-- END nav -->

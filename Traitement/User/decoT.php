@@ -2,7 +2,7 @@
 
 session_start ();
 
-require '../../Class/ClassManager/User/UserManager.php';
+require '../../Class/ClassManager/UserManager.php';
 
 
 

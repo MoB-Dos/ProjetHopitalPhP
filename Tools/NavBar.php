@@ -194,7 +194,7 @@ if (isset($_SESSION['sessionId'])) {
                 <form action="/ProjethopitalPhP/Traitement/User/connexionT.php" method="post">
                     <div class="form-group">
                         <label for="appointment_name" class="text-black" name="login">Login</label>
-                        <input type="text" class="form-control" id="login" name="login">
+                        <input type="text" class="form-control" id="loginConnexion" name="login">
                     </div>
 
 
@@ -207,7 +207,7 @@ if (isset($_SESSION['sessionId'])) {
                         <img href='#' src="https://img.icons8.com/material/24/000000/visible--v1.png" id="icon"
                              onclick='showHidePassword("mdp2")'/>
 
-                        <input type="password" id="mdp2" class="form-control" id="appointment_email" name="mdp">
+                        <input type="password" id="mdp23" class="form-control" id="appointment_email" name="mdp">
 
                         <p> Mot de passe oublié ?<a href="View/Mdp/MdpOublier.php">Cliquez ici</a> ?<br/></p>
 
