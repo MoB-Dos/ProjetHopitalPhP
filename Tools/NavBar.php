@@ -2,13 +2,14 @@
 
 session_start();
 
+require_once($_SERVER['DOCUMENT_ROOT'] . "/ProjethopitalPhP/Class/ClassManager/PdoManager.php");
+$add = new PdoManager();
 
 //quand le User est connecté
 if (isset($_SESSION['sessionId'])) {
 
 
-
-    $req = connexion_bd()->prepare('SELECT * FROM user WHERE sessionId = ?');
+    $req = $add->connexionBDD()->prepare('SELECT * FROM user WHERE sessionId = ?');
     $req->execute(array($_SESSION['sessionId']));
     $data = $req->fetch();
 

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-    <?php  require_once('../../Tools/linkCSS.html') ?>
+    <?php require_once('../../Tools/linkCSS.php') ?>
   </head>
   <body>
      
@@ -77,7 +77,7 @@
     <?php  require_once('../../Tools/Footer.php') ?>
     <!--END footer-->
 
-    <?php  require_once('../../Tools/linkJS.html') ?>
+    <?php require_once('../../Tools/linkJS.php') ?>
     
   </body>
 </html>

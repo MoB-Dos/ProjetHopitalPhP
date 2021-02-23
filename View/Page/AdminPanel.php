@@ -7,7 +7,7 @@
   
   
 	
-    <?php  require_once('../../Tools/linkCSS.html') ?>
+    <?php require_once('../../Tools/linkCSS.php') ?>
     
   	<!-- START nav -->
   	<?php  require_once('../../Tools/NavBar.php') ?>
@@ -152,7 +152,7 @@ $(document).on('click', ".add", function (e) {
  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 	
-  <?php  require_once('../../Tools/linkJS.html') ?>
+  <?php require_once('../../Tools/linkJS.php') ?>
     
   </body>    
   

@@ -6,7 +6,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
 
-require_once($_SERVER['DOCUMENT_ROOT'] . "/Hopital/Class/ClassManager/PdoManager.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/ProjethopitalPhP/Class/ClassManager/PdoManager.php");
 
 
 require 'Mail/vendor/phpmailer/phpmailer/src/Exception.php';

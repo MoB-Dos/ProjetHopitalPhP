@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 
-    <?php require_once('../../Tools/linkCSS.html') ?>
+    <?php require_once('../../Tools/linkCSS.php') ?>
 
     <!-- START nav -->
     <?php require_once('../../Tools/NavBar.php') ?>
@@ -155,7 +155,7 @@ $data = $req->fetch();
 </div>
 
 
-<?php require_once('../../Tools/linkJS.html') ?>
+<?php require_once('../../Tools/linkJS.php') ?>
 
 </body>
 
