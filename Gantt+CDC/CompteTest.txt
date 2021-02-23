@@ -1,4 +1,0 @@
-test_ND/testND1
-test_D/testD1
-test_AD/testAD1
-test_Doc/testDoc1
