@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +12,7 @@
 </head>
 <body>
 
-<?php require_once('../../Tools/linkJS.php') ?>
+
 <!-- START nav -->
 <?php require_once('../../Tools/NavBar.php') ?>
 <!-- END nav -->
@@ -228,6 +229,7 @@
 <?php require_once('../../Tools/Footer.php') ?>
 <!--END footer-->
 
+<?php require_once('../../Tools/linkJS.php') ?>
 
 </body>
 </html>

@@ -14,6 +14,15 @@ class PdoManager
         return $bdd;
     }
 
+
+    public function getIdUser()
+    {
+        $reponse=$this->connexionBDD()->prepare('SELECT idUser FROM user WHERE sessionId = ?');
+        $reponse->execute(array($_SESSION['sessionId']));
+        $dataId=$reponse->fetch();
+
+        return $dataId;
+    }
 }
 
 

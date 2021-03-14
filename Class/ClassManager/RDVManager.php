@@ -133,6 +133,22 @@ class RDVManager extends PdoManager
 
     }
 
+    function getRdv()
+    {
+
+        $id = parent::getIdUser();
+
+        $req = parent::connexionBDD()->prepare("SELECT idRdv,infomedecin.nom,infomedecin.prenom,date,horaire.horaire,motif 
+        FROM rendezvous 
+        INNER JOIN infomedecin ON rendezvous.idMedecin = infomedecin.idMedecin
+        INNER JOIN horaire ON rendezvous.idHoraire = horaire.idHoraire WHERE idUser = ?");
+        $req->execute(array($id['idUser']));
+        $dataRdv=$req->fetchall();
+
+        return $dataRdv;
+    }
+
+
 
 }
 
