@@ -19,9 +19,15 @@
 <link rel="stylesheet" href="/ProjethopitalPhP/Design/css/style.css">
 <link rel="stylesheet" href="/ProjethopitalPhP/Design/css/MyCSS/MyCSS.css">
 
+<link rel="stylesheet" href="Design/css/flaticon.css">
+<link rel="stylesheet" href="Design/css/icomoon.css">
+<link rel="stylesheet" href="Design/css/style.css">
+
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+<link rel="stylesheet" href="Design/css/MyCSS/MyCSS.css">
 
 <!--Fin Css========================================================================================-->
 

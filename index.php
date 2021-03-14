@@ -26,11 +26,8 @@
     <link rel="stylesheet" href="Design/css/jquery.timepicker.css">
 
 
-    <link rel="stylesheet" href="Design/css/flaticon.css">
-    <link rel="stylesheet" href="Design/css/icomoon.css">
-    <link rel="stylesheet" href="Design/css/style.css">
 
-    <link rel="stylesheet" href="Design/css/MyCSS/MyCSS.css">
+
 
 
 
